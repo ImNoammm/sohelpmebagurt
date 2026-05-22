@@ -1,0 +1,34 @@
+name: Sync Bagrut Exams
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00
+  workflow_dispatch:       # Manual trigger from GitHub UI
+
+jobs:
+  sync:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Python dependencies
+        run: pip install requests pdfplumber --break-system-packages
+
+      - name: Run sync script
+        run: python scripts/sync_bagrut.py
+
+      - name: Commit and push new files
+        run: |
+          git config user.email "bagrut-sync@sohelpmebagurt"
+          git config user.name "Bagrut Sync Bot"
+          git add subject/ComputerScience/bagrut/ \
+                  subject/ComputerScience/shared/base.md \
+                  subject/ComputerScience/java/skill.md
+          if git diff --staged --quiet; then
+            echo "Nothing new to commit."
+          else
+            git commit -m "Auto-sync: new bagrut exams from misrad hahinuch"
+            git push
+          fi
