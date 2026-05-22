@@ -50,19 +50,51 @@ def fetch_all_exams():
         page = context.new_page()
 
         print("  Opening ministry site to get session...")
-        page.goto(f"{BASE_URL}/bagmgr/", wait_until="domcontentloaded", timeout=30000)
+        page.goto(f"{BASE_URL}/bagmgr/", wait_until="networkidle", timeout=60000)
         print(f"  Page loaded: {page.title()}")
+
+        # Extract DotNetNuke CSRF token from the page
+        csrt = ""
+        try:
+            # Try hidden input field first
+            el = page.query_selector('input[name="__RequestVerificationToken"]')
+            if el:
+                csrt = el.get_attribute("value") or ""
+            # Try cookies
+            if not csrt:
+                for cookie in context.cookies():
+                    if "csrt" in cookie["name"].lower() or "requestverification" in cookie["name"].lower():
+                        csrt = cookie["value"]
+                        break
+            # Try extracting from page source via regex
+            if not csrt:
+                src = page.content()
+                m = re.search(r'csrt["\s:=]+([0-9]{10,})', src)
+                if m:
+                    csrt = m.group(1)
+        except Exception as e:
+            print(f"  Could not extract csrt: {e}")
+        print(f"  csrt: {csrt[:30] if csrt else 'not found — proceeding without'}")
 
         page_num = 1
         while True:
             url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
-                   f"&pagesize=100&page={page_num}")
+                   f"&pagesize=100&page={page_num}"
+                   + (f"&csrt={csrt}" if csrt else ""))
             print(f"  Fetching API page {page_num}...")
             resp = page.request.get(url)
             if not resp.ok:
                 print(f"  API returned {resp.status}, stopping.")
                 break
-            data = resp.json()
+            body = resp.text()
+            if not body.strip():
+                print(f"  Empty response — likely missing session/csrt. Stopping.")
+                break
+            try:
+                data = json.loads(body)
+            except json.JSONDecodeError:
+                print(f"  JSON parse error. Response (first 300 chars): {body[:300]}")
+                break
             if not data:
                 break
             exams.extend(data)
