@@ -41,23 +41,21 @@ The new foundations exam. Files are at `csharp/bagrut/899371/`:
 Example: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899371/2025_exam.txt`
 
 ### שאלון 899205 — עיצוב תוכנה ומודלים חישוביים (ישן, Java, 2002–2017)
-Older exam format using Java. Files are at `csharp/bagrut/899205/`:
+Older exam format. Files are at `csharp/bagrut/899205/`:
 ```
 2002_exam.txt  2003_exam.txt  2004_exam.txt  2005_exam.txt  2005s_exam.txt
 2006_exam.txt  2007_exam.txt  2008_exam.txt  2009_exam.txt  2010_exam.txt
 2011_exam.txt  2013_exam.txt  2014_exam.txt  2015_exam.txt  2016a_exam.txt
 2016b_exam.txt 2017_exam.txt
 ```
-Note: 2001 and 2012 are scanned images with no text. 2007 and 2008 have identical content (same PDF on the source site).
 
 ### שאלון 899222 — יסודות (ישן, Java, 2002–2017)
-Older foundations exam using Java. Files are at `csharp/bagrut/899222/`:
+Older foundations exam. Files are at `csharp/bagrut/899222/`:
 ```
 2002_exam.txt  2003_exam.txt  2004_exam.txt  2005_exam.txt  2005s_exam.txt
 2007_exam.txt  2008_exam.txt  2009_exam.txt  2010_exam.txt  2011_exam.txt
 2014_exam.txt  2015_exam.txt  2016a_exam.txt 2016b_exam.txt 2017_exam.txt
 ```
-Note: 2001, 2006, 2012, 2013 are unavailable (scanned images or corrupt file).
 
 **Solutions:** Do NOT look up pre-made solutions. Work out the solution yourself based on the exam question and your knowledge of the material, then present it to the student after they attempt an answer.
 
