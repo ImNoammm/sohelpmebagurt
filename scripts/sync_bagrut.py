@@ -205,20 +205,7 @@ def regenerate_url_lists():
         text, flags=re.DOTALL,
     )
     BASE_MD.write_text(text, encoding="utf-8")
-    print("  updated base.md")
-
-    java_text = JAVA_SKILL.read_text(encoding="utf-8")
-    new_java_section = (
-        "## Bagruyot Files\n\n"
-        + (url_block if url_block else "_none available_")
-    )
-    java_text = re.sub(
-        r"## Bagruyot Files\b.*?(?=\n---|\n## |\Z)",
-        new_java_section + "\n\n",
-        java_text, flags=re.DOTALL,
-    )
-    JAVA_SKILL.write_text(java_text, encoding="utf-8")
-    print("  updated java/skill.md")
+    print("  updated base.md (URL list lives here only)")
 
 
 def main():

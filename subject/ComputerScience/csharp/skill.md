@@ -24,6 +24,12 @@ WebFetch: https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/shar
 
 ---
 
+## Bagruyot Files
+
+All exam URLs are listed in base.md (fetched above).
+
+---
+
 ## Behavior — C# Specific
 
 - When a question contains both Java and C# signatures, show **only the C# version** — strip all Java lines
