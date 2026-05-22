@@ -31,56 +31,71 @@ JAVA_SKILL  = Path("subject/ComputerScience/java/skill.md")
 GITHUB_BASE = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut"
 
 
+KNOWN_CSRT = "3016677356254188609"  # static DNN token, extracted from the site
+
 def fetch_all_exams():
-    """Use a headless Chromium browser to fetch all exam metadata from the API."""
+    """Fetch all exam metadata from the Ministry of Education API."""
+    ensure('requests')
+    import requests
+
+    session = requests.Session()
+    session.headers.update({
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "he-IL,he;q=0.9,en;q=0.8",
+        "Referer": f"{BASE_URL}/bagmgr/",
+    })
+
+    # Visit main page to pick up any session cookies
+    print("  Fetching ministry site for session cookies...")
     try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        subprocess.run([sys.executable, '-m', 'pip', 'install', 'playwright', '--break-system-packages'], check=True)
-        subprocess.run([sys.executable, '-m', 'playwright', 'install', 'chromium', '--with-deps'], check=True)
-        from playwright.sync_api import sync_playwright
+        r = session.get(f"{BASE_URL}/bagmgr/", timeout=20)
+        print(f"  Main page status: {r.status_code}")
+    except Exception as e:
+        print(f"  Warning: could not load main page: {e}")
+
+    # Extract csrt from cookies if available, else use known static value
+    csrt = ""
+    for key, val in session.cookies.get_dict().items():
+        if "csrt" in key.lower():
+            csrt = val
+            break
+    if not csrt:
+        csrt = KNOWN_CSRT
+    print(f"  Using csrt: {csrt[:20]}...")
 
     exams = []
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-            locale="he-IL",
-        )
-        page = context.new_page()
+    page_num = 1
+    while True:
+        url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
+               f"&pagesize=100&page={page_num}&csrt={csrt}")
+        print(f"  Fetching API page {page_num}...")
+        try:
+            resp = session.get(url, timeout=30)
+        except Exception as e:
+            print(f"  Request error: {e}")
+            break
+        if not resp.ok:
+            print(f"  API returned {resp.status_code}, stopping.")
+            break
+        body = resp.text.strip()
+        if not body:
+            print("  Empty response, stopping.")
+            break
+        try:
+            data = resp.json()
+        except Exception:
+            print(f"  JSON parse error. Response (first 300 chars): {body[:300]}")
+            break
+        if not data:
+            break
+        exams.extend(data)
+        total = data[0].get("total", 0)
+        print(f"  Got {len(data)} exams (total: {total})")
+        if len(exams) >= total:
+            break
+        page_num += 1
 
-        print("  Opening ministry site to get session...")
-        page.goto(f"{BASE_URL}/bagmgr/", wait_until="networkidle", timeout=60000)
-        print(f"  Page loaded: {page.title()}")
-
-        page_num = 1
-        while True:
-            url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
-                   f"&pagesize=100&page={page_num}")
-            print(f"  Fetching API page {page_num}...")
-            # Use in-page fetch so all browser cookies (including csrt) are sent automatically
-            body = page.evaluate(f"""async () => {{
-                const r = await fetch({json.dumps(url)});
-                return await r.text();
-            }}""")
-            if not body or not body.strip():
-                print("  Empty response, stopping.")
-                break
-            try:
-                data = json.loads(body)
-            except json.JSONDecodeError:
-                print(f"  JSON parse error. Response (first 300 chars): {body[:300]}")
-                break
-            if not data:
-                break
-            exams.extend(data)
-            total = data[0].get("total", 0)
-            print(f"  Got {len(data)} exams (total: {total})")
-            if len(exams) >= total:
-                break
-            page_num += 1
-
-        browser.close()
     return exams
 
 
