@@ -106,16 +106,15 @@ def fetch_all_exams():
 
 
 def download_pdf(url):
-    """Use Playwright to download a PDF as bytes."""
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context()
-        page = context.new_page()
-        resp = page.request.get(url)
-        data = resp.body()
-        browser.close()
-    return data
+    """Download a PDF as bytes using requests."""
+    import requests
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": BASE_URL,
+    }
+    resp = requests.get(url, headers=headers, timeout=60)
+    resp.raise_for_status()
+    return resp.content
 
 
 def extract_text(pdf_bytes):
