@@ -131,7 +131,11 @@ def sync_exams(exams):
             print(f"    ERROR downloading: {e}")
             continue
 
-        text = extract_text(pdf_bytes)
+        try:
+            text = extract_text(pdf_bytes)
+        except Exception as e:
+            print(f"    WARNING: could not extract text ({e}), skipping")
+            continue
         if not text.strip():
             print(f"    WARNING: no text extracted, skipping")
             continue
