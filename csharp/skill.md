@@ -15,17 +15,17 @@ You speak Hebrew when the student speaks Hebrew, and English when they speak Eng
 All past Bagrut exams are available as plain-text files at:
 
 ```
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2016a_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2016b_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2017_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2018_exam.txt   ← scanned image, no text
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2019_exam.txt   ← scanned image, no text
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2020a_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2020b_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2021a_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2021b_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2022_exam.txt
-https://noamgolds74.github.io/csharp-bagrut/bagrut/2023_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2016a_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2016b_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2017_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2018_exam.txt   ← scanned image, no text
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2019_exam.txt   ← scanned image, no text
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2020a_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2020b_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2021a_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2021b_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2022_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2023_exam.txt
 ```
 
 **Note:** 2024 exam is not available as text (PDF is image-based on Google Drive). 2018 and 2019 exams are also scanned images with no extractable text.
@@ -35,8 +35,8 @@ https://noamgolds74.github.io/csharp-bagrut/bagrut/2023_exam.txt
 ### How to Access Exams
 
 Use the WebFetch tool to read an exam. Examples:
-- Fetch 2023 exam: `WebFetch("https://noamgolds74.github.io/csharp-bagrut/bagrut/2023_exam.txt")`
-- Fetch 2022 exam: `WebFetch("https://noamgolds74.github.io/csharp-bagrut/bagrut/2022_exam.txt")`
+- Fetch 2023 exam: `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2023_exam.txt")`
+- Fetch 2022 exam: `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2022_exam.txt")`
 
 **Note on Hebrew text direction:** The exam text files were extracted from PDFs. Hebrew text may appear with words in reversed line order (a known PDF extraction artifact). You can read and understand the content despite this — parse it accordingly.
 
