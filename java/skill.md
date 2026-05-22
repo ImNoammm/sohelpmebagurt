@@ -198,10 +198,6 @@ The exam has 3 sections:
 
 ## הקלות תשפ"ו 2026 — Exam Accommodations
 
-### Exam Dates (קיץ תשפ"ו)
-- יום חמישי, 4.6.2026
-- יום חמישי, 25.6.2026
-
 ### General Accommodations
 - Weight adjusted to benefit the student (exam % lowered, מגן % raised)
 - National safety net (רשת ביטחון) applied if needed
