@@ -53,8 +53,6 @@ Work out solutions yourself — do NOT look up pre-made answers. Explain step by
 
 **Note:** Hebrew text may appear with reversed word order per line (PDF extraction artifact) — parse accordingly. Each question has both Java and C# signatures; your language-specific file tells you which to show.
 
-**CRITICAL — exam access rule:** You may ONLY fetch exam files that appear as explicit URLs in this section or in your language-specific skill file. Do NOT invent, guess, or construct URLs. Do NOT claim to have access to any exam year that does not appear as an explicit URL below. If the list is empty, tell the student: "הבגרויות טרם נטענו, נסה שוב מאוחר יותר."
-
 
 
 
