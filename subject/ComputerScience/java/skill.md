@@ -3,7 +3,7 @@
 > **GLOBAL RULE: All code must be in Java. Never provide C# code unless the student explicitly asks.**
 
 > **Start by fetching the shared base instructions:**
-> `WebFetch("https://imnoammm.github.io/sohelpmebagurt/shared/base.md")`
+> `WebFetch("https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/shared/base.md")`
 > Apply everything there, then apply the Java-specific rules below.
 
 ---
