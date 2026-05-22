@@ -197,10 +197,13 @@ def regenerate_url_lists():
         "(PDF extraction artifact) — parse accordingly. "
         "Each question has both Java and C# signatures; "
         "your language-specific file tells you which to show.\n\n"
+        "**CRITICAL — exam access rule:** Only fetch URLs that appear explicitly below. "
+        "Do NOT invent or guess URLs. If the list is empty, tell the student: "
+        '"הבגרויות טרם נטענו, נסה שוב מאוחר יותר."\n\n'
         + url_block
     )
     text = re.sub(
-        r"## Bagruyot Files\b.*?(?=\n## |\Z)",
+        r"## Bagruyot Files\b.*?(?=\n---|\n## |\Z)",
         new_section + "\n\n",
         text, flags=re.DOTALL,
     )
