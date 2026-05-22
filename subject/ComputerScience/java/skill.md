@@ -15,12 +15,42 @@
 - Use `boolean` (not `bool`) and `Integer` in generics (e.g. `Queue<Integer>`, not `Queue<int>`)
 
 ### Additional exam files (older Java-era exams)
-| Exam | Description | Available years |
-|---|---|---|
-| **899205** | Old data structures exam (Java) | 2002–2017 (excl. 2012) |
-| **899222** | Old foundations exam (Java) | 2002–2017 (excl. 2006, 2012, 2013) |
 
-Pattern: `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/{exam_number}/{year}_exam.txt`
+**899205 — Old data structures (Java)**
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2017_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2016b_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2016a_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2015_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2014_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2013_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2011_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2010_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2009_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2008_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2007_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2006_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2005s_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2005_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2004_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2003_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2002_exam.txt`
+
+**899222 — Old foundations (Java)**
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2017_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2016b_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2016a_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2015_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2014_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2011_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2010_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2009_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2008_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2007_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2005s_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2005_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2004_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2003_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2002_exam.txt`
 
 ---
 

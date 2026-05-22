@@ -42,19 +42,32 @@ Work out solutions yourself — do NOT look up pre-made answers. Explain step by
 
 ## Bagruyot Files
 
-Base URL: `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/{exam_number}/{year}_exam.txt`
-
-| Exam | Description | Available years |
-|---|---|---|
-| **899271** | Data structures + unit 5 — **current exam** | 2024, 2025 |
-| **899371** | Foundations — **current exam** | 2023, 2024, 2025 |
-| **899381** | Classic exam (last given 2024) | 2016a, 2016b, 2017–2024 |
-
-Example fetches:
-- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2025_exam.txt")`
-- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2024_exam.txt")`
+Fetch exams using the exact URLs below. Prefer recent years first.
 
 **Note:** Hebrew text may appear with reversed word order per line (PDF extraction artifact) — parse accordingly. Each question has both Java and C# signatures; your language-specific file tells you which to show.
+
+### 899271 — Data structures + unit 5 (current exam)
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2025_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2024_exam.txt`
+
+### 899371 — Foundations (current exam)
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2025_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2024_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2023_exam.txt`
+
+### 899381 — Classic exam (last given 2024)
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2024_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2023_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2022_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2021b_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2021a_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2020b_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2020a_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2019_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2018_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2017_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2016b_exam.txt`
+- `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2016a_exam.txt`
 
 ---
 
