@@ -458,7 +458,7 @@
 <section class="hero">
   <div class="container">
     <div class="hero-badge">עוזר חכם לבגרות · AI-powered Bagrut help</div>
-    <h1>הבינה המלאכותית שלך<br><em>לבגרות</em></h1>
+    <h1><span id="matrix-line1"></span><br><em id="matrix-line2"></em></h1>
     <p class="hero-sub">
       תן לבינה המלאכותית שלך — Claude, ChatGPT, או כל AI אחר — להיות המורה הפרטי שלך.
       בחר מקצוע, שלח קישור, ותתחיל ללמוד עם שאלות בגרות אמיתיות.
@@ -595,6 +595,46 @@
 <div id="toast">הועתק!</div>
 
 <script>
+  const HEBREW = 'אבגדהוזחטיכלמנסעפצקרשת';
+  const LATIN  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  function randChar(target) {
+    const pool = /[֐-׿]/.test(target) ? HEBREW : LATIN;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  function matrixReveal(el, text, delay, onDone) {
+    const SCRAMBLE_CYCLES = 6;
+    const CHAR_DELAY = 55;
+    let revealed = 0;
+    let timers = {};
+
+    setTimeout(() => {
+      function tick() {
+        if (revealed >= text.length) { onDone && onDone(); return; }
+        const i = revealed;
+        let cycles = 0;
+        timers[i] = setInterval(() => {
+          const built = text.slice(0, i) + (cycles < SCRAMBLE_CYCLES ? randChar(text[i]) : text[i]) + Array(text.length - i - 1).fill(' ').join('');
+          el.textContent = built;
+          if (++cycles > SCRAMBLE_CYCLES) {
+            clearInterval(timers[i]);
+            revealed++;
+            tick();
+          }
+        }, 38);
+      }
+      tick();
+    }, delay);
+  }
+
+  matrixReveal(
+    document.getElementById('matrix-line1'),
+    'הבינה המלאכותית שלך',
+    200,
+    () => matrixReveal(document.getElementById('matrix-line2'), 'לבגרות', 0, null)
+  );
+
   function copyUrl(btn, url) {
     navigator.clipboard.writeText(url).then(() => {
       const toast = document.getElementById('toast');
