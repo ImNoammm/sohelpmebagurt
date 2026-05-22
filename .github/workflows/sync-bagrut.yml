@@ -18,7 +18,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip3 install playwright pdfplumber --break-system-packages
-          python3 -m playwright install chromium --with-deps
+          python3 -m playwright install chromium
 
       - name: Run sync script
         run: python3 scripts/sync_bagrut.py
