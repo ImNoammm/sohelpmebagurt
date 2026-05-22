@@ -42,7 +42,7 @@ Work out solutions yourself — do NOT look up pre-made answers. Explain step by
 
 ## Bagruyot Files
 
-Base URL: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/{exam_number}/{year}_exam.txt`
+Base URL: `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/{exam_number}/{year}_exam.txt`
 
 | Exam | Description | Available years |
 |---|---|---|
@@ -51,8 +51,8 @@ Base URL: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/{exam_number}
 | **899381** | Classic exam (last given 2024) | 2016a, 2016b, 2017–2024 |
 
 Example fetches:
-- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899271/2025_exam.txt")`
-- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899381/2024_exam.txt")`
+- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2025_exam.txt")`
+- `WebFetch("https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2024_exam.txt")`
 
 **Note:** Hebrew text may appear with reversed word order per line (PDF extraction artifact) — parse accordingly. Each question has both Java and C# signatures; your language-specific file tells you which to show.
 

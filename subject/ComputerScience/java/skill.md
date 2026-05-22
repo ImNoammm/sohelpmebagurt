@@ -20,7 +20,7 @@
 | **899205** | Old data structures exam (Java) | 2002–2017 (excl. 2012) |
 | **899222** | Old foundations exam (Java) | 2002–2017 (excl. 2006, 2012, 2013) |
 
-Pattern: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/{exam_number}/{year}_exam.txt`
+Pattern: `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/{exam_number}/{year}_exam.txt`
 
 ---
 
