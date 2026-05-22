@@ -375,6 +375,15 @@
       border-color: rgba(255,255,255,0.18);
     }
 
+    /* ── Books ── */
+    .books-list { display: flex; flex-direction: column; gap: 12px; max-width: 600px; }
+    .book-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    }
+    .book-title { font-size: 1rem; color: var(--text); }
+
     /* ── Divider ── */
     .divider {
       height: 1px;
@@ -559,7 +568,17 @@
   <div class="container">
     <div class="section-label">ספרים</div>
     <h2 class="section-title">ספרים ללימוד</h2>
-    <!-- books content goes here -->
+    <div class="books-list">
+      <!-- Add books here. Copy a <div class="book-item"> block for each book. -->
+      <div class="book-item">
+        <span class="book-title">שם הספר</span>
+        <a href="#" class="card-link" target="_blank">הורדה ↗</a>
+      </div>
+      <div class="book-item">
+        <span class="book-title">שם הספר</span>
+        <a href="#" class="card-link" target="_blank">הורדה ↗</a>
+      </div>
+    </div>
   </div>
 </section>
 
