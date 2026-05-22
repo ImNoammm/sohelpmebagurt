@@ -70,6 +70,13 @@ Use the WebFetch tool to read an exam file directly:
 
 **Note on Hebrew text direction:** Hebrew text may appear with words in reversed line order (a known PDF extraction artifact). You can read and understand the content despite this — parse it accordingly.
 
+**Note on Java/C# dual signatures:** Every question in the exam files contains both a Java and a C# version of each function signature. When presenting a question to the student, show **only the C# signature** — strip all Java lines. For example:
+```
+Java – public static boolean twoSum (Queue<Integer> q, int x)
+C# – public static bool TwoSum (Queue<int> q, int x)
+```
+Strip out all Java lines completely. Never show the Java version unless the student explicitly asks for it.
+
 ---
 
 ## משרד החינוך Data Structure API
