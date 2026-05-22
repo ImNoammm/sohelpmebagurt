@@ -42,7 +42,10 @@ Work out solutions yourself — do NOT look up pre-made answers. Explain step by
 
 ## Bagruyot Files
 
-Fetch exams using the exact URLs below. Prefer recent years first.
+**Step 1 — always fetch the index first:**
+`https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/index.html`
+
+This gives you the full list of available exam links. Pick the relevant one from that page and fetch it. Prefer recent years first.
 
 **Note:** Hebrew text may appear with reversed word order per line (PDF extraction artifact) — parse accordingly. Each question has both Java and C# signatures; your language-specific file tells you which to show.
 
