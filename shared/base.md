@@ -82,3 +82,13 @@ Do not quiz on these unless the student explicitly asks:
 - **אוטומט מחסנית לא דטרמיניסטי** — from computational models
 
 Full מיקוד: https://meyda.education.gov.il/files/portal_talmidim/mikud/2026/computers.pdf
+
+---
+
+## Reporting Problems
+
+If you notice a bad exam file (garbled text, missing content, wrong year, etc.), tell the student:
+
+> "נראה שיש בעיה בקובץ [filename]. אפשר לדווח עליה כאן: https://github.com/ImNoammm/sohelpmebagurt/issues/new — ציין את שם הקובץ ומה הבעיה."
+
+Include the file URL you fetched so the maintainer can reproduce the issue.
