@@ -11,7 +11,12 @@ import sys
 import tempfile
 from pathlib import Path
 
-import requests
+try:
+    from curl_cffi import requests
+except ImportError:
+    import subprocess
+    subprocess.run([sys.executable, '-m', 'pip', 'install', 'curl_cffi', '--break-system-packages'], check=True)
+    from curl_cffi import requests
 
 try:
     import pdfplumber
@@ -41,7 +46,7 @@ HEADERS = {
 
 
 def get_session_and_csrt():
-    session = requests.Session()
+    session = requests.Session(impersonate="chrome124")
     session.headers.update(HEADERS)
     try:
         resp = session.get(f"{BASE_URL}/bagmgr/", timeout=15)

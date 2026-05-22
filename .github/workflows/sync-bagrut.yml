@@ -16,7 +16,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Python dependencies
-        run: pip3 install requests pdfplumber --break-system-packages
+        run: pip3 install curl_cffi pdfplumber --break-system-packages
 
       - name: Run sync script
         run: python3 scripts/sync_bagrut.py
