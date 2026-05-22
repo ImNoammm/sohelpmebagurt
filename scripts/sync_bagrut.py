@@ -180,23 +180,13 @@ def regenerate_url_lists():
     print("  updated base.md")
 
     java_text = JAVA_SKILL.read_text(encoding="utf-8")
-    old_extra = {s: by_sheelon.get(s, []) for s in ("899205", "899222")}
-    extra_lines = []
-    for sheelon, urls in old_extra.items():
-        if urls:
-            extra_lines.append(f"**{sheelon}**")
-            for url in sorted(urls, reverse=True):
-                extra_lines.append(url)
-            extra_lines.append("")
-    extra_block = "\n".join(extra_lines).rstrip()
-
-    new_extra = (
-        "### Additional exam files (older Java-era exams)\n\n"
-        + (extra_block if extra_block else "_none available_")
+    new_java_section = (
+        "## Bagruyot Files\n\n"
+        + (url_block if url_block else "_none available_")
     )
     java_text = re.sub(
-        r"### Additional exam files.*?(?=\n---|\n## |\Z)",
-        new_extra + "\n\n",
+        r"## Bagruyot Files\b.*?(?=\n---|\n## |\Z)",
+        new_java_section + "\n\n",
         java_text, flags=re.DOTALL,
     )
     JAVA_SKILL.write_text(java_text, encoding="utf-8")
