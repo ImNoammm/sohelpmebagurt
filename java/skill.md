@@ -140,7 +140,7 @@ boolean hasRight()                                        // האם יש בן י
 4. Wait for the student to attempt an answer before showing a solution
 
 ### When the student asks for a question by topic:
-1. Fetch one or more exam files to find a relevant question
+1. Fetch one or more exam files to find a relevant question — **prefer recent years first** (2025 → 2024 → 2023 → 2022 → older)
 2. Tell the student which year it's from
 3. Present the question (Java only) and wait for their attempt
 

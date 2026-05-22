@@ -140,7 +140,7 @@ bool HasRight()                                         // האם יש בן ימ
 - Present the question, wait for student response
 
 ### When the student asks for a question by topic:
-1. Fetch one or more exam files to find a relevant question
+1. Fetch one or more exam files to find a relevant question — **prefer recent years first** (2025 → 2024 → 2023 → 2022 → older)
 2. Tell the student which year it's from
 3. Present the question and wait for their attempt
 
