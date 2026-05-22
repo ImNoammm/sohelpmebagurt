@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoHelpMeBagrut — עוזר הבגרות החכם שלך</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #07090f;
+      --surface: rgba(255,255,255,0.035);
+      --border: rgba(255,255,255,0.08);
+      --accent: #a3e635;
+      --accent-dim: rgba(163,230,53,0.1);
+      --accent-border: rgba(163,230,53,0.3);
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      --orange: #fb923c;
+      --blue: #60a5fa;
+      --purple: #a78bfa;
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Rubik', 'Arial Hebrew', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 5%, rgba(163,230,53,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 85% 85%, rgba(96,165,250,0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .brand .accent { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 96px 0 80px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 6px 18px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      animation: fadeUp 0.5s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      animation: fadeUp 0.5s 0.08s ease both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-dim);
+      max-width: 580px;
+      margin: 0 auto 0;
+      font-weight: 300;
+      animation: fadeUp 0.5s 0.16s ease both;
+    }
+
+    /* ── Section ── */
+    .section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ── Steps ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .step:hover {
+      border-color: rgba(255,255,255,0.14);
+      transform: translateY(-3px);
+    }
+
+    .step-num {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(255,255,255,0.035);
+      position: absolute;
+      top: 12px;
+      inset-inline-start: 16px;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+    }
+
+    .step-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ── Subject cards ── */
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 20px;
+    }
+
+    .subject-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subject-card.active {
+      border-color: var(--accent-border);
+      background: linear-gradient(140deg, rgba(163,230,53,0.07) 0%, rgba(255,255,255,0.02) 100%);
+    }
+    .subject-card.active:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(163,230,53,0.08);
+      border-color: rgba(163,230,53,0.5);
+    }
+
+    .subject-card.coming-soon {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .icon-cs {
+      background: rgba(163,230,53,0.12);
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+    }
+    .icon-math {
+      background: rgba(251,146,60,0.12);
+      color: var(--orange);
+      font-size: 1.5rem;
+    }
+    .icon-physics {
+      background: rgba(96,165,250,0.12);
+      color: var(--blue);
+      font-size: 1.4rem;
+    }
+    .icon-english {
+      background: rgba(167,139,250,0.12);
+      color: var(--purple);
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+    .badge-live {
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+    .badge-soon {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .card-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .card-url-row {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .card-url-row code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .copy-btn {
+      flex-shrink: 0;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+    }
+    .copy-btn:hover { background: rgba(163,230,53,0.18); }
+    .copy-btn.copied {
+      background: rgba(163,230,53,0.2);
+      color: #86efac;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 8px;
+    }
+    .card-link {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .card-link:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer p { font-size: 0.8rem; color: var(--text-muted); }
+    footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--text); }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; gap: 16px; }
+      .steps, .subjects-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <nav>
+    <div class="brand">So<span class="accent">Help</span>MeBagrut</div>
+    <ul class="nav-links">
+      <li><a href="#how">איך זה עובד</a></li>
+      <li><a href="#subjects">מקצועות</a></li>
+      <li><a href="https://github.com/ImNoammm/sohelpmebagurt" target="_blank">GitHub ↗</a></li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">עוזר חכם לבגרות · AI-powered Bagrut help</div>
+    <h1>הבינה המלאכותית שלך<br><em>עכשיו יודעת בגרות</em></h1>
+    <p class="hero-sub">
+      תן לבינה המלאכותית שלך — Claude, ChatGPT, או כל AI אחר — להיות המורה הפרטי שלך.
+      בחר מקצוע, שלח קישור, ותתחיל ללמוד עם שאלות בגרות אמיתיות.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- How it works -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-label">איך זה עובד</div>
+    <h2 class="section-title">ארבעה צעדים פשוטים</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">1</span>
+        <span class="step-icon">🎯</span>
+        <h3>בחר מקצוע</h3>
+        <p>בחר את מקצוע הבגרות שאתה מכין מהרשימה למטה.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">2</span>
+        <span class="step-icon">📋</span>
+        <h3>העתק קישור</h3>
+        <p>לחץ "העתק" ליד קישור ה-skill.md של המקצוע.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">3</span>
+        <span class="step-icon">🤖</span>
+        <h3>שלח לבינה המלאכותית</h3>
+        <p>פתח Claude, ChatGPT או כל AI אחר ובקש ממנו לקרוא את הקישור. הוא יהפוך למורה לבגרות.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">4</span>
+        <span class="step-icon">📚</span>
+        <h3>תתחיל ללמוד</h3>
+        <p>בקש שאלות מבגרויות אמיתיות, הסברים, תרגולים — בעברית, בקצב שלך.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Subjects -->
+<section class="section" id="subjects">
+  <div class="container">
+    <div class="section-label">מקצועות</div>
+    <h2 class="section-title">בחר מקצוע</h2>
+    <div class="subjects-grid">
+
+      <!-- C# -->
+      <div class="subject-card active">
+        <div class="card-top">
+          <div class="card-icon icon-cs">C#</div>
+          <span class="badge badge-live">זמין עכשיו</span>
+        </div>
+        <div class="card-title">מדעי המחשב</div>
+        <div class="card-subtitle">שאלון 899381 / 899271 · C#</div>
+        <div class="card-url-row">
+          <code>imnoammm.github.io/sohelpmebagurt/csharp/skill.md</code>
+          <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/csharp/skill.md')">העתק</button>
+        </div>
+        <div class="card-links">
+          <a href="https://imnoammm.github.io/sohelpmebagurt/csharp/skill.md" class="card-link" target="_blank">skill.md ↗</a>
+          <a href="https://github.com/ImNoammm/sohelpmebagurt/tree/main/csharp/bagrut" class="card-link" target="_blank">שאלונים ↗</a>
+        </div>
+      </div>
+
+      <!-- Math -->
+      <div class="subject-card coming-soon">
+        <div class="card-top">
+          <div class="card-icon icon-math">∑</div>
+          <span class="badge badge-soon">בקרוב</span>
+        </div>
+        <div class="card-title">מתמטיקה</div>
+        <div class="card-subtitle">5 יח"ל · אלגברה, גיאומטריה, חשבון</div>
+      </div>
+
+      <!-- Physics -->
+      <div class="subject-card coming-soon">
+        <div class="card-top">
+          <div class="card-icon icon-physics">⚛</div>
+          <span class="badge badge-soon">בקרוב</span>
+        </div>
+        <div class="card-title">פיזיקה</div>
+        <div class="card-subtitle">5 יח"ל · מכניקה, חשמל, אופטיקה</div>
+      </div>
+
+      <!-- English -->
+      <div class="subject-card coming-soon">
+        <div class="card-top">
+          <div class="card-icon icon-english">Aa</div>
+          <span class="badge badge-soon">בקרוב</span>
+        </div>
+        <div class="card-title">אנגלית</div>
+        <div class="card-subtitle">5 יח"ל · Reading, Writing, Literature</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="container">
+  <footer>
+    <p>© 2026 SoHelpMeBagrut · שאלונים מאת <a href="https://kadman11.wordpress.com" target="_blank">הילה קדמן</a></p>
+    <a href="https://github.com/ImNoammm/sohelpmebagurt" target="_blank">קוד פתוח ב-GitHub ↗</a>
+  </footer>
+</div>
+
+<script>
+  function copyUrl(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = '✓ הועתק';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'העתק';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
