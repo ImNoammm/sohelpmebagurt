@@ -54,7 +54,14 @@ def fetch_all_exams(session, csrt):
             params["csrt"] = csrt
         resp = session.get(API_URL, params=params,
                            headers={**HEADERS, "Referer": f"{BASE_URL}/bagmgr/"}, timeout=15)
-        data = resp.json()
+        if not resp.ok or not resp.text.strip():
+            print(f"  ERROR: API returned {resp.status_code}. Response: {resp.text[:200]}")
+            break
+        try:
+            data = resp.json()
+        except Exception as e:
+            print(f"  ERROR: Could not parse JSON: {e}\n  Response: {resp.text[:200]}")
+            break
         if not data:
             break
         exams.extend(data)
