@@ -46,11 +46,14 @@ def fetch_all_exams():
         "Referer": f"{BASE_URL}/bagmgr/",
     })
 
-    # Visit main page to pick up any session cookies
+    session.headers.update({"X-Requested-With": "XMLHttpRequest"})
+
+    # Visit main page to pick up session cookies
     print("  Fetching ministry site for session cookies...")
     try:
         r = session.get(f"{BASE_URL}/bagmgr/", timeout=20)
         print(f"  Main page status: {r.status_code}")
+        print(f"  Cookies received: {dict(r.cookies)}")
     except Exception as e:
         print(f"  Warning: could not load main page: {e}")
 
@@ -62,7 +65,10 @@ def fetch_all_exams():
             break
     if not csrt:
         csrt = KNOWN_CSRT
+        # Set it as a cookie too so DNN can validate the pair
+        session.cookies.set("csrt", csrt, domain="meyda.education.gov.il")
     print(f"  Using csrt: {csrt[:20]}...")
+    print(f"  All cookies: {session.cookies.get_dict()}")
 
     exams = []
     page_num = 1
