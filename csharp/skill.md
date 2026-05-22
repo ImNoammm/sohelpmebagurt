@@ -12,33 +12,63 @@ You speak Hebrew when the student speaks Hebrew, and English when they speak Eng
 
 ## Bagruyot Files
 
-All past Bagrut exams are available as plain-text files at:
-
+All past Bagrut exams are available as plain-text files. The base URL is:
 ```
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2016a_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2016b_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2017_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2018_exam.txt   ← scanned image, no text
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2019_exam.txt   ← scanned image, no text
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2020a_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2020b_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2021a_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2021b_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2022_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2023_exam.txt
+https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/{exam_number}/{filename}
 ```
 
-**Note:** 2024 exam is not available as text (PDF is image-based on Google Drive). 2018 and 2019 exams are also scanned images with no extractable text.
+### שאלון 899381 — הישן (2016–2024)
+This is the classic C# exam. Files are at `csharp/bagrut/899381/`:
+```
+2016a_exam.txt   2016b_exam.txt   2017_exam.txt    2018_exam.txt
+2019_exam.txt    2020a_exam.txt   2020b_exam.txt   2021a_exam.txt
+2021b_exam.txt   2022_exam.txt    2023_exam.txt    2024_exam.txt
+```
+Example: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899381/2024_exam.txt`
+
+### שאלון 899271 — מבני נתונים + יח' 5 (החדש, 2024+)
+This replaced 899381. Files are at `csharp/bagrut/899271/`:
+```
+2024_exam.txt    2025_exam.txt
+```
+Example: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899271/2025_exam.txt`
+
+### שאלון 899371 — יסודות מדעי המחשב (החדש, 2023+)
+The new foundations exam. Files are at `csharp/bagrut/899371/`:
+```
+2023_exam.txt    2024_exam.txt    2025_exam.txt
+```
+Example: `https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899371/2025_exam.txt`
+
+### שאלון 899205 — עיצוב תוכנה ומודלים חישוביים (ישן, Java, 2002–2017)
+Older exam format using Java. Files are at `csharp/bagrut/899205/`:
+```
+2002_exam.txt  2003_exam.txt  2004_exam.txt  2005_exam.txt  2005s_exam.txt
+2006_exam.txt  2007_exam.txt  2008_exam.txt  2009_exam.txt  2010_exam.txt
+2011_exam.txt  2013_exam.txt  2014_exam.txt  2015_exam.txt  2016a_exam.txt
+2016b_exam.txt 2017_exam.txt
+```
+Note: 2001 and 2012 are scanned images with no text. 2007 and 2008 have identical content (same PDF on the source site).
+
+### שאלון 899222 — יסודות (ישן, Java, 2002–2017)
+Older foundations exam using Java. Files are at `csharp/bagrut/899222/`:
+```
+2002_exam.txt  2003_exam.txt  2004_exam.txt  2005_exam.txt  2005s_exam.txt
+2007_exam.txt  2008_exam.txt  2009_exam.txt  2010_exam.txt  2011_exam.txt
+2014_exam.txt  2015_exam.txt  2016a_exam.txt 2016b_exam.txt 2017_exam.txt
+```
+Note: 2001, 2006, 2012, 2013 are unavailable (scanned images or corrupt file).
 
 **Solutions:** Do NOT look up pre-made solutions. Work out the solution yourself based on the exam question and your knowledge of the material, then present it to the student after they attempt an answer.
 
 ### How to Access Exams
 
-Use the WebFetch tool to read an exam. Examples:
-- Fetch 2023 exam: `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2023_exam.txt")`
-- Fetch 2022 exam: `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/2022_exam.txt")`
+Use the WebFetch tool to read an exam file directly:
+- Fetch 2025 new exam (899271): `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899271/2025_exam.txt")`
+- Fetch 2024 classic exam (899381): `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899381/2024_exam.txt")`
+- Fetch 2023 classic exam (899381): `WebFetch("https://imnoammm.github.io/sohelpmebagurt/csharp/bagrut/899381/2023_exam.txt")`
 
-**Note on Hebrew text direction:** The exam text files were extracted from PDFs. Hebrew text may appear with words in reversed line order (a known PDF extraction artifact). You can read and understand the content despite this — parse it accordingly.
+**Note on Hebrew text direction:** Hebrew text may appear with words in reversed line order (a known PDF extraction artifact). You can read and understand the content despite this — parse it accordingly.
 
 ---
 
