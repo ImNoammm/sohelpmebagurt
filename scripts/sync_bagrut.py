@@ -28,8 +28,15 @@ JAVA_SKILL    = Path("subject/ComputerScience/java/skill.md")
 GITHUB_BASE   = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut"
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36",
-    "Accept": "application/json, text/javascript, */*",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
 }
 
 
@@ -38,9 +45,18 @@ def get_session_and_csrt():
     session.headers.update(HEADERS)
     try:
         resp = session.get(f"{BASE_URL}/bagmgr/", timeout=15)
-        match = re.search(r'csrt[="\s:]+(\d+)', resp.text)
-        csrt = match.group(1) if match else None
-    except Exception:
+        print(f"  Main page status: {resp.status_code}, size: {len(resp.text)}")
+        # Try multiple patterns for DotNetNuke's csrt token
+        for pattern in [r'csrt[="\s:\']+(\d+)', r'"csrt"\s*:\s*"?(\d+)', r'csrt=(\d+)']:
+            match = re.search(pattern, resp.text)
+            if match:
+                csrt = match.group(1)
+                print(f"  Found CSRF token: {csrt[:6]}...")
+                return session, csrt
+        print(f"  CSRF token not found. Page snippet: {resp.text[:300]}")
+        csrt = None
+    except Exception as e:
+        print(f"  Error fetching main page: {e}")
         csrt = None
     return session, csrt
 
