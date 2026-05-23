@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
 Syncs Computer Science bagrut exams from the Ministry of Education.
-Uses Playwright (headless Chromium) to bypass CloudFront bot detection.
 Downloads new PDFs, extracts text, saves to subject/ComputerScience/bagrut/.
-Also regenerates the URL lists in base.md and java/skill.md.
+Also regenerates the Past Exam Files URL lists in java/skill.md and csharp/skill.md.
 """
 
 import json
@@ -26,7 +25,6 @@ import pdfplumber
 BASE_URL    = "https://meyda.education.gov.il"
 API_URL     = f"{BASE_URL}/bagmgr/Ajax.ashx"
 BAGRUT_DIR  = Path("subject/ComputerScience/bagrut")
-BASE_MD     = Path("subject/ComputerScience/shared/base.md")
 JAVA_SKILL  = Path("subject/ComputerScience/java/skill.md")
 GITHUB_BASE = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut"
 
