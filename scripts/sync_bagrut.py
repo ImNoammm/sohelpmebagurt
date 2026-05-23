@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Syncs Computer Science bagrut exam PDF URLs from the Ministry of Education API.
+Syncs CS and Math bagrut exam PDF URLs from the Ministry of Education API.
 Writes direct PDF URLs into skill.md files — no downloading or text extraction needed.
 """
 
@@ -18,18 +18,26 @@ def ensure(pkg, import_as=None):
 
 BASE_URL   = "https://meyda.education.gov.il"
 API_URL    = f"{BASE_URL}/bagmgr/Ajax.ashx"
-JAVA_SKILL      = Path("subject/ComputerScience/java/skill.md")
-JAVA_SKILL_MCP  = Path("subject/ComputerScience/java/skill_mcp.md")
-CSHARP_SKILL    = Path("subject/ComputerScience/csharp/skill.md")
-CSHARP_SKILL_MCP = Path("subject/ComputerScience/csharp/skill_mcp.md")
-
 KNOWN_CSRT = "3016677356254188609"  # static DNN token, extracted from the site
 
+# ── Skill file paths ──────────────────────────────────────────────────────────
+CS_FILES = [
+    Path("subject/ComputerScience/java/skill.md"),
+    Path("subject/ComputerScience/java/skill_mcp.md"),
+    Path("subject/ComputerScience/csharp/skill.md"),
+    Path("subject/ComputerScience/csharp/skill_mcp.md"),
+]
+MATH_FILES = [
+    Path("subject/Math/skill_mcp.md"),
+]
 
-def fetch_all_exams():
+# ── Math sheelon IDs (miktzoa=35) ─────────────────────────────────────────────
+MATH_SHEELONIM = ["35572", "35571", "35581", "33582"]
+
+
+def make_session():
     ensure('requests')
     import requests
-
     session = requests.Session()
     session.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -39,13 +47,16 @@ def fetch_all_exams():
         "X-Requested-With": "XMLHttpRequest",
     })
     session.cookies.set("csrt", KNOWN_CSRT, domain="meyda.education.gov.il")
+    return session
 
+
+def fetch_pages(session, miktzoa, sheelon=""):
+    """Fetch all paginated results for a given miktzoa (and optional sheelon)."""
     exams = []
     page_num = 1
     while True:
-        url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
+        url = (f"{API_URL}?search=1&sheelon={sheelon}&miktzoa={miktzoa}&safa=1"
                f"&pagesize=100&page={page_num}&csrt={KNOWN_CSRT}")
-        print(f"  Fetching API page {page_num}...")
         try:
             resp = session.get(url, timeout=30)
         except Exception as e:
@@ -56,7 +67,6 @@ def fetch_all_exams():
             break
         body = resp.text.strip()
         if not body:
-            print("  Empty response, stopping.")
             break
         try:
             data = resp.json()
@@ -67,12 +77,56 @@ def fetch_all_exams():
             break
         exams.extend(data)
         total = data[0].get("total", 0)
+        if len(exams) >= total:
+            break
+        page_num += 1
+    return exams
+
+
+def fetch_cs_exams(session):
+    """Fetch all CS bagrut exams (miktzoa=899)."""
+    exams = []
+    page_num = 1
+    while True:
+        url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
+               f"&pagesize=100&page={page_num}&csrt={KNOWN_CSRT}")
+        print(f"  Fetching CS API page {page_num}...")
+        try:
+            resp = session.get(url, timeout=30)
+        except Exception as e:
+            print(f"  Request error: {e}")
+            break
+        if not resp.ok:
+            print(f"  API returned {resp.status_code}, stopping.")
+            break
+        body = resp.text.strip()
+        if not body:
+            break
+        try:
+            data = resp.json()
+        except Exception:
+            print(f"  JSON parse error: {body[:300]}")
+            break
+        if not data:
+            break
+        exams.extend(data)
+        total = data[0].get("total", 0)
         print(f"  Got {len(data)} exams (total: {total})")
         if len(exams) >= total:
             break
         page_num += 1
-
     return exams
+
+
+def fetch_math_exams(session):
+    """Fetch math bagrut exams for the configured sheelonim."""
+    all_exams = []
+    for sh in MATH_SHEELONIM:
+        print(f"  Fetching math sheelon {sh}...")
+        exams = fetch_pages(session, miktzoa="35", sheelon=sh)
+        print(f"    Got {len(exams)} exams")
+        all_exams.extend(exams)
+    return all_exams
 
 
 def build_url_block(exams):
@@ -82,8 +136,8 @@ def build_url_block(exams):
         if not pdf_url:
             continue
         sheelon = exam["semel_sheelon"]
-        year = exam["shana"]
-        moed = exam["code_moed"]
+        year    = exam["shana"]
+        moed    = exam["code_moed"]
         by_sheelon.setdefault(sheelon, []).append((year, moed, pdf_url))
 
     lines = []
@@ -95,15 +149,14 @@ def build_url_block(exams):
     return "\n".join(lines).rstrip()
 
 
-def update_skill_files(url_block):
+def update_skill_files(skill_files, url_block, subject_label):
     new_section = (
         "## Past Exam Files\n\n"
-        "Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. "
+        f"Israeli {subject_label} Bagrut exam PDFs, direct from the Ministry of Education. "
         "Fetch the relevant PDF to read exam questions.\n\n"
         + (url_block if url_block else "_none yet — sync pending_")
     )
-
-    for skill_file in (JAVA_SKILL, JAVA_SKILL_MCP, CSHARP_SKILL, CSHARP_SKILL_MCP):
+    for skill_file in skill_files:
         text = skill_file.read_text(encoding="utf-8")
         text = re.sub(
             r"## Past Exam Files\b.*?(?=\n---|\n## |\Z)",
@@ -115,17 +168,26 @@ def update_skill_files(url_block):
 
 
 def main():
-    print("=== Bagrut Sync ===")
-    exams = fetch_all_exams()
-    print(f"Found {len(exams)} exams in API")
+    session = make_session()
 
-    print("\nBuilding PDF URL list...")
-    url_block = build_url_block(exams)
-    exam_count = url_block.count(": http")
-    print(f"  {exam_count} exams with PDF URLs")
+    # ── CS ────────────────────────────────────────────────────────────────────
+    print("=== CS Bagrut Sync ===")
+    cs_exams = fetch_cs_exams(session)
+    print(f"Found {len(cs_exams)} CS exams")
+    cs_block = build_url_block(cs_exams)
+    print(f"  {cs_block.count(': http')} exams with PDF URLs")
+    print("Updating CS skill files...")
+    update_skill_files(CS_FILES, cs_block, "CS")
 
-    print("\nUpdating skill files...")
-    update_skill_files(url_block)
+    # ── Math ──────────────────────────────────────────────────────────────────
+    print("\n=== Math Bagrut Sync ===")
+    math_exams = fetch_math_exams(session)
+    print(f"Found {len(math_exams)} math exams")
+    math_block = build_url_block(math_exams)
+    print(f"  {math_block.count(': http')} exams with PDF URLs")
+    print("Updating Math skill files...")
+    update_skill_files(MATH_FILES, math_block, "Math")
+
     print("\nDone.")
 
 
