@@ -12,80 +12,85 @@ When presenting an exam question, give **one סעיף (sub-question) at a time**
 
 Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. Fetch the relevant PDF to read exam questions.
 
-**CRITICAL:** Only fetch URLs that appear explicitly below. Do NOT invent or guess URLs. Hebrew text in PDFs may have reversed word order per line — parse accordingly.
-
 ### 899381
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2024_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2023_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2022_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2021_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2021_05_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2020_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2020_05_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2019_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2018_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2017_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2016_08_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899381/2016_06_exam.txt
+2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/899381.pdf
+2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/899381.pdf
+2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/899381.pdf
+2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/899381.pdf
+2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/899381.pdf
+2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/899381.pdf
+2020 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/899381.pdf
+2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/899381.pdf
+2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/899381.pdf
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899381.pdf
+2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899381.pdf
+2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899381.pdf
 
 ### 899372
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899372/2025_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899372/2024_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899372/2023_06_exam.txt
+2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/899372.pdf
+2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/899372.pdf
+2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/899372.pdf
 
 ### 899371
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2025_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2024_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899371/2023_06_exam.txt
+2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/899371.pdf
+2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/899371.pdf
+2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/899371.pdf
 
 ### 899282
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2024_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2023_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2022_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2021_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2021_05_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2020_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2020_05_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2019_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2018_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2017_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2016_08_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899282/2016_06_exam.txt
+2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/899282.pdf
+2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/899282.pdf
+2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/899282.pdf
+2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/899282.pdf
+2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/899282.pdf
+2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/899282.pdf
+2020 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/899282.pdf
+2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/899282.pdf
+2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/899282.pdf
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899282.pdf
+2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899282.pdf
+2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899282.pdf
 
 ### 899271
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2025_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899271/2024_06_exam.txt
+2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/899271.pdf
+2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/899271.pdf
 
 ### 899222
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2019_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2017_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2016_08_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2016_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2015_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2013_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2012_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899222/2011_06_exam.txt
+2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/899222.pdf
+2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/899222.pdf
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899222.pdf
+2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899222.pdf
+2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899222.pdf
+2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/899222.pdf
+2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/899222.pdf
+2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/899222.pdf
+2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/899222.pdf
 
 ### 899205
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2017_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2016_08_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2016_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2015_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2013_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899205/2011_06_exam.txt
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899205.pdf
+2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899205.pdf
+2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899205.pdf
+2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/899205.pdf
+2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/899205.pdf
+2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/899205.pdf
 
 ### 899122
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2017_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2016_08_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2016_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2015_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2014_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2013_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2012_06_exam.txt
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/899122/2011_06_exam.txt
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899122.pdf
+2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899122.pdf
+2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899122.pdf
+2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/899122.pdf
+2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/899122.pdf
+2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/899122.pdf
+2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/899122.pdf
+2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/899122.pdf
+
+### 603
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/603.pdf
 
 ### 602
-https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut/602/2019_06_exam.txt
+2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/602.pdf
+2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/602.pdf
+2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/602.pdf
+
 
 ---
 
