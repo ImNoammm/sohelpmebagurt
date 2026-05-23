@@ -10,7 +10,7 @@ When presenting an exam question, give **one סעיף (sub-question) at a time**
 
 ## Past Exam Files
 
-These are the available Israeli CS Bagrut exam files (text extracted from official PDFs). Use them to find questions by topic when the student asks.
+Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. Fetch the relevant PDF to read exam questions.
 
 **CRITICAL:** Only fetch URLs that appear explicitly below. Do NOT invent or guess URLs. Hebrew text in PDFs may have reversed word order per line — parse accordingly.
 

@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 """
-Syncs Computer Science bagrut exams from the Ministry of Education.
-Downloads new PDFs, extracts text, saves to subject/ComputerScience/bagrut/.
-Also regenerates the Past Exam Files URL lists in java/skill.md and csharp/skill.md.
+Syncs Computer Science bagrut exam PDF URLs from the Ministry of Education API.
+Writes direct PDF URLs into skill.md files — no downloading or text extraction needed.
 """
 
-import json
 import re
 import subprocess
 import sys
-import tempfile
 from pathlib import Path
 
 def ensure(pkg, import_as=None):
@@ -19,20 +16,15 @@ def ensure(pkg, import_as=None):
         subprocess.run([sys.executable, '-m', 'pip', 'install', pkg, '--break-system-packages'], check=True)
         return __import__(import_as or pkg)
 
-ensure('pdfplumber')
-import pdfplumber
-
-BASE_URL    = "https://meyda.education.gov.il"
-API_URL     = f"{BASE_URL}/bagmgr/Ajax.ashx"
-BAGRUT_DIR  = Path("subject/ComputerScience/bagrut")
-JAVA_SKILL  = Path("subject/ComputerScience/java/skill.md")
-GITHUB_BASE = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/bagrut"
-
+BASE_URL   = "https://meyda.education.gov.il"
+API_URL    = f"{BASE_URL}/bagmgr/Ajax.ashx"
+JAVA_SKILL = Path("subject/ComputerScience/java/skill.md")
+CSHARP_SKILL = Path("subject/ComputerScience/csharp/skill.md")
 
 KNOWN_CSRT = "3016677356254188609"  # static DNN token, extracted from the site
 
+
 def fetch_all_exams():
-    """Fetch all exam metadata from the Ministry of Education API."""
     ensure('requests')
     import requests
 
@@ -42,37 +34,15 @@ def fetch_all_exams():
         "Accept": "application/json, text/plain, */*",
         "Accept-Language": "he-IL,he;q=0.9,en;q=0.8",
         "Referer": f"{BASE_URL}/bagmgr/",
+        "X-Requested-With": "XMLHttpRequest",
     })
-
-    session.headers.update({"X-Requested-With": "XMLHttpRequest"})
-
-    # Visit main page to pick up session cookies
-    print("  Fetching ministry site for session cookies...")
-    try:
-        r = session.get(f"{BASE_URL}/bagmgr/", timeout=20)
-        print(f"  Main page status: {r.status_code}")
-        print(f"  Cookies received: {dict(r.cookies)}")
-    except Exception as e:
-        print(f"  Warning: could not load main page: {e}")
-
-    # Extract csrt from cookies if available, else use known static value
-    csrt = ""
-    for key, val in session.cookies.get_dict().items():
-        if "csrt" in key.lower():
-            csrt = val
-            break
-    if not csrt:
-        csrt = KNOWN_CSRT
-        # Set it as a cookie too so DNN can validate the pair
-        session.cookies.set("csrt", csrt, domain="meyda.education.gov.il")
-    print(f"  Using csrt: {csrt[:20]}...")
-    print(f"  All cookies: {session.cookies.get_dict()}")
+    session.cookies.set("csrt", KNOWN_CSRT, domain="meyda.education.gov.il")
 
     exams = []
     page_num = 1
     while True:
         url = (f"{API_URL}?search=1&sheelon=&miktzoa=899&safa=1"
-               f"&pagesize=100&page={page_num}&csrt={csrt}")
+               f"&pagesize=100&page={page_num}&csrt={KNOWN_CSRT}")
         print(f"  Fetching API page {page_num}...")
         try:
             resp = session.get(url, timeout=30)
@@ -103,100 +73,35 @@ def fetch_all_exams():
     return exams
 
 
-def download_pdf(url):
-    """Download a PDF as bytes using requests."""
-    import requests
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Referer": BASE_URL,
-    }
-    resp = requests.get(url, headers=headers, timeout=60)
-    resp.raise_for_status()
-    return resp.content
-
-
-def extract_text(pdf_bytes):
-    with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as f:
-        f.write(pdf_bytes)
-        tmp = Path(f.name)
-    try:
-        pages = []
-        with pdfplumber.open(tmp) as pdf:
-            for page in pdf.pages:
-                t = page.extract_text()
-                if t:
-                    pages.append(t)
-        return "\n\n".join(pages)
-    finally:
-        tmp.unlink(missing_ok=True)
-
-
-def sync_exams(exams):
-    new_count = 0
+def build_url_block(exams):
+    by_sheelon: dict[str, list[tuple[str, str, str]]] = {}
     for exam in exams:
-        sheelon   = exam["semel_sheelon"]
-        year      = exam["shana"]
-        code_moed = exam["code_moed"]
-        pdf_url   = exam.get("question")
-
+        pdf_url = exam.get("question")
         if not pdf_url:
             continue
-
-        folder = BAGRUT_DIR / sheelon
-        folder.mkdir(parents=True, exist_ok=True)
-
-        out_path = folder / f"{year}_{code_moed}_exam.txt"
-        if out_path.exists():
-            print(f"  skip  {sheelon}/{out_path.name}")
-            continue
-
-        print(f"  fetch {sheelon}/{out_path.name} ...")
-        try:
-            pdf_bytes = download_pdf(pdf_url)
-        except Exception as e:
-            print(f"    ERROR downloading: {e}")
-            continue
-
-        try:
-            text = extract_text(pdf_bytes)
-        except Exception as e:
-            print(f"    WARNING: could not extract text ({e}), skipping")
-            continue
-        if not text.strip():
-            print(f"    WARNING: no text extracted, skipping")
-            continue
-
-        out_path.write_text(text, encoding="utf-8")
-        print(f"    saved {len(text):,} chars")
-        new_count += 1
-
-    return new_count
-
-
-def regenerate_url_lists():
-    by_sheelon: dict[str, list[str]] = {}
-    for txt in sorted(BAGRUT_DIR.rglob("*.txt")):
-        sheelon = txt.parent.name
-        url = f"{GITHUB_BASE}/{sheelon}/{txt.name}"
-        by_sheelon.setdefault(sheelon, []).append(url)
+        sheelon = exam["semel_sheelon"]
+        year = exam["shana"]
+        moed = exam["code_moed"]
+        by_sheelon.setdefault(sheelon, []).append((year, moed, pdf_url))
 
     lines = []
     for sheelon in sorted(by_sheelon, reverse=True):
         lines.append(f"### {sheelon}")
-        for url in sorted(by_sheelon[sheelon], reverse=True):
-            lines.append(url)
+        for year, moed, url in sorted(by_sheelon[sheelon], reverse=True):
+            lines.append(f"{year} מועד {moed}: {url}")
         lines.append("")
-    url_block = "\n".join(lines).rstrip()
+    return "\n".join(lines).rstrip()
 
+
+def update_skill_files(url_block):
     new_section = (
         "## Past Exam Files\n\n"
-        "These are the available Israeli CS Bagrut exam files "
-        "(text extracted from official PDFs). "
-        "Use them to find questions by topic when the student asks.\n\n"
+        "Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. "
+        "Fetch the relevant PDF to read exam questions.\n\n"
         + (url_block if url_block else "_none yet — sync pending_")
     )
 
-    for skill_file in (JAVA_SKILL, Path("subject/ComputerScience/csharp/skill.md")):
+    for skill_file in (JAVA_SKILL, CSHARP_SKILL):
         text = skill_file.read_text(encoding="utf-8")
         text = re.sub(
             r"## Past Exam Files\b.*?(?=\n---|\n## |\Z)",
@@ -212,11 +117,13 @@ def main():
     exams = fetch_all_exams()
     print(f"Found {len(exams)} exams in API")
 
-    new_count = sync_exams(exams)
-    print(f"\n{new_count} new exam(s) downloaded")
+    print("\nBuilding PDF URL list...")
+    url_block = build_url_block(exams)
+    exam_count = url_block.count(": http")
+    print(f"  {exam_count} exams with PDF URLs")
 
-    print("\nRegenerating URL lists...")
-    regenerate_url_lists()
+    print("\nUpdating skill files...")
+    update_skill_files(url_block)
     print("\nDone.")
 
 
