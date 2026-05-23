@@ -381,19 +381,49 @@
     }
     .mcp-guide-btn:hover { color: #93c5fd; }
 
-    /* ── MCP check mini-modal ── */
+    /* ── Card page slider ── */
+    .card-page-wizard { display: none; }
+    @keyframes cSlideOutRight {
+      from { transform: translateX(0); opacity: 1; }
+      to   { transform: translateX(65%); opacity: 0; }
+    }
+    @keyframes cSlideInLeft {
+      from { transform: translateX(-50%); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes cSlideOutLeft {
+      from { transform: translateX(0); opacity: 1; }
+      to   { transform: translateX(-65%); opacity: 0; }
+    }
+    @keyframes cSlideInRight {
+      from { transform: translateX(50%); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+
     /* ── Inline MCP Wizard ── */
-    .mcp-wizard-panel {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
-    }
-    .wizard-inner { padding: 10px 0 2px; }
-    .wizard-slide { animation: wSlide 0.27s ease both; }
+    .wizard-inner { padding: 4px 0 2px; }
+    .wizard-slide { animation: wSlide 0.28s ease both; }
     @keyframes wSlide {
-      from { transform: translateX(28px); opacity: 0; }
-      to   { transform: translateX(0);    opacity: 1; }
+      from { transform: translateX(-22px); opacity: 0; }
+      to   { transform: translateX(0);     opacity: 1; }
     }
+    @keyframes wSlideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to   { transform: translateX(40px); opacity: 0; }
+    }
+
+    /* ── Wizard back button ── */
+    .wiz-back-row {
+      display: flex; align-items: center;
+      margin-bottom: 10px; gap: 8px;
+    }
+    .wiz-back-btn {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      color: var(--text-muted); font-family: 'Rubik', sans-serif;
+      font-size: 0.72rem; font-weight: 600; cursor: pointer;
+      padding: 4px 10px; border-radius: 6px; transition: all 0.15s;
+    }
+    .wiz-back-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
     .wizard-q {
       font-size: 0.8rem;
       font-weight: 600;
@@ -734,85 +764,99 @@
 
       <!-- C# -->
       <div class="subject-card active">
-        <div class="card-top">
-          <div class="card-icon icon-cs">C#</div>
-          <span class="badge badge-live">זמין עכשיו</span>
-        </div>
-        <div class="card-title">מדעי המחשב — C#</div>
-        <div class="card-subtitle">שאלון 899381 / 899271 · C#</div>
-        <div class="install-options">
-          <div>
-            <div class="install-option-label">🤖 כל AI</div>
-            <div class="card-url-row">
-              <code>…/csharp/skill.md</code>
-              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md?v=2')">העתק</button>
-            </div>
+        <div class="card-page-wizard" id="pages-cs-wiz">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="wizardBack('mcp-cs')">← חזרה</button>
           </div>
-          <div class="install-divider"></div>
-          <div>
-            <div class="install-option-label">🖼️ Claude Desktop + תמונות</div>
-            <div class="card-url-row">
-              <code>…/csharp/skill_mcp.md</code>
-              <button class="copy-btn" onclick="wizardOpen('mcp-cs','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">השתמש</button>
-            </div>
-            <div class="mcp-wizard-panel" id="mcp-cs-panel">
-              <div class="wizard-inner" id="mcp-cs-inner"></div>
+          <div class="wizard-inner" id="mcp-cs-inner"></div>
+        </div>
+        <div class="card-page-main" id="pages-cs-main">
+          <div class="card-top">
+            <div class="card-icon icon-cs">C#</div>
+            <span class="badge badge-live">זמין עכשיו</span>
+          </div>
+          <div class="card-title">מדעי המחשב — C#</div>
+          <div class="card-subtitle">שאלון 899381 / 899271 · C#</div>
+          <div class="install-options">
+            <div>
+              <div class="install-option-label">🖼️ Claude Desktop + תמונות <span class="wizard-badge">מומלץ</span></div>
+              <div class="card-url-row">
+                <code>…/csharp/skill_mcp.md</code>
+                <button class="copy-btn" onclick="wizardOpen('mcp-cs','pages-cs','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">השתמש</button>
+              </div>
             </div>
             <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <div class="install-divider"></div>
+            <div>
+              <div class="install-option-label">🤖 כל AI <span style="font-size:0.6rem;opacity:0.55">(ניסיוני)</span></div>
+              <div class="card-url-row">
+                <code>…/csharp/skill.md</code>
+                <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md?v=2')">העתק</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Java -->
       <div class="subject-card active">
-        <div class="card-top">
-          <div class="card-icon icon-java">Java</div>
-          <span class="badge badge-live">זמין עכשיו</span>
-        </div>
-        <div class="card-title">מדעי המחשב — Java</div>
-        <div class="card-subtitle">שאלון 899381 / 899271 · Java</div>
-        <div class="install-options">
-          <div>
-            <div class="install-option-label">🤖 כל AI</div>
-            <div class="card-url-row">
-              <code>…/java/skill.md</code>
-              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md?v=2')">העתק</button>
-            </div>
+        <div class="card-page-wizard" id="pages-java-wiz">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="wizardBack('mcp-java')">← חזרה</button>
           </div>
-          <div class="install-divider"></div>
-          <div>
-            <div class="install-option-label">🖼️ Claude Desktop + תמונות</div>
-            <div class="card-url-row">
-              <code>…/java/skill_mcp.md</code>
-              <button class="copy-btn" onclick="wizardOpen('mcp-java','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">השתמש</button>
-            </div>
-            <div class="mcp-wizard-panel" id="mcp-java-panel">
-              <div class="wizard-inner" id="mcp-java-inner"></div>
+          <div class="wizard-inner" id="mcp-java-inner"></div>
+        </div>
+        <div class="card-page-main" id="pages-java-main">
+          <div class="card-top">
+            <div class="card-icon icon-java">Java</div>
+            <span class="badge badge-live">זמין עכשיו</span>
+          </div>
+          <div class="card-title">מדעי המחשב — Java</div>
+          <div class="card-subtitle">שאלון 899381 / 899271 · Java</div>
+          <div class="install-options">
+            <div>
+              <div class="install-option-label">🖼️ Claude Desktop + תמונות <span class="wizard-badge">מומלץ</span></div>
+              <div class="card-url-row">
+                <code>…/java/skill_mcp.md</code>
+                <button class="copy-btn" onclick="wizardOpen('mcp-java','pages-java','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">השתמש</button>
+              </div>
             </div>
             <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <div class="install-divider"></div>
+            <div>
+              <div class="install-option-label">🤖 כל AI <span style="font-size:0.6rem;opacity:0.55">(ניסיוני)</span></div>
+              <div class="card-url-row">
+                <code>…/java/skill.md</code>
+                <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md?v=2')">העתק</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Math -->
-      <!-- Math -->
       <div class="subject-card active">
-        <div class="card-top">
-          <div class="card-icon icon-math">∑</div>
-          <span class="badge badge-live">זמין עכשיו</span>
+        <div class="card-page-wizard" id="pages-math-wiz">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="wizardBack('mcp-math')">← חזרה</button>
+          </div>
+          <div class="wizard-inner" id="mcp-math-inner"></div>
         </div>
-        <div class="card-title">מתמטיקה</div>
-        <div class="card-subtitle">5 יח"ל · אלגברה, גיאומטריה, חשבון</div>
-        <div class="install-options">
-          <div>
-            <div class="install-option-label">🖼️ Claude Desktop + תמונות</div>
-            <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:6px">חמש יחידות</div>
-            <div class="card-url-row">
-              <code>…/Math/skill_mcp.md</code>
-              <button class="copy-btn" onclick="wizardOpen('mcp-math','https://imnoammm.github.io/sohelpmebagurt/subject/Math/skill_mcp.md')">השתמש</button>
-            </div>
-            <div class="mcp-wizard-panel" id="mcp-math-panel">
-              <div class="wizard-inner" id="mcp-math-inner"></div>
+        <div class="card-page-main" id="pages-math-main">
+          <div class="card-top">
+            <div class="card-icon icon-math">∑</div>
+            <span class="badge badge-live">זמין עכשיו</span>
+          </div>
+          <div class="card-title">מתמטיקה</div>
+          <div class="card-subtitle">5 יח"ל · אלגברה, גיאומטריה, חשבון</div>
+          <div class="install-options">
+            <div>
+              <div class="install-option-label">🖼️ Claude Desktop + תמונות <span class="wizard-badge">מומלץ</span></div>
+              <div style="font-size:0.68rem;color:var(--text-muted);margin-bottom:6px">חמש יחידות</div>
+              <div class="card-url-row">
+                <code>…/Math/skill_mcp.md</code>
+                <button class="copy-btn" onclick="wizardOpen('mcp-math','pages-math','https://imnoammm.github.io/sohelpmebagurt/subject/Math/skill_mcp.md')">השתמש</button>
+              </div>
             </div>
             <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
@@ -988,32 +1032,51 @@
   // ── Inline MCP Wizard ──
   const W = {};
 
-  function wizardOpen(id, url) {
-    // Toggle off if already open
-    const panel = document.getElementById(id + '-panel');
-    if (panel.style.maxHeight && panel.style.maxHeight !== '0px' && panel.style.maxHeight !== '') {
-      panel.style.maxHeight = '0';
-      return;
-    }
-    W[id] = { url, slide: 0, method: null, os: null };
-    renderWizard(id);
-    requestAnimationFrame(() => {
-      const inner = document.getElementById(id + '-inner');
-      panel.style.maxHeight = inner.scrollHeight + 20 + 'px';
-    });
+  function wizardOpen(id, pagesId, url) {
+    W[id] = { url, slide: 0, method: null, os: null, pagesId };
+    document.getElementById(id + '-inner').innerHTML = slideHTML(id);
+    const main = document.getElementById(pagesId + '-main');
+    const wiz  = document.getElementById(pagesId + '-wiz');
+    main.style.animation = 'cSlideOutRight 0.22s ease forwards';
+    setTimeout(() => {
+      main.style.display = 'none';
+      main.style.animation = '';
+      wiz.style.display = 'block';
+      wiz.style.animation = 'cSlideInLeft 0.28s ease';
+      setTimeout(() => { wiz.style.animation = ''; }, 280);
+    }, 210);
   }
 
   function wizardClose(id) {
-    document.getElementById(id + '-panel').style.maxHeight = '0';
+    const w = W[id];
+    if (!w) return;
+    const main = document.getElementById(w.pagesId + '-main');
+    const wiz  = document.getElementById(w.pagesId + '-wiz');
+    wiz.style.animation = 'cSlideOutLeft 0.22s ease forwards';
+    setTimeout(() => {
+      wiz.style.display = 'none';
+      wiz.style.animation = '';
+      main.style.display = 'block';
+      main.style.animation = 'cSlideInRight 0.28s ease';
+      setTimeout(() => { main.style.animation = ''; }, 280);
+    }, 210);
+  }
+
+  function wizardBack(id) {
+    const w = W[id];
+    if (!w) return;
+    if (w.slide === 0) { wizardClose(id); return; }
+    w.slide--;
+    renderWizard(id);
   }
 
   function renderWizard(id) {
     const inner = document.getElementById(id + '-inner');
-    inner.innerHTML = slideHTML(id);
-    const panel = document.getElementById(id + '-panel');
-    requestAnimationFrame(() => {
-      panel.style.maxHeight = inner.scrollHeight + 20 + 'px';
-    });
+    inner.style.animation = 'wSlideOut 0.18s ease forwards';
+    setTimeout(() => {
+      inner.style.animation = '';
+      inner.innerHTML = slideHTML(id);
+    }, 180);
   }
 
   function slideHTML(id) {
