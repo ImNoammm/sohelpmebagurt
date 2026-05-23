@@ -382,99 +382,124 @@
     .mcp-guide-btn:hover { color: #93c5fd; }
 
     /* ── MCP check mini-modal ── */
-    .mcp-check-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+    /* ── Inline MCP Wizard ── */
+    .mcp-wizard-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
     }
-    .mcp-check-overlay.open { display: flex; }
-    .mcp-check-box {
-      background: #0f1117;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 32px 36px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      position: relative;
+    .wizard-inner { padding: 10px 0 2px; }
+    .wizard-slide { animation: wSlide 0.27s ease both; }
+    @keyframes wSlide {
+      from { transform: translateX(28px); opacity: 0; }
+      to   { transform: translateX(0);    opacity: 1; }
     }
-    .mcp-check-box h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-    .mcp-check-box p  { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
-    .mcp-check-btns   { display: flex; gap: 10px; justify-content: center; }
-    .mcp-check-btns button {
-      flex: 1; max-width: 140px;
-      padding: 10px 0;
-      border-radius: 10px;
+    .wizard-q {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 9px;
+    }
+    .wizard-btns { display: flex; gap: 7px; }
+    .wbtn {
+      flex: 1;
+      padding: 8px 6px;
+      border-radius: 8px;
       border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-dim);
       font-family: 'Rubik', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s;
-    }
-    .mcp-btn-yes { background: var(--accent); color: #000; border-color: var(--accent) !important; }
-    .mcp-btn-yes:hover { opacity: 0.85; }
-    .mcp-btn-no  { background: transparent; color: var(--text-dim); }
-    .mcp-btn-no:hover  { background: rgba(255,255,255,0.06); color: var(--text); }
-
-    /* URL reveal after "yes" */
-    .mcp-url-reveal {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-    }
-    .mcp-url-reveal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; text-align: center; }
-    .mcp-url-box {
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 8px;
-      padding: 10px 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      min-width: 0;
-    }
-    .mcp-url-box code {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
-      color: var(--accent);
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      direction: ltr;
-      text-align: left;
-      display: block;
-      min-width: 0;
+      text-align: center;
     }
-    .mcp-url-box .copy-btn { width: 100%; text-align: center; }
-
-    /* מומלץ badge — pushed to the inline-end of the heading */
-    .badge-recommended {
-      display: inline-block;
+    .wbtn:hover { background: rgba(255,255,255,0.08); color: var(--text); border-color: rgba(255,255,255,0.15); }
+    .wbtn-yes { background: var(--accent); color: #000; border-color: var(--accent); }
+    .wbtn-yes:hover { opacity: 0.85; background: var(--accent); color: #000; }
+    .wbtn-done {
+      width: 100%;
+      margin-top: 10px;
       background: var(--accent);
       color: #000;
-      font-size: 0.6rem;
+      border-color: var(--accent);
+      padding: 9px;
+    }
+    .wbtn-done:hover { opacity: 0.85; background: var(--accent); }
+    .wizard-badge {
+      display: inline-block;
+      background: rgba(163,230,53,0.2);
+      color: var(--accent);
+      font-size: 0.57rem;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-inline-end: 4px;
       font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-      margin-inline-start: auto;
-      vertical-align: middle;
-      flex-shrink: 0;
     }
-    .modal-step-body h4 {
+    .wizard-step {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      gap: 9px;
+      margin-bottom: 9px;
+      align-items: flex-start;
     }
+    .wizard-step-n {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .wizard-step-body {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      min-width: 0;
+      width: 100%;
+    }
+    .wizard-step-body b { color: var(--text-muted); font-weight: 600; }
+    .wizard-cmd {
+      margin-top: 5px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 7px;
+      padding: 7px 9px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.64rem;
+      color: var(--accent);
+      direction: ltr;
+      text-align: left;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(163,230,53,0.25) transparent;
+    }
+    .wizard-cmd::-webkit-scrollbar { height: 3px; }
+    .wizard-cmd::-webkit-scrollbar-track { background: transparent; }
+    .wizard-cmd::-webkit-scrollbar-thumb { background: rgba(163,230,53,0.25); border-radius: 2px; }
+    .wizard-dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 3px;
+      display: inline-block;
+    }
+    .wizard-dl:hover { background: rgba(163,230,53,0.18); }
 
     .install-divider {
       height: 1px;
@@ -482,142 +507,6 @@
       margin: 4px 0;
     }
 
-    /* ── MCP Modal ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(6px);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal {
-      background: #0f1117;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 36px;
-      max-width: 560px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 18px;
-      inset-inline-end: 18px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
-    }
-    .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text); }
-
-    .modal h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: -0.02em;
-    }
-    .modal .modal-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 28px;
-    }
-
-    .modal-step {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .modal-step-num {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .modal-step-body h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .modal-step-body p {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-    .modal-code {
-      background: rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      direction: ltr;
-      text-align: left;
-      white-space: pre;
-      overflow-x: auto;
-      position: relative;
-    }
-    .modal-code-copy {
-      position: absolute;
-      top: 6px;
-      right: 6px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: 0.65rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: 'Rubik', sans-serif;
-    }
-    .modal-code-copy:hover { background: rgba(255,255,255,0.1); }
-
-    .modal-paths {
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      line-height: 2;
-      font-family: 'JetBrains Mono', monospace;
-      direction: ltr;
-      text-align: left;
-    }
-
-    .modal-download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
-      color: var(--accent);
-      padding: 7px 16px;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      margin-top: 4px;
-    }
-    .modal-download-btn:hover { background: rgba(163,230,53,0.18); }
 
     /* ── Toast ── */
     #toast {
@@ -687,24 +576,6 @@
     footer p { font-size: 0.8rem; color: var(--text-muted); }
     footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--text); }
-
-    /* ── OS Tabs ── */
-    .os-tab {
-      padding: 6px 16px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s, border-color 0.15s;
-    }
-    .os-tab.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #000;
-      font-weight: 600;
-    }
 
     /* ── Animations ── */
     @keyframes fadeUp {
@@ -813,12 +684,13 @@
           </div>
           <div class="install-divider"></div>
           <div>
-            <div class="install-option-label">
-              🖼️ Claude Desktop + תמונות
-            </div>
+            <div class="install-option-label">🖼️ Claude Desktop + תמונות</div>
             <div class="card-url-row">
               <code>…/csharp/skill_mcp.md</code>
-              <button class="copy-btn" onclick="openMcpCheck(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">העתק</button>
+              <button class="copy-btn" onclick="wizardOpen('mcp-cs','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">השתמש</button>
+            </div>
+            <div class="mcp-wizard-panel" id="mcp-cs-panel">
+              <div class="wizard-inner" id="mcp-cs-inner"></div>
             </div>
           </div>
         </div>
@@ -842,12 +714,13 @@
           </div>
           <div class="install-divider"></div>
           <div>
-            <div class="install-option-label">
-              🖼️ Claude Desktop + תמונות
-            </div>
+            <div class="install-option-label">🖼️ Claude Desktop + תמונות</div>
             <div class="card-url-row">
               <code>…/java/skill_mcp.md</code>
-              <button class="copy-btn" onclick="openMcpCheck(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">העתק</button>
+              <button class="copy-btn" onclick="wizardOpen('mcp-java','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">השתמש</button>
+            </div>
+            <div class="mcp-wizard-panel" id="mcp-java-panel">
+              <div class="wizard-inner" id="mcp-java-inner"></div>
             </div>
           </div>
         </div>
@@ -906,102 +779,7 @@
   </footer>
 </div>
 
-<div id="toast">הועתק!</div>
-
-<!-- MCP installed? check mini-modal -->
-<div class="mcp-check-overlay" id="mcpCheckOverlay" onclick="closeMcpCheckOutside(event)">
-  <div class="mcp-check-box" id="mcpCheckBox">
-    <button class="modal-close" onclick="closeMcpCheck()" style="position:absolute;top:14px;inset-inline-end:14px">✕</button>
-    <h3>🖼️ Claude Desktop + תמונות</h3>
-    <p>יש לך את ה-MCP מותקן?</p>
-    <div class="mcp-check-btns">
-      <button class="mcp-btn-yes" onclick="mcpCheckYes()">כן ✓</button>
-      <button class="mcp-btn-no"  onclick="mcpCheckNo()">לא, התקן</button>
-    </div>
-    <div id="mcpUrlReveal" class="mcp-url-reveal" style="display:none">
-      <p>מעולה! עכשיו רק תדביק את זה ל-Claude 👇</p>
-      <div class="mcp-url-box">
-        <code id="mcpUrlCode"></code>
-        <button class="copy-btn" id="mcpUrlCopyBtn" onclick="mcpUrlCopy()">העתק</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- MCP Tutorial Modal -->
-<div class="modal-overlay" id="mcpModal" onclick="closeMcpModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeMcpModal()">✕</button>
-    <h2>🖼️ התקנת תמיכה בתמונות</h2>
-    <p class="modal-sub">מאפשר ל-Claude לראות תרשימים ותמונות בשאלות הבגרות. עובד רק עם Claude Desktop.</p>
-
-    <!-- OS tabs -->
-    <div style="display:flex;gap:8px;margin-bottom:16px;">
-      <button class="os-tab active" onclick="switchOS('win',this)">🪟 Windows</button>
-      <button class="os-tab" onclick="switchOS('mac',this)">🍎 macOS / Linux</button>
-    </div>
-
-    <!-- Windows -->
-    <div id="os-win">
-      <div class="modal-step">
-        <div class="modal-step-num">1</div>
-        <div class="modal-step-body">
-          <h4>התקנה אוטומטית — הדבק ב-PowerShell<span class="badge-recommended">מומלץ</span></h4>
-          <p>מוריד את הקובץ לתיקיית Documents\ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
-          <div class="modal-code" id="code-win">irm https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.ps1 | iex<button class="modal-code-copy" onclick="copyCode('code-win',this)">העתק</button></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- macOS / Linux -->
-    <div id="os-mac" style="display:none">
-      <div class="modal-step">
-        <div class="modal-step-num">1</div>
-        <div class="modal-step-body">
-          <h4>התקנה אוטומטית — הדבק בטרמינל<span class="badge-recommended">מומלץ</span></h4>
-          <p>מוריד את הקובץ לתיקיית Documents/ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
-          <div class="modal-code" id="code-mac">curl -fsSL https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.sh | bash<button class="modal-code-copy" onclick="copyCode('code-mac',this)">העתק</button></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-step">
-      <div class="modal-step-num">2</div>
-      <div class="modal-step-body">
-        <h4>הפעל מחדש את Claude Desktop</h4>
-        <p>סגור את Claude Desktop לחלוטין ופתח אותו מחדש. הכלי <code style="color:var(--accent);font-size:0.75rem">get_pdf_page</code> יופיע ברשימת הכלים.</p>
-      </div>
-    </div>
-
-    <div class="modal-step">
-      <div class="modal-step-num">3</div>
-      <div class="modal-step-body">
-        <h4>השתמש ב-URL של skill_mcp.md</h4>
-        <p>העתק את ה-URL עם MCP מהכרטיס של המקצוע ושלח אותו ל-Claude. הוא ידע לקרוא תמונות מה-PDF אוטומטית כשיש תרשים בשאלה.</p>
-      </div>
-    </div>
-
-    <!-- Manual fallback -->
-    <details style="margin-top:8px">
-      <summary style="cursor:pointer;font-size:0.8rem;color:var(--text-muted);padding:8px 0">התקנה ידנית ▾</summary>
-      <div style="margin-top:12px">
-        <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:8px">הורד את הקובץ ידנית:</p>
-        <a class="modal-download-btn" href="https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" target="_blank" download>⬇ הורד pdf_page_server.py</a>
-        <p style="font-size:0.8rem;color:var(--text-dim);margin:12px 0 6px">התקן ספריות:</p>
-        <div class="modal-code" id="code-pip">pip install mcp pymupdf requests<button class="modal-code-copy" onclick="copyCode('code-pip',this)">העתק</button></div>
-        <p style="font-size:0.8rem;color:var(--text-dim);margin:12px 0 6px">הוסף ל-claude_desktop_config.json (Windows — שים לב לנתיב עם \\):</p>
-        <div class="modal-code" id="code-config">{
-  "mcpServers": {
-    "sohelpmebagurt-pdf-viewer": {
-      "command": "python",
-      "args": ["C:\\\\Users\\\\YourName\\\\Documents\\\\ClaudeMCPs\\\\pdf_page_server.py"]
-    }
-  }
-}<button class="modal-code-copy" onclick="copyCode('code-config',this)">העתק</button></div>
-      </div>
-    </details>
-  </div>
-</div>
+<div id="toast"></div>
 
 <script>
   const HEBREW = 'אבגדהוזחטיכלמנסעפצקרשת';
@@ -1045,70 +823,142 @@
   );
 
   function copyUrl(btn, url) {
-    navigator.clipboard.writeText(url).then(() => {
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2000);
+    navigator.clipboard.writeText(url).then(() => showToast('הועתק!'));
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ── Inline MCP Wizard ──
+  const W = {};
+
+  function wizardOpen(id, url) {
+    // Toggle off if already open
+    const panel = document.getElementById(id + '-panel');
+    if (panel.style.maxHeight && panel.style.maxHeight !== '0px' && panel.style.maxHeight !== '') {
+      panel.style.maxHeight = '0';
+      return;
+    }
+    W[id] = { url, slide: 0, method: null, os: null };
+    renderWizard(id);
+    requestAnimationFrame(() => {
+      const inner = document.getElementById(id + '-inner');
+      panel.style.maxHeight = inner.scrollHeight + 20 + 'px';
     });
   }
 
-  function openMcpModal() {
-    document.getElementById('mcpModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function wizardClose(id) {
+    document.getElementById(id + '-panel').style.maxHeight = '0';
   }
-  function closeMcpModal() {
-    document.getElementById('mcpModal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeMcpModalOutside(e) {
-    if (e.target === document.getElementById('mcpModal')) closeMcpModal();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMcpModal(); closeMcpCheck(); } });
 
-  // ── MCP check flow ──
-  let _mcpCheckUrl = '';
-  function openMcpCheck(btn, url) {
-    _mcpCheckUrl = url;
-    document.getElementById('mcpUrlReveal').style.display = 'none';
-    document.getElementById('mcpUrlCode').textContent = url;
-    document.getElementById('mcpCheckOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeMcpCheck() {
-    document.getElementById('mcpCheckOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeMcpCheckOutside(e) {
-    if (e.target === document.getElementById('mcpCheckOverlay')) closeMcpCheck();
-  }
-  function mcpCheckYes() {
-    document.getElementById('mcpUrlReveal').style.display = '';
-  }
-  function mcpCheckNo() {
-    closeMcpCheck();
-    openMcpModal();
-  }
-  function mcpUrlCopy() {
-    navigator.clipboard.writeText(_mcpCheckUrl).then(() => {
-      const btn = document.getElementById('mcpUrlCopyBtn');
-      btn.textContent = '✓';
-      setTimeout(() => btn.textContent = 'העתק', 2000);
+  function renderWizard(id) {
+    const inner = document.getElementById(id + '-inner');
+    inner.innerHTML = slideHTML(id);
+    const panel = document.getElementById(id + '-panel');
+    requestAnimationFrame(() => {
+      panel.style.maxHeight = inner.scrollHeight + 20 + 'px';
     });
   }
 
-  function switchOS(os, btn) {
-    document.querySelectorAll('.os-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('os-win').style.display = os === 'win' ? '' : 'none';
-    document.getElementById('os-mac').style.display = os === 'mac' ? '' : 'none';
+  function slideHTML(id) {
+    const w = W[id];
+    if (w.slide === 0) return `
+      <div class="wizard-slide">
+        <p class="wizard-q">יש לך MCP מותקן?</p>
+        <div class="wizard-btns">
+          <button class="wbtn wbtn-yes" onclick="wizardYes('${id}')">כן ✓</button>
+          <button class="wbtn" onclick="wizardGo('${id}',1)">לא</button>
+        </div>
+      </div>`;
+    if (w.slide === 1) return `
+      <div class="wizard-slide">
+        <p class="wizard-q">איך תרצה להתקין?</p>
+        <div class="wizard-btns">
+          <button class="wbtn" onclick="wizardMethod('${id}','auto')"><span class="wizard-badge">מומלץ</span>אוטומטי</button>
+          <button class="wbtn" onclick="wizardMethod('${id}','manual')">ידני</button>
+        </div>
+      </div>`;
+    if (w.slide === 2) return `
+      <div class="wizard-slide">
+        <p class="wizard-q">בחר מערכת הפעלה:</p>
+        <div class="wizard-btns">
+          <button class="wbtn" onclick="wizardOS('${id}','win')">🪟 Windows</button>
+          <button class="wbtn" onclick="wizardOS('${id}','mac')">🍎 macOS / Linux</button>
+        </div>
+      </div>`;
+    if (w.slide === 3) return stepsHTML(id);
+    return '';
   }
 
-  function copyCode(id, btn) {
-    const el = document.getElementById(id);
-    const text = el.childNodes[0].textContent.trim();
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = '✓';
-      setTimeout(() => btn.textContent = 'העתק', 2000);
+  function stepsHTML(id) {
+    const w = W[id];
+    const isAuto = w.method === 'auto';
+    const isWin  = w.os === 'win';
+    if (isAuto) {
+      const cmd  = isWin
+        ? 'irm https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.ps1 | iex'
+        : 'curl -fsSL https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.sh | bash';
+      const term = isWin ? 'PowerShell' : 'Terminal';
+      return `
+        <div class="wizard-slide">
+          <div class="wizard-step">
+            <div class="wizard-step-n">1</div>
+            <div class="wizard-step-body"><b>הדבק ב-${term}:</b><div class="wizard-cmd">${cmd}</div></div>
+          </div>
+          <div class="wizard-step">
+            <div class="wizard-step-n">2</div>
+            <div class="wizard-step-body"><b>הפעל מחדש את Claude Desktop</b></div>
+          </div>
+          <button class="wbtn wbtn-done" onclick="wizardDone('${id}')">סיום — העתק את ה-URL ✓</button>
+        </div>`;
+    }
+    const pip  = isWin ? 'pip install mcp pymupdf requests' : 'pip3 install mcp pymupdf requests --break-system-packages';
+    const py   = isWin ? 'python' : 'python3';
+    const path = isWin
+      ? 'C:\\\\Users\\\\YourName\\\\Documents\\\\ClaudeMCPs\\\\pdf_page_server.py'
+      : '~/Documents/ClaudeMCPs/pdf_page_server.py';
+    const cfg = `{"mcpServers":{"sohelpmebagurt-pdf-viewer":{"command":"${py}","args":["${path}"]}}}`;
+    return `
+      <div class="wizard-slide">
+        <div class="wizard-step">
+          <div class="wizard-step-n">1</div>
+          <div class="wizard-step-body">
+            <a class="wizard-dl" href="https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" download>⬇ הורד pdf_page_server.py</a>
+          </div>
+        </div>
+        <div class="wizard-step">
+          <div class="wizard-step-n">2</div>
+          <div class="wizard-step-body"><b>התקן ספריות:</b><div class="wizard-cmd">${pip}</div></div>
+        </div>
+        <div class="wizard-step">
+          <div class="wizard-step-n">3</div>
+          <div class="wizard-step-body"><b>הוסף ל-claude_desktop_config.json:</b><div class="wizard-cmd">${cfg}</div></div>
+        </div>
+        <div class="wizard-step">
+          <div class="wizard-step-n">4</div>
+          <div class="wizard-step-body"><b>הפעל מחדש את Claude Desktop</b></div>
+        </div>
+        <button class="wbtn wbtn-done" onclick="wizardDone('${id}')">סיום — העתק את ה-URL ✓</button>
+      </div>`;
+  }
+
+  function wizardYes(id) {
+    navigator.clipboard.writeText(W[id].url).then(() => {
+      wizardClose(id);
+      showToast('הלינק הועתק! תדביק אותו ל-Claude 🎉');
+    });
+  }
+  function wizardGo(id, slide) { W[id].slide = slide; renderWizard(id); }
+  function wizardMethod(id, m)  { W[id].method = m; W[id].slide = 2; renderWizard(id); }
+  function wizardOS(id, os)     { W[id].os = os;    W[id].slide = 3; renderWizard(id); }
+  function wizardDone(id) {
+    navigator.clipboard.writeText(W[id].url).then(() => {
+      wizardClose(id);
+      showToast('הלינק הועתק! תדביק אותו ל-Claude 🎉');
     });
   }
 </script>
