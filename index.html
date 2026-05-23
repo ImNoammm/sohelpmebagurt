@@ -541,27 +541,11 @@
       text-align: right; opacity: 0.7;
     }
     .rtl-fix-link:hover { opacity: 1; color: var(--text-dim); }
-    .rtl-modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.72); backdrop-filter: blur(6px);
-      z-index: 1000; align-items: center; justify-content: center; padding: 24px;
+    .card-page-rtl { display: none; }
+    .wiz-page-title {
+      font-size: 0.75rem; font-weight: 700; color: var(--text);
+      margin-inline-start: 6px;
     }
-    .rtl-modal-overlay.open { display: flex; }
-    .rtl-modal {
-      background: #0f1117; border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px; padding: 28px 28px 22px;
-      max-width: 500px; width: 100%; position: relative;
-    }
-    .rtl-modal-close {
-      position: absolute; top: 14px; inset-inline-end: 14px;
-      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
-      color: var(--text-dim); width: 28px; height: 28px;
-      border-radius: 50%; cursor: pointer; font-size: 0.85rem;
-      display: flex; align-items: center; justify-content: center; transition: all 0.2s;
-    }
-    .rtl-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
-    .rtl-modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-    .rtl-modal > p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
     .rtl-code-wrap {
       background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.07);
       border-radius: 8px; padding: 10px 12px;
@@ -764,10 +748,17 @@
 
       <!-- C# -->
       <div class="subject-card active">
+        <div class="card-page-rtl" id="pages-cs-rtl">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="closeRtlSlide('pages-cs')">← חזרה</button>
+            <span class="wiz-page-title">תיקון פורמט ב-Claude</span>
+          </div>
+          <div id="pages-cs-rtl-inner"></div>
+        </div>
         <div class="card-page-wizard" id="pages-cs-wiz">
           <div class="wiz-back-row">
             <button class="wiz-back-btn" onclick="wizardBack('mcp-cs')">← חזרה</button>
-            <button class="rtl-fix-link" onclick="openRtlModal()" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-cs')" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
           <div class="wizard-inner" id="mcp-cs-inner"></div>
         </div>
@@ -786,7 +777,7 @@
                 <button class="copy-btn" onclick="wizardOpen('mcp-cs','pages-cs','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">השתמש</button>
               </div>
             </div>
-            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-cs')">תיקון לפורמט טקסט ב-Claude ↗</button>
             <div class="install-divider"></div>
             <div>
               <div class="install-option-label">🤖 כל AI <span style="font-size:0.6rem;opacity:0.55">(ניסיוני)</span></div>
@@ -801,10 +792,17 @@
 
       <!-- Java -->
       <div class="subject-card active">
+        <div class="card-page-rtl" id="pages-java-rtl">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="closeRtlSlide('pages-java')">← חזרה</button>
+            <span class="wiz-page-title">תיקון פורמט ב-Claude</span>
+          </div>
+          <div id="pages-java-rtl-inner"></div>
+        </div>
         <div class="card-page-wizard" id="pages-java-wiz">
           <div class="wiz-back-row">
             <button class="wiz-back-btn" onclick="wizardBack('mcp-java')">← חזרה</button>
-            <button class="rtl-fix-link" onclick="openRtlModal()" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-java')" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
           <div class="wizard-inner" id="mcp-java-inner"></div>
         </div>
@@ -823,7 +821,7 @@
                 <button class="copy-btn" onclick="wizardOpen('mcp-java','pages-java','https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">השתמש</button>
               </div>
             </div>
-            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-java')">תיקון לפורמט טקסט ב-Claude ↗</button>
             <div class="install-divider"></div>
             <div>
               <div class="install-option-label">🤖 כל AI <span style="font-size:0.6rem;opacity:0.55">(ניסיוני)</span></div>
@@ -838,10 +836,17 @@
 
       <!-- Math -->
       <div class="subject-card active">
+        <div class="card-page-rtl" id="pages-math-rtl">
+          <div class="wiz-back-row">
+            <button class="wiz-back-btn" onclick="closeRtlSlide('pages-math')">← חזרה</button>
+            <span class="wiz-page-title">תיקון פורמט ב-Claude</span>
+          </div>
+          <div id="pages-math-rtl-inner"></div>
+        </div>
         <div class="card-page-wizard" id="pages-math-wiz">
           <div class="wiz-back-row">
             <button class="wiz-back-btn" onclick="wizardBack('mcp-math')">← חזרה</button>
-            <button class="rtl-fix-link" onclick="openRtlModal()" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-math')" style="padding:0;margin-inline-start:auto">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
           <div class="wizard-inner" id="mcp-math-inner"></div>
         </div>
@@ -861,7 +866,7 @@
                 <button class="copy-btn" onclick="wizardOpen('mcp-math','pages-math','https://imnoammm.github.io/sohelpmebagurt/subject/Math/skill_mcp.md')">השתמש</button>
               </div>
             </div>
-            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
+            <button class="rtl-fix-link" onclick="openRtlSlide('pages-math')">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
         </div>
       </div>
@@ -951,34 +956,6 @@
   return 'RTL auto-fix active — Hebrew paragraphs flip RTL, English/code stay LTR, applies to new messages too';
 })();</textarea>
 
-<!-- RTL Fix Modal -->
-<div class="rtl-modal-overlay" id="rtlModal" onclick="closeRtlOutside(event)">
-  <div class="rtl-modal">
-    <button class="rtl-modal-close" onclick="closeRtlModal()">✕</button>
-    <h3>תיקון לפורמט טקסט ב-Claude</h3>
-    <p>העתק את הקוד והדבק אותו ב-Console של Claude Desktop כדי שטקסט עברי יוצג מימין לשמאל:</p>
-    <button class="rtl-show-code" id="rtl-show-code-btn" onclick="toggleRtlCode()">הצג קוד ▾</button>
-    <div class="rtl-code-wrap" id="rtl-code-wrap" style="display:none"><pre id="rtl-code-display"></pre></div>
-    <button class="rtl-copy-btn" id="rtl-copy-btn" onclick="copyRtlCode()">העתק קוד</button>
-    <button class="rtl-help-toggle" onclick="toggleRtlHelp()">❓ איך משתמשים בזה? ▾</button>
-    <div class="rtl-steps" id="rtl-help-steps" style="display:none">
-      <div class="wizard-step">
-        <div class="wizard-step-n">1</div>
-        <div class="wizard-step-body">
-          <b>הפעל Developer Mode</b> — צריך לעשות רק פעם אחת.<br>
-          לאחר התקנת ה-MCP, לחץ על ☰ בפינה השמאלית העליונה של Claude Desktop ← <code>Help</code> ← <code>Troubleshooting</code> ← <code>Enable Developer Mode</code>
-        </div>
-      </div>
-      <div class="wizard-step">
-        <div class="wizard-step-n">2</div>
-        <div class="wizard-step-body">
-          פתח שיחה חדשה. לחץ לחיצה ימנית בכל מקום בחלון ← <code>Inspect Element</code> ← לחץ על הכרטיסייה <code>Console</code> ← הדבק את הקוד.<br>
-          אם תתבקש, כתוב <code>allow pasting</code> ולחץ Enter, ואז הדבק שוב ולחץ Enter. 🎉
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script>
   const HEBREW = 'אבגדהוזחטיכלמנסעפצקרשת';
@@ -1180,49 +1157,90 @@
     });
   }
 
-  // ── RTL Fix Modal ──
-  function openRtlModal() {
-    const code = document.getElementById('rtl-code-store').value.trim();
-    document.getElementById('rtl-code-display').textContent = code;
-    document.getElementById('rtl-code-wrap').style.display = 'none';
-    document.getElementById('rtl-show-code-btn').textContent = 'הצג קוד ▾';
-    document.getElementById('rtl-help-steps').style.display = 'none';
-    document.querySelector('.rtl-help-toggle').textContent = '❓ איך משתמשים בזה? ▾';
-    document.getElementById('rtlModal').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  // ── RTL Fix Slide ──
+  function rtlPageHTML(pid) {
+    return `
+      <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:10px">
+        העתק את הקוד והדבק ב-Console של Claude Desktop כדי שטקסט עברי יוצג מימין לשמאל:
+      </p>
+      <button class="rtl-show-code" id="${pid}-sc-btn" onclick="toggleRtlCode('${pid}')">הצג קוד ▾</button>
+      <div class="rtl-code-wrap" id="${pid}-code-wrap" style="display:none"><pre id="${pid}-rtl-code"></pre></div>
+      <button class="rtl-copy-btn" id="${pid}-copy-btn" onclick="copyRtlCode('${pid}')">העתק קוד</button>
+      <button class="rtl-help-toggle" id="${pid}-help-toggle" onclick="toggleRtlHelp('${pid}')">❓ איך משתמשים בזה? ▾</button>
+      <div class="rtl-steps" id="${pid}-help-steps" style="display:none">
+        <div class="wizard-step">
+          <div class="wizard-step-n">1</div>
+          <div class="wizard-step-body">
+            <b>הפעל Developer Mode</b> — צריך לעשות רק פעם אחת.<br>
+            לאחר התקנת ה-MCP, לחץ על ☰ בפינה השמאלית העליונה של Claude Desktop ← <code>Help</code> ← <code>Troubleshooting</code> ← <code>Enable Developer Mode</code>
+          </div>
+        </div>
+        <div class="wizard-step">
+          <div class="wizard-step-n">2</div>
+          <div class="wizard-step-body">
+            פתח שיחה חדשה. לחץ לחיצה ימנית בכל מקום בחלון ← <code>Inspect Element</code> ← לחץ על הכרטיסייה <code>Console</code> ← הדבק את הקוד.<br>
+            אם תתבקש, כתוב <code>allow pasting</code> ולחץ Enter, ואז הדבק שוב ולחץ Enter. 🎉
+          </div>
+        </div>
+      </div>`;
   }
-  function toggleRtlCode() {
-    const wrap = document.getElementById('rtl-code-wrap');
-    const btn = document.getElementById('rtl-show-code-btn');
-    const isHidden = wrap.style.display === 'none';
-    wrap.style.display = isHidden ? '' : 'none';
-    btn.textContent = isHidden ? 'הסתר קוד ▴' : 'הצג קוד ▾';
+  function openRtlSlide(pid) {
+    const main = document.getElementById(pid + '-main');
+    const wiz  = document.getElementById(pid + '-wiz');
+    const rtl  = document.getElementById(pid + '-rtl');
+    document.getElementById(pid + '-rtl-inner').innerHTML = rtlPageHTML(pid);
+    document.getElementById(pid + '-rtl-code').textContent = document.getElementById('rtl-code-store').value.trim();
+    const fromWiz = wiz.style.display === 'block';
+    if (fromWiz) {
+      wiz.style.display = 'none';
+      rtl.style.display = 'block';
+      rtl.style.animation = 'cSlideInLeft 0.28s ease';
+      setTimeout(() => { rtl.style.animation = ''; }, 280);
+    } else {
+      main.style.animation = 'cSlideOutRight 0.22s ease forwards';
+      setTimeout(() => {
+        main.style.display = 'none';
+        main.style.animation = '';
+        rtl.style.display = 'block';
+        rtl.style.animation = 'cSlideInLeft 0.28s ease';
+        setTimeout(() => { rtl.style.animation = ''; }, 280);
+      }, 210);
+    }
   }
-  function closeRtlModal() {
-    document.getElementById('rtlModal').classList.remove('open');
-    document.body.style.overflow = '';
+  function closeRtlSlide(pid) {
+    const main = document.getElementById(pid + '-main');
+    const rtl  = document.getElementById(pid + '-rtl');
+    rtl.style.animation = 'cSlideOutLeft 0.22s ease forwards';
+    setTimeout(() => {
+      rtl.style.display = 'none';
+      rtl.style.animation = '';
+      main.style.display = 'block';
+      main.style.animation = 'cSlideInRight 0.28s ease';
+      setTimeout(() => { main.style.animation = ''; }, 280);
+    }, 210);
   }
-  function closeRtlOutside(e) {
-    if (e.target === document.getElementById('rtlModal')) closeRtlModal();
+  function toggleRtlCode(pid) {
+    const wrap = document.getElementById(pid + '-code-wrap');
+    const btn  = document.getElementById(pid + '-sc-btn');
+    const hidden = wrap.style.display === 'none';
+    wrap.style.display = hidden ? '' : 'none';
+    btn.textContent = hidden ? 'הסתר קוד ▴' : 'הצג קוד ▾';
   }
-  function copyRtlCode() {
+  function copyRtlCode(pid) {
     const code = document.getElementById('rtl-code-store').value.trim();
     navigator.clipboard.writeText(code).then(() => {
-      const btn = document.getElementById('rtl-copy-btn');
+      const btn = document.getElementById(pid + '-copy-btn');
       btn.textContent = '✓ הועתק!';
       setTimeout(() => btn.textContent = 'העתק קוד', 2000);
     });
   }
-  function toggleRtlHelp() {
-    const steps = document.getElementById('rtl-help-steps');
-    const toggle = document.querySelector('.rtl-help-toggle');
-    const isHidden = steps.style.display === 'none';
-    steps.style.display = isHidden ? '' : 'none';
-    toggle.textContent = isHidden ? '❓ איך משתמשים בזה? ▴' : '❓ איך משתמשים בזה? ▾';
+  function toggleRtlHelp(pid) {
+    const steps  = document.getElementById(pid + '-help-steps');
+    const toggle = document.getElementById(pid + '-help-toggle');
+    const hidden = steps.style.display === 'none';
+    steps.style.display = hidden ? '' : 'none';
+    toggle.textContent = hidden ? '❓ איך משתמשים בזה? ▴' : '❓ איך משתמשים בזה? ▾';
   }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeRtlModal();
-  });
 </script>
 
 </body>
