@@ -353,6 +353,177 @@
     }
     .copy-btn:hover { background: rgba(163,230,53,0.18); }
 
+    /* ── Install options ── */
+    .install-options { display: flex; flex-direction: column; gap: 10px; }
+
+    .install-option-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mcp-guide-btn {
+      background: none;
+      border: none;
+      color: var(--blue);
+      font-size: 0.68rem;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .mcp-guide-btn:hover { color: #93c5fd; }
+
+    .install-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    /* ── MCP Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: #0f1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 560px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      inset-inline-end: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+
+    .modal h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .modal .modal-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .modal-step {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .modal-step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .modal-step-body h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .modal-step-body p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .modal-code {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      direction: ltr;
+      text-align: left;
+      white-space: pre;
+      overflow-x: auto;
+      position: relative;
+    }
+    .modal-code-copy {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+    }
+    .modal-code-copy:hover { background: rgba(255,255,255,0.1); }
+
+    .modal-paths {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 2;
+      font-family: 'JetBrains Mono', monospace;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .modal-download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .modal-download-btn:hover { background: rgba(163,230,53,0.18); }
+
     /* ── Toast ── */
     #toast {
       position: fixed;
@@ -519,9 +690,25 @@
         </div>
         <div class="card-title">מדעי המחשב — C#</div>
         <div class="card-subtitle">שאלון 899381 / 899271 · C#</div>
-        <div class="card-url-row">
-          <code>imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md</code>
-          <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md?v=2')">העתק</button>
+        <div class="install-options">
+          <div>
+            <div class="install-option-label">🤖 כל AI</div>
+            <div class="card-url-row">
+              <code>…/csharp/skill.md</code>
+              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md?v=2')">העתק</button>
+            </div>
+          </div>
+          <div class="install-divider"></div>
+          <div>
+            <div class="install-option-label">
+              🖼️ Claude Desktop + תמונות
+              <button class="mcp-guide-btn" onclick="openMcpModal()">מדריך התקנה ↗</button>
+            </div>
+            <div class="card-url-row">
+              <code>…/csharp/skill_mcp.md</code>
+              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">העתק</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -533,9 +720,25 @@
         </div>
         <div class="card-title">מדעי המחשב — Java</div>
         <div class="card-subtitle">שאלון 899381 / 899271 · Java</div>
-        <div class="card-url-row">
-          <code>imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md</code>
-          <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md?v=2')">העתק</button>
+        <div class="install-options">
+          <div>
+            <div class="install-option-label">🤖 כל AI</div>
+            <div class="card-url-row">
+              <code>…/java/skill.md</code>
+              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md?v=2')">העתק</button>
+            </div>
+          </div>
+          <div class="install-divider"></div>
+          <div>
+            <div class="install-option-label">
+              🖼️ Claude Desktop + תמונות
+              <button class="mcp-guide-btn" onclick="openMcpModal()">מדריך התקנה ↗</button>
+            </div>
+            <div class="card-url-row">
+              <code>…/java/skill_mcp.md</code>
+              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">העתק</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -594,6 +797,69 @@
 
 <div id="toast">הועתק!</div>
 
+<!-- MCP Tutorial Modal -->
+<div class="modal-overlay" id="mcpModal" onclick="closeMcpModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeMcpModal()">✕</button>
+    <h2>🖼️ התקנת תמיכה בתמונות</h2>
+    <p class="modal-sub">מאפשר ל-Claude לראות תרשימים ותמונות בשאלות הבגרות. עובד רק עם Claude Desktop.</p>
+
+    <div class="modal-step">
+      <div class="modal-step-num">1</div>
+      <div class="modal-step-body">
+        <h4>התקן ספריות Python</h4>
+        <p>פתח טרמינל והרץ:</p>
+        <div class="modal-code" id="code-pip">pip install mcp pymupdf requests<button class="modal-code-copy" onclick="copyCode('code-pip', this)">העתק</button></div>
+      </div>
+    </div>
+
+    <div class="modal-step">
+      <div class="modal-step-num">2</div>
+      <div class="modal-step-body">
+        <h4>הורד את ה-Server</h4>
+        <p>הורד את הקובץ ושמור אותו במקום קבוע (לדוגמה: <code style="color:var(--accent);font-size:0.75rem">~/sohelpmebagurt/pdf_page_server.py</code>)</p>
+        <a class="modal-download-btn" href="https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" target="_blank" download>⬇ הורד pdf_page_server.py</a>
+      </div>
+    </div>
+
+    <div class="modal-step">
+      <div class="modal-step-num">3</div>
+      <div class="modal-step-body">
+        <h4>הוסף ל-Claude Desktop Config</h4>
+        <p>פתח את קובץ ההגדרות של Claude Desktop לפי מערכת ההפעלה שלך:</p>
+        <div class="modal-paths">macOS:   ~/Library/Application Support/Claude/claude_desktop_config.json
+Windows: %APPDATA%\Claude\claude_desktop_config.json
+Linux:   ~/.config/Claude/claude_desktop_config.json</div>
+        <p style="margin-top:10px">הוסף את הבלוק הבא (החלף את הנתיב לנתיב שבו שמרת את הקובץ):</p>
+        <div class="modal-code" id="code-config">{
+  "mcpServers": {
+    "sohelpmebagurt-pdf-viewer": {
+      "command": "python3",
+      "args": ["/path/to/pdf_page_server.py"]
+    }
+  }
+}<button class="modal-code-copy" onclick="copyCode('code-config', this)">העתק</button></div>
+      </div>
+    </div>
+
+    <div class="modal-step">
+      <div class="modal-step-num">4</div>
+      <div class="modal-step-body">
+        <h4>הפעל מחדש את Claude Desktop</h4>
+        <p>סגור את Claude Desktop לחלוטין ופתח אותו מחדש. הכלי <code style="color:var(--accent);font-size:0.75rem">get_pdf_page</code> יופיע ברשימת הכלים.</p>
+      </div>
+    </div>
+
+    <div class="modal-step">
+      <div class="modal-step-num">5</div>
+      <div class="modal-step-body">
+        <h4>השתמש ב-URL של skill_mcp.md</h4>
+        <p>העתק את ה-URL עם MCP מהכרטיס של המקצוע ושלח אותו ל-Claude. הוא ידע לקרוא תמונות מה-PDF אוטומטית כשיש תרשים בשאלה.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   const HEBREW = 'אבגדהוזחטיכלמנסעפצקרשת';
   const LATIN  = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -640,6 +906,28 @@
       const toast = document.getElementById('toast');
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 2000);
+    });
+  }
+
+  function openMcpModal() {
+    document.getElementById('mcpModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMcpModal() {
+    document.getElementById('mcpModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeMcpModalOutside(e) {
+    if (e.target === document.getElementById('mcpModal')) closeMcpModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMcpModal(); });
+
+  function copyCode(id, btn) {
+    const el = document.getElementById(id);
+    const text = el.childNodes[0].textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✓';
+      setTimeout(() => btn.textContent = 'העתק', 2000);
     });
   }
 </script>
