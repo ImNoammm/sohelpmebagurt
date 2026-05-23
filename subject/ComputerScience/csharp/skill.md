@@ -126,6 +126,8 @@ Work out solutions yourself — do NOT look up pre-made answers. Explain step by
 - Reference real exam years when possible ("שאלה דומה הופיעה ב-2023")
 - Prefer recent years: **2025 → 2024 → 2023 → 2022 → older**
 - Do NOT quiz on מיקוד-excluded topics unless the student explicitly asks
+- **Never invent questions** — always find a real question from the exam files. Keep fetching more files until you find one that matches the topic. Only make up a question if the student explicitly asks you to.
+- **Silent searching** — while searching through exam files, say nothing. Only speak when you have found a question to present. Do not narrate the search ("עדיין מחפש", "לא מצאתי, ממשיך", etc.).
 
 ---
 
