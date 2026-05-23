@@ -64,7 +64,6 @@ Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. Fetch the re
 
 ### 899222
 2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/899222.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/899222.pdf
 2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/899222.pdf
 2016 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2016/8/HEB/899222.pdf
 2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/899222.pdf
@@ -91,13 +90,8 @@ Israeli CS Bagrut exam PDFs, direct from the Ministry of Education. Fetch the re
 2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/899122.pdf
 2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/899122.pdf
 
-### 603
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/603.pdf
-
 ### 602
 2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/602.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/602.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/602.pdf
 
 
 ---
