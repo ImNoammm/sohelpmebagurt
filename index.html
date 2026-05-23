@@ -430,12 +430,33 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 16px;
-      text-align: right;
     }
     .mcp-url-reveal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; text-align: center; }
-    .mcp-url-reveal .card-url-row { justify-content: center; }
+    .mcp-url-box {
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 0;
+    }
+    .mcp-url-box code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      direction: ltr;
+      text-align: left;
+      display: block;
+      min-width: 0;
+    }
+    .mcp-url-box .copy-btn { width: 100%; text-align: center; }
 
-    /* מומלץ badge */
+    /* מומלץ badge — pushed to the inline-end of the heading */
     .badge-recommended {
       display: inline-block;
       background: var(--accent);
@@ -445,8 +466,14 @@
       padding: 2px 6px;
       border-radius: 4px;
       letter-spacing: 0.04em;
-      margin-right: 6px;
+      margin-inline-start: auto;
       vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .modal-step-body h4 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .install-divider {
@@ -893,8 +920,8 @@
     </div>
     <div id="mcpUrlReveal" class="mcp-url-reveal" style="display:none">
       <p>מעולה! עכשיו רק תדביק את זה ל-Claude 👇</p>
-      <div class="card-url-row" style="justify-content:center">
-        <code id="mcpUrlCode" style="font-size:0.7rem;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></code>
+      <div class="mcp-url-box">
+        <code id="mcpUrlCode"></code>
         <button class="copy-btn" id="mcpUrlCopyBtn" onclick="mcpUrlCopy()">העתק</button>
       </div>
     </div>
@@ -919,7 +946,7 @@
       <div class="modal-step">
         <div class="modal-step-num">1</div>
         <div class="modal-step-body">
-          <h4><span class="badge-recommended">מומלץ</span>התקנה אוטומטית — הדבק ב-PowerShell</h4>
+          <h4>התקנה אוטומטית — הדבק ב-PowerShell<span class="badge-recommended">מומלץ</span></h4>
           <p>מוריד את הקובץ לתיקיית Documents\ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
           <div class="modal-code" id="code-win">irm https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.ps1 | iex<button class="modal-code-copy" onclick="copyCode('code-win',this)">העתק</button></div>
         </div>
@@ -931,7 +958,7 @@
       <div class="modal-step">
         <div class="modal-step-num">1</div>
         <div class="modal-step-body">
-          <h4><span class="badge-recommended">מומלץ</span>התקנה אוטומטית — הדבק בטרמינל</h4>
+          <h4>התקנה אוטומטית — הדבק בטרמינל<span class="badge-recommended">מומלץ</span></h4>
           <p>מוריד את הקובץ לתיקיית Documents/ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
           <div class="modal-code" id="code-mac">curl -fsSL https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.sh | bash<button class="modal-code-copy" onclick="copyCode('code-mac',this)">העתק</button></div>
         </div>
