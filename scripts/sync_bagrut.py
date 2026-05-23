@@ -133,7 +133,7 @@ def build_url_block(exams):
     by_sheelon: dict[str, list[tuple[str, str, str]]] = {}
     for exam in exams:
         pdf_url = exam.get("question")
-        if not pdf_url:
+        if not pdf_url or "pitron" in pdf_url.lower():
             continue
         sheelon = exam["semel_sheelon"]
         year    = exam["shana"]
