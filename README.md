@@ -8,10 +8,14 @@ AI-powered Israeli Bagrut exam tutor. Paste a skill file URL into Claude (or any
 
 ## Available Subjects
 
-| Subject | Variant | Skill URL |
-|---|---|---|
-| מדעי המחשב | Java | `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill.md` |
-| מדעי המחשב | C# | `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill.md` |
+| Subject | Variant | Skill URL | With MCP (image support) |
+|---|---|---|---|
+| מדעי המחשב | Java | `…/java/skill.md` | `…/java/skill_mcp.md` |
+| מדעי המחשב | C# | `…/csharp/skill.md` | `…/csharp/skill_mcp.md` |
+
+Base URL: `https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/`
+
+Use `skill.md` with any AI assistant. Use `skill_mcp.md` only if you have the MCP server installed in Claude Desktop — it adds instructions that tell Claude to use the `get_pdf_page` tool when a question has a figure or diagram.
 
 More subjects coming soon.
 

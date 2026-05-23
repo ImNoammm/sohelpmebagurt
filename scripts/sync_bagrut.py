@@ -18,8 +18,10 @@ def ensure(pkg, import_as=None):
 
 BASE_URL   = "https://meyda.education.gov.il"
 API_URL    = f"{BASE_URL}/bagmgr/Ajax.ashx"
-JAVA_SKILL = Path("subject/ComputerScience/java/skill.md")
-CSHARP_SKILL = Path("subject/ComputerScience/csharp/skill.md")
+JAVA_SKILL      = Path("subject/ComputerScience/java/skill.md")
+JAVA_SKILL_MCP  = Path("subject/ComputerScience/java/skill_mcp.md")
+CSHARP_SKILL    = Path("subject/ComputerScience/csharp/skill.md")
+CSHARP_SKILL_MCP = Path("subject/ComputerScience/csharp/skill_mcp.md")
 
 KNOWN_CSRT = "3016677356254188609"  # static DNN token, extracted from the site
 
@@ -101,7 +103,7 @@ def update_skill_files(url_block):
         + (url_block if url_block else "_none yet — sync pending_")
     )
 
-    for skill_file in (JAVA_SKILL, CSHARP_SKILL):
+    for skill_file in (JAVA_SKILL, JAVA_SKILL_MCP, CSHARP_SKILL, CSHARP_SKILL_MCP):
         text = skill_file.read_text(encoding="utf-8")
         text = re.sub(
             r"## Past Exam Files\b.*?(?=\n---|\n## |\Z)",
