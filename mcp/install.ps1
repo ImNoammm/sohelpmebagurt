@@ -65,24 +65,24 @@ if (-not $configPath) {
 
 Write-Host "Config: $configPath"
 
-# ── Update config ─────────────────────────────────────────────────────────────
-if (Test-Path $configPath) {
-    try { $config = Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Json }
-    catch { $config = [PSCustomObject]@{} }
-} else {
-    $config = [PSCustomObject]@{}
+# ── Update config via Python (avoids ConvertTo-Json bugs) ────────────────────
+$pyScript = @"
+import json, sys
+config_path, server_path, py_cmd = sys.argv[1], sys.argv[2], sys.argv[3]
+try:
+    with open(config_path, encoding='utf-8') as f:
+        config = json.load(f)
+except Exception:
+    config = {}
+config.setdefault('mcpServers', {})['sohelpmebagurt-pdf-viewer'] = {
+    'command': py_cmd,
+    'args': [server_path]
 }
+with open(config_path, 'w', encoding='utf-8') as f:
+    json.dump(config, f, indent=2, ensure_ascii=False)
+"@
 
-if (-not $config.PSObject.Properties["mcpServers"]) {
-    $config | Add-Member -MemberType NoteProperty -Name "mcpServers" -Value ([PSCustomObject]@{})
-}
-
-$config.mcpServers | Add-Member -MemberType NoteProperty -Name "sohelpmebagurt-pdf-viewer" -Value (
-    [PSCustomObject]@{ command = $py; args = @("$dir\pdf_page_server.py") }
-) -Force
-
-# ConvertTo-Json handles backslash escaping automatically
-$config | ConvertTo-Json -Depth 10 | Set-Content $configPath -Encoding UTF8
+& $py -c $pyScript $configPath "$dir\pdf_page_server.py" $py
 
 # ── Done ──────────────────────────────────────────────────────────────────────
 $skillUrl = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1"
