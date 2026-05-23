@@ -542,6 +542,13 @@
       color: var(--accent); direction: ltr; text-align: left;
       white-space: pre; margin: 0;
     }
+    .rtl-show-code {
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-muted); font-size: 0.75rem; cursor: pointer;
+      font-family: 'Rubik', sans-serif; padding: 4px 10px;
+      border-radius: 6px; display: block; margin-bottom: 10px; transition: all 0.15s;
+    }
+    .rtl-show-code:hover { color: var(--text); border-color: rgba(255,255,255,0.3); }
     .rtl-copy-btn {
       display: block; width: 100%; margin-bottom: 12px; padding: 9px;
       background: var(--accent); border: none; color: #000;
@@ -550,12 +557,15 @@
     }
     .rtl-copy-btn:hover { opacity: 0.85; }
     .rtl-help-toggle {
-      background: none; border: none; color: var(--text-muted);
-      font-size: 0.78rem; cursor: pointer; font-family: 'Rubik', sans-serif;
-      padding: 0 0 8px; display: block;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 9px; margin-bottom: 4px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text); font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; font-family: 'Rubik', sans-serif;
+      border-radius: 8px; transition: all 0.15s;
     }
-    .rtl-help-toggle:hover { color: var(--text); }
-    .rtl-steps { margin-top: 4px; display: flex; flex-direction: column; gap: 10px; }
+    .rtl-help-toggle:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); }
+    .rtl-steps { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
 
     .install-divider {
       height: 1px;
@@ -899,10 +909,11 @@
   <div class="rtl-modal">
     <button class="rtl-modal-close" onclick="closeRtlModal()">✕</button>
     <h3>תיקון לפורמט טקסט ב-Claude</h3>
-    <p>הדבק את הקוד הבא ב-Console של Claude Desktop כדי שטקסט עברי יוצג מימין לשמאל:</p>
-    <div class="rtl-code-wrap"><pre id="rtl-code-display"></pre></div>
+    <p>העתק את הקוד והדבק אותו ב-Console של Claude Desktop כדי שטקסט עברי יוצג מימין לשמאל:</p>
+    <button class="rtl-show-code" id="rtl-show-code-btn" onclick="toggleRtlCode()">הצג קוד ▾</button>
+    <div class="rtl-code-wrap" id="rtl-code-wrap" style="display:none"><pre id="rtl-code-display"></pre></div>
     <button class="rtl-copy-btn" id="rtl-copy-btn" onclick="copyRtlCode()">העתק קוד</button>
-    <button class="rtl-help-toggle" onclick="toggleRtlHelp()">צריך עזרה? ▾</button>
+    <button class="rtl-help-toggle" onclick="toggleRtlHelp()">❓ איך משתמשים בזה? ▾</button>
     <div class="rtl-steps" id="rtl-help-steps" style="display:none">
       <div class="wizard-step">
         <div class="wizard-step-n">1</div>
@@ -1107,10 +1118,19 @@
   function openRtlModal() {
     const code = document.getElementById('rtl-code-store').value.trim();
     document.getElementById('rtl-code-display').textContent = code;
+    document.getElementById('rtl-code-wrap').style.display = 'none';
+    document.getElementById('rtl-show-code-btn').textContent = 'הצג קוד ▾';
     document.getElementById('rtl-help-steps').style.display = 'none';
-    document.querySelector('.rtl-help-toggle').textContent = 'צריך עזרה? ▾';
+    document.querySelector('.rtl-help-toggle').textContent = '❓ איך משתמשים בזה? ▾';
     document.getElementById('rtlModal').classList.add('open');
     document.body.style.overflow = 'hidden';
+  }
+  function toggleRtlCode() {
+    const wrap = document.getElementById('rtl-code-wrap');
+    const btn = document.getElementById('rtl-show-code-btn');
+    const isHidden = wrap.style.display === 'none';
+    wrap.style.display = isHidden ? '' : 'none';
+    btn.textContent = isHidden ? 'הסתר קוד ▴' : 'הצג קוד ▾';
   }
   function closeRtlModal() {
     document.getElementById('rtlModal').classList.remove('open');
@@ -1132,7 +1152,7 @@
     const toggle = document.querySelector('.rtl-help-toggle');
     const isHidden = steps.style.display === 'none';
     steps.style.display = isHidden ? '' : 'none';
-    toggle.textContent = isHidden ? 'צריך עזרה? ▴' : 'צריך עזרה? ▾';
+    toggle.textContent = isHidden ? '❓ איך משתמשים בזה? ▴' : '❓ איך משתמשים בזה? ▾';
   }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeRtlModal();
