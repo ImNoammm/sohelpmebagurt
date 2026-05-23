@@ -593,6 +593,24 @@
     footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
     footer a:hover { color: var(--text); }
 
+    /* ── OS Tabs ── */
+    .os-tab {
+      padding: 6px 16px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .os-tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+
     /* ── Animations ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -804,46 +822,38 @@
     <h2>🖼️ התקנת תמיכה בתמונות</h2>
     <p class="modal-sub">מאפשר ל-Claude לראות תרשימים ותמונות בשאלות הבגרות. עובד רק עם Claude Desktop.</p>
 
-    <div class="modal-step">
-      <div class="modal-step-num">1</div>
-      <div class="modal-step-body">
-        <h4>התקן ספריות Python</h4>
-        <p>פתח טרמינל והרץ:</p>
-        <div class="modal-code" id="code-pip">pip install mcp pymupdf requests<button class="modal-code-copy" onclick="copyCode('code-pip', this)">העתק</button></div>
+    <!-- OS tabs -->
+    <div style="display:flex;gap:8px;margin-bottom:16px;">
+      <button class="os-tab active" onclick="switchOS('win',this)">🪟 Windows</button>
+      <button class="os-tab" onclick="switchOS('mac',this)">🍎 macOS / Linux</button>
+    </div>
+
+    <!-- Windows -->
+    <div id="os-win">
+      <div class="modal-step">
+        <div class="modal-step-num">1</div>
+        <div class="modal-step-body">
+          <h4>התקנה אוטומטית — הדבק ב-PowerShell</h4>
+          <p>מוריד את הקובץ לתיקיית Documents\ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
+          <div class="modal-code" id="code-win">irm https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.ps1 | iex<button class="modal-code-copy" onclick="copyCode('code-win',this)">העתק</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- macOS / Linux -->
+    <div id="os-mac" style="display:none">
+      <div class="modal-step">
+        <div class="modal-step-num">1</div>
+        <div class="modal-step-body">
+          <h4>התקנה אוטומטית — הדבק בטרמינל</h4>
+          <p>מוריד את הקובץ לתיקיית Documents/ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
+          <div class="modal-code" id="code-mac">curl -fsSL https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.sh | bash<button class="modal-code-copy" onclick="copyCode('code-mac',this)">העתק</button></div>
+        </div>
       </div>
     </div>
 
     <div class="modal-step">
       <div class="modal-step-num">2</div>
-      <div class="modal-step-body">
-        <h4>הורד את ה-Server</h4>
-        <p>הורד את הקובץ ושמור אותו במקום קבוע (לדוגמה: <code style="color:var(--accent);font-size:0.75rem">~/sohelpmebagurt/pdf_page_server.py</code>)</p>
-        <a class="modal-download-btn" href="https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" target="_blank" download>⬇ הורד pdf_page_server.py</a>
-      </div>
-    </div>
-
-    <div class="modal-step">
-      <div class="modal-step-num">3</div>
-      <div class="modal-step-body">
-        <h4>הוסף ל-Claude Desktop Config</h4>
-        <p>פתח את קובץ ההגדרות של Claude Desktop לפי מערכת ההפעלה שלך:</p>
-        <div class="modal-paths">macOS:   ~/Library/Application Support/Claude/claude_desktop_config.json
-Windows: %APPDATA%\Claude\claude_desktop_config.json
-Linux:   ~/.config/Claude/claude_desktop_config.json</div>
-        <p style="margin-top:10px">הוסף את הבלוק הבא (החלף את הנתיב לנתיב שבו שמרת את הקובץ):</p>
-        <div class="modal-code" id="code-config">{
-  "mcpServers": {
-    "sohelpmebagurt-pdf-viewer": {
-      "command": "python3",
-      "args": ["/path/to/pdf_page_server.py"]
-    }
-  }
-}<button class="modal-code-copy" onclick="copyCode('code-config', this)">העתק</button></div>
-      </div>
-    </div>
-
-    <div class="modal-step">
-      <div class="modal-step-num">4</div>
       <div class="modal-step-body">
         <h4>הפעל מחדש את Claude Desktop</h4>
         <p>סגור את Claude Desktop לחלוטין ופתח אותו מחדש. הכלי <code style="color:var(--accent);font-size:0.75rem">get_pdf_page</code> יופיע ברשימת הכלים.</p>
@@ -851,12 +861,32 @@ Linux:   ~/.config/Claude/claude_desktop_config.json</div>
     </div>
 
     <div class="modal-step">
-      <div class="modal-step-num">5</div>
+      <div class="modal-step-num">3</div>
       <div class="modal-step-body">
         <h4>השתמש ב-URL של skill_mcp.md</h4>
         <p>העתק את ה-URL עם MCP מהכרטיס של המקצוע ושלח אותו ל-Claude. הוא ידע לקרוא תמונות מה-PDF אוטומטית כשיש תרשים בשאלה.</p>
       </div>
     </div>
+
+    <!-- Manual fallback -->
+    <details style="margin-top:8px">
+      <summary style="cursor:pointer;font-size:0.8rem;color:var(--text-muted);padding:8px 0">התקנה ידנית ▾</summary>
+      <div style="margin-top:12px">
+        <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:8px">הורד את הקובץ ידנית:</p>
+        <a class="modal-download-btn" href="https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" target="_blank" download>⬇ הורד pdf_page_server.py</a>
+        <p style="font-size:0.8rem;color:var(--text-dim);margin:12px 0 6px">התקן ספריות:</p>
+        <div class="modal-code" id="code-pip">pip install mcp pymupdf requests<button class="modal-code-copy" onclick="copyCode('code-pip',this)">העתק</button></div>
+        <p style="font-size:0.8rem;color:var(--text-dim);margin:12px 0 6px">הוסף ל-claude_desktop_config.json (Windows — שים לב לנתיב עם \\):</p>
+        <div class="modal-code" id="code-config">{
+  "mcpServers": {
+    "sohelpmebagurt-pdf-viewer": {
+      "command": "python",
+      "args": ["C:\\\\Users\\\\YourName\\\\Documents\\\\ClaudeMCPs\\\\pdf_page_server.py"]
+    }
+  }
+}<button class="modal-code-copy" onclick="copyCode('code-config',this)">העתק</button></div>
+      </div>
+    </details>
   </div>
 </div>
 
@@ -921,6 +951,13 @@ Linux:   ~/.config/Claude/claude_desktop_config.json</div>
     if (e.target === document.getElementById('mcpModal')) closeMcpModal();
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMcpModal(); });
+
+  function switchOS(os, btn) {
+    document.querySelectorAll('.os-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('os-win').style.display = os === 'win' ? '' : 'none';
+    document.getElementById('os-mac').style.display = os === 'mac' ? '' : 'none';
+  }
 
   function copyCode(id, btn) {
     const el = document.getElementById(id);
