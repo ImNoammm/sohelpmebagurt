@@ -501,6 +501,62 @@
     }
     .wizard-dl:hover { background: rgba(163,230,53,0.18); }
 
+    /* ── RTL Fix ── */
+    .rtl-fix-link {
+      background: none; border: none;
+      color: var(--text-muted); font-size: 0.67rem;
+      cursor: pointer; font-family: 'Rubik', sans-serif;
+      padding: 5px 0 0; text-decoration: underline;
+      text-underline-offset: 2px; display: block;
+      text-align: right; opacity: 0.7;
+    }
+    .rtl-fix-link:hover { opacity: 1; color: var(--text-dim); }
+    .rtl-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.72); backdrop-filter: blur(6px);
+      z-index: 1000; align-items: center; justify-content: center; padding: 24px;
+    }
+    .rtl-modal-overlay.open { display: flex; }
+    .rtl-modal {
+      background: #0f1117; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px; padding: 28px 28px 22px;
+      max-width: 500px; width: 100%; position: relative;
+    }
+    .rtl-modal-close {
+      position: absolute; top: 14px; inset-inline-end: 14px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--border);
+      color: var(--text-dim); width: 28px; height: 28px;
+      border-radius: 50%; cursor: pointer; font-size: 0.85rem;
+      display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+    }
+    .rtl-modal-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+    .rtl-modal h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .rtl-modal > p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
+    .rtl-code-wrap {
+      background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 8px; padding: 10px 12px;
+      max-height: 130px; overflow-y: auto; margin-bottom: 10px;
+    }
+    .rtl-code-wrap pre {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.61rem;
+      color: var(--accent); direction: ltr; text-align: left;
+      white-space: pre; margin: 0;
+    }
+    .rtl-copy-btn {
+      display: block; width: 100%; margin-bottom: 12px; padding: 9px;
+      background: var(--accent); border: none; color: #000;
+      border-radius: 8px; font-family: 'Rubik', sans-serif;
+      font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: opacity 0.15s;
+    }
+    .rtl-copy-btn:hover { opacity: 0.85; }
+    .rtl-help-toggle {
+      background: none; border: none; color: var(--text-muted);
+      font-size: 0.78rem; cursor: pointer; font-family: 'Rubik', sans-serif;
+      padding: 0 0 8px; display: block;
+    }
+    .rtl-help-toggle:hover { color: var(--text); }
+    .rtl-steps { margin-top: 4px; display: flex; flex-direction: column; gap: 10px; }
+
     .install-divider {
       height: 1px;
       background: var(--border);
@@ -692,6 +748,7 @@
             <div class="mcp-wizard-panel" id="mcp-cs-panel">
               <div class="wizard-inner" id="mcp-cs-inner"></div>
             </div>
+            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
         </div>
       </div>
@@ -722,6 +779,7 @@
             <div class="mcp-wizard-panel" id="mcp-java-panel">
               <div class="wizard-inner" id="mcp-java-inner"></div>
             </div>
+            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
         </div>
       </div>
@@ -746,6 +804,7 @@
             <div class="mcp-wizard-panel" id="mcp-math-panel">
               <div class="wizard-inner" id="mcp-math-inner"></div>
             </div>
+            <button class="rtl-fix-link" onclick="openRtlModal()">תיקון לפורמט טקסט ב-Claude ↗</button>
           </div>
         </div>
       </div>
@@ -794,6 +853,74 @@
 </div>
 
 <div id="toast"></div>
+
+<!-- RTL fix code store (textarea keeps special chars safe) -->
+<textarea id="rtl-code-store" style="display:none">(() => {
+  document.getElementById('rtl-fix-style')?.remove();
+
+  const css = `
+    .rtl-auto { direction: rtl !important; text-align: right !important;
+      font-family: "Segoe UI","Arial Hebrew","David",system-ui,sans-serif !important;
+      line-height: 1.85 !important; unicode-bidi: plaintext !important; }
+    .rtl-auto .katex { font-size: 1em !important; direction: ltr; unicode-bidi: isolate; }
+    .rtl-auto code, .rtl-auto pre { direction: ltr; unicode-bidi: isolate; text-align: left; }
+  `;
+  const s = document.createElement('style');
+  s.id = 'rtl-fix-style';
+  s.textContent = css;
+  document.head.appendChild(s);
+
+  const hebrew = /[֐-׿]/;
+  const tags = ['P','LI','H1','H2','H3','BLOCKQUOTE','TD','TH'];
+
+  function apply(root) {
+    (root.querySelectorAll ? root.querySelectorAll(tags.join(',')) : []).forEach(el => {
+      if (hebrew.test(el.textContent) && !el.classList.contains('rtl-auto')) {
+        el.classList.add('rtl-auto');
+      }
+    });
+  }
+
+  apply(document.body);
+
+  const obs = new MutationObserver(muts => {
+    muts.forEach(m => m.addedNodes.forEach(n => {
+      if (n.nodeType === 1) apply(n);
+    }));
+  });
+  obs.observe(document.body, { childList: true, subtree: true });
+  window.__rtlObserver = obs;
+
+  return 'RTL auto-fix active — Hebrew paragraphs flip RTL, English/code stay LTR, applies to new messages too';
+})();</textarea>
+
+<!-- RTL Fix Modal -->
+<div class="rtl-modal-overlay" id="rtlModal" onclick="closeRtlOutside(event)">
+  <div class="rtl-modal">
+    <button class="rtl-modal-close" onclick="closeRtlModal()">✕</button>
+    <h3>תיקון לפורמט טקסט ב-Claude</h3>
+    <p>הדבק את הקוד הבא ב-Console של Claude Desktop כדי שטקסט עברי יוצג מימין לשמאל:</p>
+    <div class="rtl-code-wrap"><pre id="rtl-code-display"></pre></div>
+    <button class="rtl-copy-btn" id="rtl-copy-btn" onclick="copyRtlCode()">העתק קוד</button>
+    <button class="rtl-help-toggle" onclick="toggleRtlHelp()">צריך עזרה? ▾</button>
+    <div class="rtl-steps" id="rtl-help-steps" style="display:none">
+      <div class="wizard-step">
+        <div class="wizard-step-n">1</div>
+        <div class="wizard-step-body">
+          <b>הפעל Developer Mode</b> — צריך לעשות רק פעם אחת.<br>
+          לאחר התקנת ה-MCP, לחץ על ☰ בפינה השמאלית העליונה של Claude Desktop ← <code>Help</code> ← <code>Troubleshooting</code> ← <code>Enable Developer Mode</code>
+        </div>
+      </div>
+      <div class="wizard-step">
+        <div class="wizard-step-n">2</div>
+        <div class="wizard-step-body">
+          פתח שיחה חדשה. לחץ לחיצה ימנית בכל מקום בחלון ← <code>Inspect Element</code> ← לחץ על הכרטיסייה <code>Console</code> ← הדבק את הקוד.<br>
+          אם תתבקש, כתוב <code>allow pasting</code> ולחץ Enter, ואז הדבק שוב ולחץ Enter. 🎉
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   const HEBREW = 'אבגדהוזחטיכלמנסעפצקרשת';
@@ -975,6 +1102,41 @@
       showToast('הלינק הועתק! תדביק אותו ל-Claude 🎉');
     });
   }
+
+  // ── RTL Fix Modal ──
+  function openRtlModal() {
+    const code = document.getElementById('rtl-code-store').value.trim();
+    document.getElementById('rtl-code-display').textContent = code;
+    document.getElementById('rtl-help-steps').style.display = 'none';
+    document.querySelector('.rtl-help-toggle').textContent = 'צריך עזרה? ▾';
+    document.getElementById('rtlModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeRtlModal() {
+    document.getElementById('rtlModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeRtlOutside(e) {
+    if (e.target === document.getElementById('rtlModal')) closeRtlModal();
+  }
+  function copyRtlCode() {
+    const code = document.getElementById('rtl-code-store').value.trim();
+    navigator.clipboard.writeText(code).then(() => {
+      const btn = document.getElementById('rtl-copy-btn');
+      btn.textContent = '✓ הועתק!';
+      setTimeout(() => btn.textContent = 'העתק קוד', 2000);
+    });
+  }
+  function toggleRtlHelp() {
+    const steps = document.getElementById('rtl-help-steps');
+    const toggle = document.querySelector('.rtl-help-toggle');
+    const isHidden = steps.style.display === 'none';
+    steps.style.display = isHidden ? '' : 'none';
+    toggle.textContent = isHidden ? 'צריך עזרה? ▴' : 'צריך עזרה? ▾';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeRtlModal();
+  });
 </script>
 
 </body>
