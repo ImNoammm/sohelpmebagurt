@@ -22,6 +22,13 @@ WebFetch: https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/shar
 
 **כל קוד חייב להיות ב-C# בלבד. PascalCase. bool/int.**
 
+**EXAM ACCESS — STRICT RULE:**
+You have access ONLY to the exam files listed in base.md above.
+The available years are approximately **2011–2025**.
+You do NOT have access to any exams from 2002–2010 or any other year not listed.
+If asked which exams you have, list ONLY the sheelon numbers and years from the URLs in base.md.
+Never claim access to a year that does not appear as an explicit URL.
+
 ---
 
 ## Bagruyot Files
