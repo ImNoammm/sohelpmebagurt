@@ -129,11 +129,23 @@ def fetch_math_exams(session):
     return all_exams
 
 
-def build_url_block(exams):
+def url_exists(session, url):
+    """Return True if the URL responds with 2xx, False otherwise."""
+    try:
+        resp = session.head(url, timeout=10, allow_redirects=True)
+        return resp.ok
+    except Exception:
+        return False
+
+
+def build_url_block(exams, session):
     by_sheelon: dict[str, list[tuple[str, str, str]]] = {}
     for exam in exams:
         pdf_url = exam.get("question")
         if not pdf_url or "pitron" in pdf_url.lower():
+            continue
+        if not url_exists(session, pdf_url):
+            print(f"  skipping dead URL: {pdf_url}")
             continue
         sheelon = exam["semel_sheelon"]
         year    = exam["shana"]
@@ -174,7 +186,7 @@ def main():
     print("=== CS Bagrut Sync ===")
     cs_exams = fetch_cs_exams(session)
     print(f"Found {len(cs_exams)} CS exams")
-    cs_block = build_url_block(cs_exams)
+    cs_block = build_url_block(cs_exams, session)
     print(f"  {cs_block.count(': http')} exams with PDF URLs")
     print("Updating CS skill files...")
     update_skill_files(CS_FILES, cs_block, "CS")
@@ -183,7 +195,7 @@ def main():
     print("\n=== Math Bagrut Sync ===")
     math_exams = fetch_math_exams(session)
     print(f"Found {len(math_exams)} math exams")
-    math_block = build_url_block(math_exams)
+    math_block = build_url_block(math_exams, session)
     print(f"  {math_block.count(': http')} exams with PDF URLs")
     print("Updating Math skill files...")
     update_skill_files(MATH_FILES, math_block, "Math")
