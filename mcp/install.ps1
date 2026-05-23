@@ -11,8 +11,8 @@ function Write-Rule  {                 Write-Host ("  " + ("─" * 50)) -Foregro
 # ── Banner ────────────────────────────────────────────────────────────────────
 Write-Host ""
 Write-Host "  ╔══════════════════════════════════════════════════╗" -ForegroundColor DarkGreen
-Write-Host "  ║       SoHelpMeBagrut — MCP Installer            ║" -ForegroundColor Green
-Write-Host "  ║       תמיכה בתמונות ל-Claude Desktop            ║" -ForegroundColor Green
+Write-Host "  ║       SoHelpMeBagrut -- MCP Installer           ║" -ForegroundColor Green
+Write-Host "  ║       Image support for Claude Desktop          ║" -ForegroundColor Green
 Write-Host "  ╚══════════════════════════════════════════════════╝" -ForegroundColor DarkGreen
 Write-Host ""
 
@@ -118,7 +118,7 @@ $skillUrl = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/c
 Set-Clipboard -Value $skillUrl
 
 Write-Host "  ╔══════════════════════════════════════════════════╗" -ForegroundColor DarkGreen
-Write-Host "  ║               הכל מוכן!                         ║" -ForegroundColor Green
+Write-Host "  ║                  All done!                      ║" -ForegroundColor Green
 Write-Host "  ╚══════════════════════════════════════════════════╝" -ForegroundColor DarkGreen
 Write-Host ""
 Write-Host "  Next steps:" -ForegroundColor White
