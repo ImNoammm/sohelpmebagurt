@@ -130,10 +130,13 @@ def fetch_math_exams(session):
 
 
 def url_exists(session, url):
-    """Return True if the URL responds with 2xx, False otherwise."""
+    """Return True only if the URL serves an actual PDF file."""
     try:
         resp = session.head(url, timeout=10, allow_redirects=True)
-        return resp.ok
+        if not resp.ok:
+            return False
+        content_type = resp.headers.get("Content-Type", "")
+        return "pdf" in content_type.lower()
     except Exception:
         return False
 
