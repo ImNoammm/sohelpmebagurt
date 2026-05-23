@@ -381,6 +381,74 @@
     }
     .mcp-guide-btn:hover { color: #93c5fd; }
 
+    /* ── MCP check mini-modal ── */
+    .mcp-check-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .mcp-check-overlay.open { display: flex; }
+    .mcp-check-box {
+      background: #0f1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 32px 36px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    .mcp-check-box h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .mcp-check-box p  { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+    .mcp-check-btns   { display: flex; gap: 10px; justify-content: center; }
+    .mcp-check-btns button {
+      flex: 1; max-width: 140px;
+      padding: 10px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .mcp-btn-yes { background: var(--accent); color: #000; border-color: var(--accent) !important; }
+    .mcp-btn-yes:hover { opacity: 0.85; }
+    .mcp-btn-no  { background: transparent; color: var(--text-dim); }
+    .mcp-btn-no:hover  { background: rgba(255,255,255,0.06); color: var(--text); }
+
+    /* URL reveal after "yes" */
+    .mcp-url-reveal {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: right;
+    }
+    .mcp-url-reveal p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px; text-align: center; }
+    .mcp-url-reveal .card-url-row { justify-content: center; }
+
+    /* מומלץ badge */
+    .badge-recommended {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
     .install-divider {
       height: 1px;
       background: var(--border);
@@ -720,11 +788,10 @@
           <div>
             <div class="install-option-label">
               🖼️ Claude Desktop + תמונות
-              <button class="mcp-guide-btn" onclick="openMcpModal()">מדריך התקנה ↗</button>
             </div>
             <div class="card-url-row">
               <code>…/csharp/skill_mcp.md</code>
-              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">העתק</button>
+              <button class="copy-btn" onclick="openMcpCheck(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1')">העתק</button>
             </div>
           </div>
         </div>
@@ -750,11 +817,10 @@
           <div>
             <div class="install-option-label">
               🖼️ Claude Desktop + תמונות
-              <button class="mcp-guide-btn" onclick="openMcpModal()">מדריך התקנה ↗</button>
             </div>
             <div class="card-url-row">
               <code>…/java/skill_mcp.md</code>
-              <button class="copy-btn" onclick="copyUrl(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">העתק</button>
+              <button class="copy-btn" onclick="openMcpCheck(this, 'https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/java/skill_mcp.md?v=1')">העתק</button>
             </div>
           </div>
         </div>
@@ -815,6 +881,26 @@
 
 <div id="toast">הועתק!</div>
 
+<!-- MCP installed? check mini-modal -->
+<div class="mcp-check-overlay" id="mcpCheckOverlay" onclick="closeMcpCheckOutside(event)">
+  <div class="mcp-check-box" id="mcpCheckBox">
+    <button class="modal-close" onclick="closeMcpCheck()" style="position:absolute;top:14px;inset-inline-end:14px">✕</button>
+    <h3>🖼️ Claude Desktop + תמונות</h3>
+    <p>יש לך את ה-MCP מותקן?</p>
+    <div class="mcp-check-btns">
+      <button class="mcp-btn-yes" onclick="mcpCheckYes()">כן ✓</button>
+      <button class="mcp-btn-no"  onclick="mcpCheckNo()">לא, התקן</button>
+    </div>
+    <div id="mcpUrlReveal" class="mcp-url-reveal" style="display:none">
+      <p>מעולה! עכשיו רק תדביק את זה ל-Claude 👇</p>
+      <div class="card-url-row" style="justify-content:center">
+        <code id="mcpUrlCode" style="font-size:0.7rem;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></code>
+        <button class="copy-btn" id="mcpUrlCopyBtn" onclick="mcpUrlCopy()">העתק</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- MCP Tutorial Modal -->
 <div class="modal-overlay" id="mcpModal" onclick="closeMcpModalOutside(event)">
   <div class="modal">
@@ -833,7 +919,7 @@
       <div class="modal-step">
         <div class="modal-step-num">1</div>
         <div class="modal-step-body">
-          <h4>התקנה אוטומטית — הדבק ב-PowerShell</h4>
+          <h4><span class="badge-recommended">מומלץ</span>התקנה אוטומטית — הדבק ב-PowerShell</h4>
           <p>מוריד את הקובץ לתיקיית Documents\ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
           <div class="modal-code" id="code-win">irm https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.ps1 | iex<button class="modal-code-copy" onclick="copyCode('code-win',this)">העתק</button></div>
         </div>
@@ -845,7 +931,7 @@
       <div class="modal-step">
         <div class="modal-step-num">1</div>
         <div class="modal-step-body">
-          <h4>התקנה אוטומטית — הדבק בטרמינל</h4>
+          <h4><span class="badge-recommended">מומלץ</span>התקנה אוטומטית — הדבק בטרמינל</h4>
           <p>מוריד את הקובץ לתיקיית Documents/ClaudeMCPs, מתקין ספריות ומעדכן את ה-config אוטומטית.</p>
           <div class="modal-code" id="code-mac">curl -fsSL https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/install.sh | bash<button class="modal-code-copy" onclick="copyCode('code-mac',this)">העתק</button></div>
         </div>
@@ -950,7 +1036,38 @@
   function closeMcpModalOutside(e) {
     if (e.target === document.getElementById('mcpModal')) closeMcpModal();
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMcpModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMcpModal(); closeMcpCheck(); } });
+
+  // ── MCP check flow ──
+  let _mcpCheckUrl = '';
+  function openMcpCheck(btn, url) {
+    _mcpCheckUrl = url;
+    document.getElementById('mcpUrlReveal').style.display = 'none';
+    document.getElementById('mcpUrlCode').textContent = url;
+    document.getElementById('mcpCheckOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMcpCheck() {
+    document.getElementById('mcpCheckOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeMcpCheckOutside(e) {
+    if (e.target === document.getElementById('mcpCheckOverlay')) closeMcpCheck();
+  }
+  function mcpCheckYes() {
+    document.getElementById('mcpUrlReveal').style.display = '';
+  }
+  function mcpCheckNo() {
+    closeMcpCheck();
+    openMcpModal();
+  }
+  function mcpUrlCopy() {
+    navigator.clipboard.writeText(_mcpCheckUrl).then(() => {
+      const btn = document.getElementById('mcpUrlCopyBtn');
+      btn.textContent = '✓';
+      setTimeout(() => btn.textContent = 'העתק', 2000);
+    });
+  }
 
   function switchOS(os, btn) {
     document.querySelectorAll('.os-tab').forEach(b => b.classList.remove('active'));

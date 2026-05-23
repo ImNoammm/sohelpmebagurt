@@ -1,13 +1,26 @@
 # SoHelpMeBagrut — MCP Auto-Installer (Windows PowerShell)
 $ErrorActionPreference = "Stop"
 
-$dir = Join-Path $HOME "Documents\ClaudeMCPs"
+# ── Install location ──────────────────────────────────────────────────────────
+$defaultDir = Join-Path $HOME "Documents\ClaudeMCPs"
+Write-Host ""
+Write-Host "Install location"
+Write-Host "  Default: $defaultDir"
+$answer = Read-Host "Press Enter to use default, or type a custom path"
+if ($answer.Trim() -eq "") {
+    $dir = $defaultDir
+} else {
+    $dir = $answer.Trim()
+}
 New-Item -ItemType Directory -Force -Path $dir | Out-Null
+Write-Host "Installing to: $dir"
+Write-Host ""
 
+# ── Download server ───────────────────────────────────────────────────────────
 Write-Host "Downloading pdf_page_server.py..."
 Invoke-WebRequest "https://raw.githubusercontent.com/ImNoammm/sohelpmebagurt/main/mcp/pdf_page_server.py" -OutFile "$dir\pdf_page_server.py"
 
-# Detect Python command (py launcher > python > python3)
+# ── Detect Python ─────────────────────────────────────────────────────────────
 Write-Host "Detecting Python..."
 $py = $null
 foreach ($cmd in @("py", "python", "python3")) {
@@ -19,10 +32,11 @@ if (-not $py) {
 }
 Write-Host "Using: $py"
 
+# ── Install dependencies ──────────────────────────────────────────────────────
 Write-Host "Installing Python dependencies..."
 & $py -m pip install mcp pymupdf requests
 
-# Search for Claude Desktop config in common locations
+# ── Find Claude Desktop config ────────────────────────────────────────────────
 Write-Host "Locating Claude Desktop config..."
 $candidates = @(
     "$env:APPDATA\Claude\claude_desktop_config.json",
@@ -51,7 +65,7 @@ if (-not $configPath) {
 
 Write-Host "Config: $configPath"
 
-# Read or create config
+# ── Update config ─────────────────────────────────────────────────────────────
 if (Test-Path $configPath) {
     try { $config = Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Json }
     catch { $config = [PSCustomObject]@{} }
@@ -67,11 +81,20 @@ $config.mcpServers | Add-Member -MemberType NoteProperty -Name "sohelpmebagurt-p
     [PSCustomObject]@{ command = $py; args = @("$dir\pdf_page_server.py") }
 ) -Force
 
-# ConvertTo-Json automatically escapes backslashes correctly (\ becomes \\)
+# ConvertTo-Json handles backslash escaping automatically
 $config | ConvertTo-Json -Depth 10 | Set-Content $configPath -Encoding UTF8
+
+# ── Done ──────────────────────────────────────────────────────────────────────
+$skillUrl = "https://imnoammm.github.io/sohelpmebagurt/subject/ComputerScience/csharp/skill_mcp.md?v=1"
+Set-Clipboard -Value $skillUrl
 
 Write-Host ""
 Write-Host "Done! Restart Claude Desktop to activate."
+Write-Host ""
+Write-Host "The skill URL has been copied to your clipboard."
+Write-Host "Paste it into Claude to start studying:"
+Write-Host "  $skillUrl"
+Write-Host ""
 Write-Host "Python  : $py"
 Write-Host "Server  : $dir\pdf_page_server.py"
 Write-Host "Config  : $configPath"
