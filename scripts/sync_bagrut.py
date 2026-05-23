@@ -190,23 +190,21 @@ def regenerate_url_lists():
         lines.append("")
     url_block = "\n".join(lines).rstrip()
 
-    new_url_section = (
-        "## Available Past Exam Files\n\n"
-        "You have access to these real exam files from the Israeli Ministry of Education (2011–2025). "
-        "Fetch them when a student asks for a question on a topic. "
-        "Do not claim access to any year not listed here.\n\n"
+    text = BASE_MD.read_text(encoding="utf-8")
+    new_section = (
+        "## Bagruyot Files\n\n"
+        "**Note:** Hebrew text may appear with reversed word order per line "
+        "(PDF extraction artifact) — parse accordingly. "
+        "Each question has both Java and C# signatures.\n\n"
         + (url_block if url_block else "_none yet — sync pending_")
     )
-
-    for skill_file in (JAVA_SKILL, Path("subject/ComputerScience/csharp/skill.md")):
-        text = skill_file.read_text(encoding="utf-8")
-        text = re.sub(
-            r"## Available Past Exam Files\b.*?(?=\n---|\n## |\Z)",
-            new_url_section + "\n\n",
-            text, flags=re.DOTALL,
-        )
-        skill_file.write_text(text, encoding="utf-8")
-        print(f"  updated {skill_file}")
+    text = re.sub(
+        r"## Bagruyot Files\b.*?(?=\n---|\n## |\Z)",
+        new_section + "\n\n",
+        text, flags=re.DOTALL,
+    )
+    BASE_MD.write_text(text, encoding="utf-8")
+    print("  updated base.md")
 
 
 def main():
