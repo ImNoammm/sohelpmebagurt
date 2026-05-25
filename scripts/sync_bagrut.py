@@ -135,47 +135,17 @@ def fetch_math_exams(session):
 
 def fetch_tanach_exams(session):
     """Fetch Tanach bagrut exams (miktzoa=1)."""
-    import json
     print("  Fetching Tanach exams (miktzoa=1)...")
     exams = fetch_pages(session, miktzoa="1", sheelon="")
     print(f"    Got {len(exams)} exams")
-    if exams:
-        print(f"  DEBUG first exam keys: {list(exams[0].keys())}")
-        print(f"  DEBUG first exam: {json.dumps(exams[0], ensure_ascii=False)}")
     return exams
 
 
-def url_exists(session, url):
-    """Return True if the URL serves a non-HTML file (PDF or binary)."""
-    try:
-        resp = session.head(url, timeout=15, allow_redirects=True)
-        if resp.ok:
-            ct = resp.headers.get("Content-Type", "")
-            if ct and "text/html" not in ct.lower():
-                return True   # pdf, octet-stream, etc.
-        # HEAD failed or returned HTML — try a real GET (stream, don't download body)
-        resp = session.get(url, timeout=15, stream=True, allow_redirects=True)
-        resp.close()
-        if not resp.ok:
-            return False
-        ct = resp.headers.get("Content-Type", "")
-        return not ct or "text/html" not in ct.lower()
-    except Exception:
-        return False
-
-
-def build_url_block(exams, session):
+def build_url_block(exams):
     by_sheelon: dict[str, list[tuple[str, str, str]]] = {}
-    seen_urls = 0
     for exam in exams:
         pdf_url = exam.get("question")
         if not pdf_url or "pitron" in pdf_url.lower():
-            continue
-        seen_urls += 1
-        if seen_urls <= 3:
-            print(f"  sample URL: {pdf_url}")
-        if not url_exists(session, pdf_url):
-            print(f"  skipping dead URL: {pdf_url}")
             continue
         sheelon = exam["semel_sheelon"]
         year    = exam["shana"]
@@ -216,7 +186,7 @@ def main():
     print("=== CS Bagrut Sync ===")
     cs_exams = fetch_cs_exams(session)
     print(f"Found {len(cs_exams)} CS exams")
-    cs_block = build_url_block(cs_exams, session)
+    cs_block = build_url_block(cs_exams)
     print(f"  {cs_block.count(': http')} exams with PDF URLs")
     print("Updating CS skill files...")
     update_skill_files(CS_FILES, cs_block, "CS")
@@ -225,7 +195,7 @@ def main():
     print("\n=== Math Bagrut Sync ===")
     math_exams = fetch_math_exams(session)
     print(f"Found {len(math_exams)} math exams")
-    math_block = build_url_block(math_exams, session)
+    math_block = build_url_block(math_exams)
     print(f"  {math_block.count(': http')} exams with PDF URLs")
     print("Updating Math skill files...")
     update_skill_files(MATH_FILES, math_block, "Math")
@@ -234,7 +204,7 @@ def main():
     print("\n=== Tanach Bagrut Sync ===")
     tanach_exams = fetch_tanach_exams(session)
     print(f"Found {len(tanach_exams)} Tanach exams")
-    tanach_block = build_url_block(tanach_exams, session)
+    tanach_block = build_url_block(tanach_exams)
     print(f"  {tanach_block.count(': http')} exams with PDF URLs")
     print("Updating Tanach skill files...")
     update_skill_files(TANACH_FILES, tanach_block, "Tanach")
