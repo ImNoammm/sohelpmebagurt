@@ -30,7 +30,7 @@ jobs:
           git config user.email "bagrut-sync@sohelpmebagurt"
           git config user.name "Bagrut Sync Bot"
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/ImNoammm/sohelpmebagurt.git
-          git add subject/ComputerScience/java/skill.md subject/ComputerScience/java/skill_mcp.md subject/ComputerScience/csharp/skill.md subject/ComputerScience/csharp/skill_mcp.md subject/Math/skill_mcp.md || true
+          git add subject/ComputerScience/java/skill.md subject/ComputerScience/java/skill_mcp.md subject/ComputerScience/csharp/skill.md subject/ComputerScience/csharp/skill_mcp.md subject/Math/skill_mcp.md subject/Tanach/skill_mcp.md subject/Tanach/skill.md || true
           if git diff --staged --quiet; then
             echo "Nothing new to commit."
           else

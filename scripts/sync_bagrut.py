@@ -30,6 +30,10 @@ CS_FILES = [
 MATH_FILES = [
     Path("subject/Math/skill_mcp.md"),
 ]
+TANACH_FILES = [
+    Path("subject/Tanach/skill_mcp.md"),
+    Path("subject/Tanach/skill.md"),
+]
 
 # ── Math sheelon IDs (miktzoa=35) ─────────────────────────────────────────────
 MATH_SHEELONIM = ["35572", "35571", "35581", "33582"]
@@ -129,6 +133,14 @@ def fetch_math_exams(session):
     return all_exams
 
 
+def fetch_tanach_exams(session):
+    """Fetch Tanach bagrut exams (miktzoa=1)."""
+    print("  Fetching Tanach exams (miktzoa=1)...")
+    exams = fetch_pages(session, miktzoa="1", sheelon="")
+    print(f"    Got {len(exams)} exams")
+    return exams
+
+
 def url_exists(session, url):
     """Return True only if the URL serves an actual PDF file."""
     try:
@@ -202,6 +214,15 @@ def main():
     print(f"  {math_block.count(': http')} exams with PDF URLs")
     print("Updating Math skill files...")
     update_skill_files(MATH_FILES, math_block, "Math")
+
+    # ── Tanach ────────────────────────────────────────────────────────────────
+    print("\n=== Tanach Bagrut Sync ===")
+    tanach_exams = fetch_tanach_exams(session)
+    print(f"Found {len(tanach_exams)} Tanach exams")
+    tanach_block = build_url_block(tanach_exams, session)
+    print(f"  {tanach_block.count(': http')} exams with PDF URLs")
+    print("Updating Tanach skill files...")
+    update_skill_files(TANACH_FILES, tanach_block, "Tanach")
 
     print("\nDone.")
 
