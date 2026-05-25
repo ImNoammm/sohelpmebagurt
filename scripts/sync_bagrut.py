@@ -142,23 +142,34 @@ def fetch_tanach_exams(session):
 
 
 def url_exists(session, url):
-    """Return True only if the URL serves an actual PDF file."""
+    """Return True if the URL serves a non-HTML file (PDF or binary)."""
     try:
-        resp = session.head(url, timeout=10, allow_redirects=True)
+        resp = session.head(url, timeout=15, allow_redirects=True)
+        if resp.ok:
+            ct = resp.headers.get("Content-Type", "")
+            if ct and "text/html" not in ct.lower():
+                return True   # pdf, octet-stream, etc.
+        # HEAD failed or returned HTML — try a real GET (stream, don't download body)
+        resp = session.get(url, timeout=15, stream=True, allow_redirects=True)
+        resp.close()
         if not resp.ok:
             return False
-        content_type = resp.headers.get("Content-Type", "")
-        return "pdf" in content_type.lower()
+        ct = resp.headers.get("Content-Type", "")
+        return not ct or "text/html" not in ct.lower()
     except Exception:
         return False
 
 
 def build_url_block(exams, session):
     by_sheelon: dict[str, list[tuple[str, str, str]]] = {}
+    seen_urls = 0
     for exam in exams:
         pdf_url = exam.get("question")
         if not pdf_url or "pitron" in pdf_url.lower():
             continue
+        seen_urls += 1
+        if seen_urls <= 3:
+            print(f"  sample URL: {pdf_url}")
         if not url_exists(session, pdf_url):
             print(f"  skipping dead URL: {pdf_url}")
             continue
