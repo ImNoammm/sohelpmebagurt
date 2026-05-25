@@ -135,9 +135,13 @@ def fetch_math_exams(session):
 
 def fetch_tanach_exams(session):
     """Fetch Tanach bagrut exams (miktzoa=1)."""
+    import json
     print("  Fetching Tanach exams (miktzoa=1)...")
     exams = fetch_pages(session, miktzoa="1", sheelon="")
     print(f"    Got {len(exams)} exams")
+    if exams:
+        print(f"  DEBUG first exam keys: {list(exams[0].keys())}")
+        print(f"  DEBUG first exam: {json.dumps(exams[0], ensure_ascii=False)}")
     return exams
 
 
