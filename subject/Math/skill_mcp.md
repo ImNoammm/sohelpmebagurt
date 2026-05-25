@@ -58,6 +58,7 @@ You have access to a tool called **`get_pdf_page`**. Use it whenever you need to
 Israeli Math Bagrut exam PDFs, direct from the Ministry of Education. Fetch the relevant PDF to read exam questions.
 
 ### 35581
+2026 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/35581.pdf
 2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/35581.pdf
 2025 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2025/8/HEB/35581.pdf
 2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/35581.pdf
@@ -94,6 +95,7 @@ Israeli Math Bagrut exam PDFs, direct from the Ministry of Education. Fetch the 
 2016 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2016/1/HEB/35581.pdf
 
 ### 35572
+2026 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/35572.pdf
 2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/35572.pdf
 2025 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2025/8/HEB/35572.pdf
 2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/35572.pdf
@@ -110,6 +112,7 @@ Israeli Math Bagrut exam PDFs, direct from the Ministry of Education. Fetch the 
 2022 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/35572.pdf
 
 ### 35571
+2026 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/35571.pdf
 2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/35571.pdf
 2025 מועד 08: https://meyda.education.gov.il/sheeloney_bagrut/2025/8/HEB/35571.pdf
 2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/35571.pdf
