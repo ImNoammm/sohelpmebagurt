@@ -594,6 +594,166 @@
     }
 
 
+    /* ── Grade Calculator ── */
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 750px) {
+      .calc-layout { grid-template-columns: 1fr; }
+    }
+
+    .calc-subjects-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+
+    .calc-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 8px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      transition: border-color 0.2s;
+    }
+    .calc-row:focus-within { border-color: rgba(163,230,53,0.25); }
+
+    .calc-input {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 7px 10px;
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .calc-input:focus { border-color: var(--accent-border); }
+    .calc-input::placeholder { color: var(--text-muted); }
+    .calc-grade-inp { width: 70px; text-align: center; }
+    .calc-grade-inp::-webkit-inner-spin-button,
+    .calc-grade-inp::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    .unit-btns { display: flex; gap: 3px; flex-shrink: 0; }
+    .unit-btn {
+      width: 28px; height: 28px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: 'Rubik', sans-serif;
+      transition: all 0.12s;
+      flex-shrink: 0;
+    }
+    .unit-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
+    .unit-btn.active { background: var(--accent); border-color: var(--accent); color: #000; }
+
+    .calc-delete-btn {
+      background: none; border: none;
+      color: var(--text-muted); font-size: 0.8rem;
+      cursor: pointer; padding: 4px 6px;
+      border-radius: 5px; transition: all 0.15s;
+      flex-shrink: 0;
+    }
+    .calc-delete-btn:hover { background: rgba(248,113,113,0.12); color: #f87171; }
+
+    .calc-add-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1px dashed rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      font-family: 'Rubik', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s;
+    }
+    .calc-add-btn:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+
+    .calc-result-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      text-align: center;
+      position: sticky;
+      top: 24px;
+    }
+    .calc-result-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .calc-result-val {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+    .calc-result-units {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .calc-grade-bar-wrap {
+      height: 5px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .calc-grade-bar {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.35s ease, background 0.3s;
+      width: 0%;
+    }
+    .calc-breakdown { text-align: right; }
+    .calc-bd-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .calc-bd-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.77rem;
+    }
+    .calc-bd-row:last-child { border-bottom: none; }
+    .calc-bd-name { color: var(--text-dim); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .calc-bd-units { color: var(--text-muted); font-size: 0.68rem; flex-shrink: 0; }
+    .calc-bd-grade { font-weight: 700; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .calc-pass-note {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+
     /* ── Toast ── */
     #toast {
       position: fixed;
@@ -689,6 +849,7 @@
     <ul class="nav-links">
       <li><a href="#how">איך זה עובד</a></li>
       <li><a href="#subjects">מקצועות</a></li>
+      <li><a href="#calc">מחשבון ציונים</a></li>
       <li><a href="#books">ספרים</a></li>
       <li><a href="https://github.com/ImNoammm/sohelpmebagurt" target="_blank">GitHub ↗</a></li>
     </ul>
@@ -941,6 +1102,32 @@
         <div class="card-subtitle">5 יח"ל · Reading, Writing, Literature</div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Grade Calculator -->
+<section class="section" id="calc">
+  <div class="container">
+    <div class="section-label">מחשבון ממוצע</div>
+    <h2 class="section-title">מחשבון ממוצע בגרות</h2>
+    <div class="calc-layout">
+      <div>
+        <div class="calc-subjects-wrap" id="calc-subjects"></div>
+        <button class="calc-add-btn" onclick="calcAddRow()">+ הוסף מקצוע</button>
+      </div>
+      <div class="calc-result-box">
+        <div class="calc-result-label">ממוצע משוקלל</div>
+        <div class="calc-result-val" id="calc-avg">—</div>
+        <div class="calc-result-units" id="calc-units-display">הזן ציונים להתחלה</div>
+        <div class="calc-grade-bar-wrap" id="calc-bar-wrap" style="display:none">
+          <div class="calc-grade-bar" id="calc-bar"></div>
+        </div>
+        <div class="calc-breakdown" id="calc-breakdown"></div>
+        <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1291,6 +1478,102 @@
     steps.style.display = hidden ? '' : 'none';
     toggle.textContent = hidden ? '❓ איך משתמשים בזה? ▴' : '❓ איך משתמשים בזה? ▾';
   }
+
+  // ── Grade Calculator ──
+  let calcRows = [];
+  let calcRowId = 0;
+
+  function calcAddRow(name, units, grade) {
+    const id = ++calcRowId;
+    calcRows.push({ id, name: name || '', units: units || 5, grade: grade !== undefined ? grade : '' });
+    renderCalcRows();
+  }
+
+  function calcRemoveRow(id) {
+    calcRows = calcRows.filter(r => r.id !== id);
+    renderCalcRows();
+    calcUpdate();
+  }
+
+  function calcSetUnits(id, u) {
+    const r = calcRows.find(r => r.id === id);
+    if (r) r.units = u;
+    // re-render just the unit buttons for this row without losing grade input focus
+    const row = document.getElementById('calc-row-' + id);
+    if (row) {
+      row.querySelectorAll('.unit-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i + 1 === u);
+      });
+    }
+    calcUpdate();
+  }
+
+  function renderCalcRows() {
+    const wrap = document.getElementById('calc-subjects');
+    wrap.innerHTML = calcRows.map(r => `
+      <div class="calc-row" id="calc-row-${r.id}">
+        <input class="calc-input calc-name" type="text" placeholder="שם המקצוע (אופציונלי)"
+          value="${r.name.replace(/"/g,'&quot;')}"
+          oninput="calcRows.find(x=>x.id===${r.id}).name=this.value">
+        <div class="unit-btns">
+          ${[1,2,3,4,5].map(u => `<button class="unit-btn${r.units===u?' active':''}" onclick="calcSetUnits(${r.id},${u})">${u}</button>`).join('')}
+        </div>
+        <input class="calc-input calc-grade-inp" type="number" min="0" max="100" step="1"
+          placeholder="ציון"
+          value="${r.grade}"
+          oninput="calcRows.find(x=>x.id===${r.id}).grade=this.value;calcUpdate()"
+          onchange="calcRows.find(x=>x.id===${r.id}).grade=this.value;calcUpdate()">
+        <button class="calc-delete-btn" onclick="calcRemoveRow(${r.id})" title="הסר">✕</button>
+      </div>`).join('');
+    calcUpdate();
+  }
+
+  function calcUpdate() {
+    const valid = calcRows.filter(r => r.grade !== '' && r.grade !== null && !isNaN(parseFloat(r.grade)));
+    const totalUnits = valid.reduce((s, r) => s + r.units, 0);
+    const weightedSum = valid.reduce((s, r) => s + parseFloat(r.grade) * r.units, 0);
+
+    const avgEl     = document.getElementById('calc-avg');
+    const unitsEl   = document.getElementById('calc-units-display');
+    const barWrap   = document.getElementById('calc-bar-wrap');
+    const bar       = document.getElementById('calc-bar');
+    const breakdown = document.getElementById('calc-breakdown');
+
+    if (totalUnits === 0) {
+      avgEl.textContent = '—';
+      avgEl.style.color = 'var(--text-muted)';
+      unitsEl.textContent = 'הזן ציונים להתחלה';
+      barWrap.style.display = 'none';
+      breakdown.innerHTML = '';
+      return;
+    }
+
+    const avg = weightedSum / totalUnits;
+    const pass = avg >= 56;
+    avgEl.textContent = avg.toFixed(1);
+    avgEl.style.color = pass ? 'var(--accent)' : '#f87171';
+    unitsEl.textContent = `${totalUnits} יחידות · ${valid.length} מקצוע${valid.length !== 1 ? 'ות' : ''}`;
+
+    barWrap.style.display = '';
+    bar.style.width = Math.min(100, avg) + '%';
+    bar.style.background = pass ? 'var(--accent)' : '#f87171';
+
+    const sorted = [...valid].sort((a, b) => parseFloat(b.grade) - parseFloat(a.grade));
+    breakdown.innerHTML = '<div class="calc-bd-title">פירוט</div>' +
+      sorted.map(r => {
+        const g = parseFloat(r.grade);
+        const name = r.name || 'מקצוע';
+        const color = g >= 85 ? 'var(--accent)' : g >= 56 ? 'var(--text-dim)' : '#f87171';
+        return `<div class="calc-bd-row">
+          <span class="calc-bd-name">${name}</span>
+          <span class="calc-bd-units">${r.units} יח"ל</span>
+          <span class="calc-bd-grade" style="color:${color}">${g.toFixed(0)}</span>
+        </div>`;
+      }).join('');
+  }
+
+  // seed with 3 empty rows
+  calcAddRow(); calcAddRow(); calcAddRow();
 </script>
 
 </body>
