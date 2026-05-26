@@ -627,76 +627,33 @@
     }
 
     /* ── Grade Calculator ── */
-    .calc-summary-grid {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 20px;
-      align-items: start;
-      margin-top: 20px;
-    }
-    @media (max-width: 700px) { .calc-summary-grid { grid-template-columns: 1fr; } }
-
     .calc-result-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px 20px;
+      padding: 36px 32px;
       text-align: center;
+      max-width: 380px;
+      margin-top: 20px;
     }
     .calc-result-label {
       font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;
     }
     .calc-result-val {
-      font-size: 4.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
-      color: var(--text-muted); transition: color 0.3s; margin-bottom: 6px;
-      font-variant-numeric: tabular-nums;
+      font-size: 5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+      transition: color 0.3s; margin-bottom: 8px; font-variant-numeric: tabular-nums;
     }
-    .calc-result-units { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 14px; }
+    .calc-result-units { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 16px; }
     .calc-grade-bar-wrap {
       height: 5px; background: rgba(255,255,255,0.07);
-      border-radius: 99px; overflow: hidden; margin-bottom: 0;
+      border-radius: 99px; overflow: hidden;
     }
-    .calc-grade-bar {
-      height: 100%; border-radius: 99px;
-      transition: width 0.35s ease, background 0.3s; width: 0%;
-    }
+    .calc-grade-bar { height: 100%; border-radius: 99px; transition: width 0.35s ease, background 0.3s; width: 0%; }
     .calc-pass-note {
       font-size: 0.65rem; color: var(--text-muted);
-      margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px;
+      margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px;
     }
-
-    .calc-breakdown-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 20px;
-    }
-    .calc-bd-title {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;
-    }
-    .calc-bd-row {
-      display: grid;
-      grid-template-columns: 1fr auto auto;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.8rem;
-    }
-    .calc-bd-row:last-child { border-bottom: none; }
-    .calc-bd-name { color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .calc-bd-grade { font-weight: 700; font-variant-numeric: tabular-nums; flex-shrink: 0; }
-
-    .unit-btns { display: flex; gap: 3px; flex-shrink: 0; }
-    .unit-btn {
-      width: 26px; height: 26px; border-radius: 5px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04); color: var(--text-muted);
-      cursor: pointer; font-weight: 700; font-size: 0.72rem;
-      font-family: 'Rubik', sans-serif; transition: all 0.12s; flex-shrink: 0;
-    }
-    .unit-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
-    .unit-btn.active { background: var(--accent); border-color: var(--accent); color: #000; }
 
     /* ── Toast ── */
     #toast {
@@ -1074,20 +1031,14 @@
 
     <!-- Summary (shown after upload) -->
     <div id="calc-summary" style="display:none">
-      <div class="calc-summary-grid">
-        <div class="calc-result-box">
-          <div class="calc-result-label">ממוצע משוקלל</div>
-          <div class="calc-result-val" id="calc-avg">—</div>
-          <div class="calc-result-units" id="calc-units-display"></div>
-          <div class="calc-grade-bar-wrap" id="calc-bar-wrap">
-            <div class="calc-grade-bar" id="calc-bar"></div>
-          </div>
-          <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
+      <div class="calc-result-box">
+        <div class="calc-result-label">ממוצע משוקלל</div>
+        <div class="calc-result-val" id="calc-avg">—</div>
+        <div class="calc-result-units" id="calc-units-display"></div>
+        <div class="calc-grade-bar-wrap">
+          <div class="calc-grade-bar" id="calc-bar"></div>
         </div>
-        <div class="calc-breakdown-box">
-          <div class="calc-bd-title">פירוט לפי מקצוע <span style="font-weight:400;opacity:0.55">(לחץ על יח"ל לעדכון)</span></div>
-          <div id="calc-breakdown"></div>
-        </div>
+        <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
       </div>
     </div>
   </div>
@@ -1444,37 +1395,16 @@
   let calcRows = [];
   let calcRowId = 0;
 
-  function calcSetUnits(id, u) {
-    const r = calcRows.find(r => r.id === id);
-    if (r) r.units = u;
-    calcUpdate();
-  }
-
   function calcUpdate() {
-    const valid = calcRows.filter(r => !isNaN(r.grade));
-    const totalUnits = valid.reduce((s, r) => s + r.units, 0);
-    const weightedSum = valid.reduce((s, r) => s + r.grade * r.units, 0);
+    const totalUnits = calcRows.reduce((s, r) => s + r.units, 0);
+    const weightedSum = calcRows.reduce((s, r) => s + r.grade * r.units, 0);
     const avg = totalUnits > 0 ? weightedSum / totalUnits : 0;
     const pass = avg >= 56;
-
-    document.getElementById('calc-avg').textContent = totalUnits > 0 ? avg.toFixed(1) : '—';
-    document.getElementById('calc-avg').style.color = totalUnits > 0 ? (pass ? 'var(--accent)' : '#f87171') : 'var(--text-muted)';
-    document.getElementById('calc-units-display').textContent = totalUnits > 0 ? `${totalUnits} יחידות · ${valid.length} מקצועות` : '';
-    document.getElementById('calc-bar').style.width = totalUnits > 0 ? Math.min(100, avg) + '%' : '0%';
+    document.getElementById('calc-avg').textContent = avg.toFixed(1);
+    document.getElementById('calc-avg').style.color = pass ? 'var(--accent)' : '#f87171';
+    document.getElementById('calc-units-display').textContent = `${totalUnits} יחידות · ${calcRows.length} מקצועות`;
+    document.getElementById('calc-bar').style.width = Math.min(100, avg) + '%';
     document.getElementById('calc-bar').style.background = pass ? 'var(--accent)' : '#f87171';
-
-    const sorted = [...valid].sort((a, b) => b.grade - a.grade);
-    document.getElementById('calc-breakdown').innerHTML = sorted.map(r => {
-      const color = r.grade >= 85 ? 'var(--accent)' : r.grade >= 56 ? 'var(--text-dim)' : '#f87171';
-      const unitBtns = [1,2,3,4,5].map(u =>
-        `<button class="unit-btn${r.units===u?' active':''}" onclick="calcSetUnits(${r.id},${u})">${u}</button>`
-      ).join('');
-      return `<div class="calc-bd-row">
-        <span class="calc-bd-name" title="${r.name}">${r.name}</span>
-        <div class="unit-btns">${unitBtns}</div>
-        <span class="calc-bd-grade" style="color:${color}">${r.grade}</span>
-      </div>`;
-    }).join('');
   }
 
   // ── Mashov XLSX Import ──
