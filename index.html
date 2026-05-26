@@ -633,7 +633,7 @@
       border-radius: var(--radius);
       padding: 36px 32px;
       text-align: center;
-      max-width: 380px;
+      max-width: 480px;
       margin-top: 20px;
     }
     .calc-result-label {
@@ -654,6 +654,15 @@
       font-size: 0.65rem; color: var(--text-muted);
       margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px;
     }
+    .calc-subject-list { margin-top: 16px; text-align: right; }
+    .calc-subject-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.8rem;
+    }
+    .calc-subject-row:last-child { border-bottom: none; }
+    .calc-subject-name { color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; padding-inline-end: 10px; }
+    .calc-subject-grade { font-weight: 700; font-variant-numeric: tabular-nums; flex-shrink: 0; }
 
     /* ── Toast ── */
     #toast {
@@ -1039,6 +1048,7 @@
           <div class="calc-grade-bar" id="calc-bar"></div>
         </div>
         <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
+        <div id="calc-subject-list"></div>
       </div>
     </div>
   </div>
@@ -1405,6 +1415,15 @@
     document.getElementById('calc-units-display').textContent = `${totalUnits} יחידות · ${calcRows.length} מקצועות`;
     document.getElementById('calc-bar').style.width = Math.min(100, avg) + '%';
     document.getElementById('calc-bar').style.background = pass ? 'var(--accent)' : '#f87171';
+    const sorted = [...calcRows].sort((a, b) => b.grade - a.grade);
+    document.getElementById('calc-subject-list').innerHTML = '<div class="calc-subject-list">' +
+      sorted.map(r => {
+        const color = r.grade >= 85 ? 'var(--accent)' : r.grade >= 56 ? 'var(--text-dim)' : '#f87171';
+        return `<div class="calc-subject-row">
+          <span class="calc-subject-name">${r.name}</span>
+          <span class="calc-subject-grade" style="color:${color}">${r.grade}</span>
+        </div>`;
+      }).join('') + '</div>';
   }
 
   // ── Mashov XLSX Import ──
