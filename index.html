@@ -1173,7 +1173,6 @@
         </div>
         <!-- Subject rows -->
         <div class="calc-subjects-wrap" id="calc-subjects"></div>
-        <button class="calc-add-btn" onclick="calcAddRow()">+ הוסף מקצוע</button>
       </div>
       <div class="calc-result-box">
         <div class="calc-result-label">ממוצע משוקלל</div>
@@ -1638,7 +1637,7 @@
     document.getElementById('calc-import-note').style.display = 'none';
     document.getElementById('calc-file-inp').value = '';
     calcRows = []; calcRowId = 0;
-    calcAddRow(); calcAddRow(); calcAddRow();
+    renderCalcRows();
   }
 
   function calcHandleFile(file) {
@@ -1713,8 +1712,6 @@
     return 3;
   }
 
-  // seed with 3 empty rows
-  calcAddRow(); calcAddRow(); calcAddRow();
 </script>
 
 </body>
