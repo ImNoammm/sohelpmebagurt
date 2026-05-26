@@ -625,174 +625,78 @@
       color: var(--accent); cursor: pointer; font-size: 0.9rem; line-height: 1;
       padding: 0 2px;
     }
-    .calc-import-note {
-      font-size: 0.68rem; color: var(--text-muted);
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 7px; padding: 6px 10px; margin-bottom: 10px;
-    }
-    .calc-row-note {
-      font-size: 0.6rem; color: var(--text-muted); white-space: nowrap;
-    }
 
     /* ── Grade Calculator ── */
-    .calc-layout {
+    .calc-summary-grid {
       display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 24px;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
       align-items: start;
+      margin-top: 20px;
     }
-    @media (max-width: 750px) {
-      .calc-layout { grid-template-columns: 1fr; }
-    }
-
-    .calc-subjects-wrap { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
-
-    .calc-row {
-      display: grid;
-      grid-template-columns: 1fr auto auto auto;
-      gap: 8px;
-      align-items: center;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 12px;
-      transition: border-color 0.2s;
-    }
-    .calc-row:focus-within { border-color: rgba(163,230,53,0.25); }
-
-    .calc-input {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      border-radius: 7px;
-      padding: 7px 10px;
-      font-family: 'Rubik', sans-serif;
-      font-size: 0.82rem;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-    .calc-input:focus { border-color: var(--accent-border); }
-    .calc-input::placeholder { color: var(--text-muted); }
-    .calc-grade-inp { width: 70px; text-align: center; }
-    .calc-grade-inp::-webkit-inner-spin-button,
-    .calc-grade-inp::-webkit-outer-spin-button { -webkit-appearance: none; }
-
-    .unit-btns { display: flex; gap: 3px; flex-shrink: 0; }
-    .unit-btn {
-      width: 28px; height: 28px;
-      border-radius: 5px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      color: var(--text-muted);
-      cursor: pointer;
-      font-weight: 700;
-      font-size: 0.75rem;
-      font-family: 'Rubik', sans-serif;
-      transition: all 0.12s;
-      flex-shrink: 0;
-    }
-    .unit-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
-    .unit-btn.active { background: var(--accent); border-color: var(--accent); color: #000; }
-
-    .calc-delete-btn {
-      background: none; border: none;
-      color: var(--text-muted); font-size: 0.8rem;
-      cursor: pointer; padding: 4px 6px;
-      border-radius: 5px; transition: all 0.15s;
-      flex-shrink: 0;
-    }
-    .calc-delete-btn:hover { background: rgba(248,113,113,0.12); color: #f87171; }
-
-    .calc-add-btn {
-      background: rgba(255,255,255,0.04);
-      border: 1px dashed rgba(255,255,255,0.14);
-      color: var(--text-muted);
-      font-family: 'Rubik', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      width: 100%;
-      transition: all 0.2s;
-    }
-    .calc-add-btn:hover { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+    @media (max-width: 700px) { .calc-summary-grid { grid-template-columns: 1fr; } }
 
     .calc-result-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px 24px;
+      padding: 24px 20px;
       text-align: center;
-      position: sticky;
-      top: 24px;
     }
     .calc-result-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px;
     }
     .calc-result-val {
-      font-size: 4rem;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      color: var(--text-muted);
-      transition: color 0.3s;
-      margin-bottom: 8px;
+      font-size: 4.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+      color: var(--text-muted); transition: color 0.3s; margin-bottom: 6px;
       font-variant-numeric: tabular-nums;
     }
-    .calc-result-units {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
+    .calc-result-units { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 14px; }
     .calc-grade-bar-wrap {
-      height: 5px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 99px;
-      overflow: hidden;
-      margin-bottom: 20px;
+      height: 5px; background: rgba(255,255,255,0.07);
+      border-radius: 99px; overflow: hidden; margin-bottom: 0;
     }
     .calc-grade-bar {
-      height: 100%;
-      border-radius: 99px;
-      transition: width 0.35s ease, background 0.3s;
-      width: 0%;
+      height: 100%; border-radius: 99px;
+      transition: width 0.35s ease, background 0.3s; width: 0%;
     }
-    .calc-breakdown { text-align: right; }
+    .calc-pass-note {
+      font-size: 0.65rem; color: var(--text-muted);
+      margin-top: 12px; border-top: 1px solid var(--border); padding-top: 10px;
+    }
+
+    .calc-breakdown-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px;
+    }
     .calc-bd-title {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;
     }
     .calc-bd-row {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-      padding: 5px 0;
+      gap: 10px;
+      padding: 7px 0;
       border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.77rem;
+      font-size: 0.8rem;
     }
     .calc-bd-row:last-child { border-bottom: none; }
-    .calc-bd-name { color: var(--text-dim); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .calc-bd-units { color: var(--text-muted); font-size: 0.68rem; flex-shrink: 0; }
-    .calc-bd-grade { font-weight: 700; flex-shrink: 0; font-variant-numeric: tabular-nums; }
-    .calc-pass-note {
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      margin-top: 12px;
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
+    .calc-bd-name { color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .calc-bd-grade { font-weight: 700; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+    .unit-btns { display: flex; gap: 3px; flex-shrink: 0; }
+    .unit-btn {
+      width: 26px; height: 26px; border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04); color: var(--text-muted);
+      cursor: pointer; font-weight: 700; font-size: 0.72rem;
+      font-family: 'Rubik', sans-serif; transition: all 0.12s; flex-shrink: 0;
     }
+    .unit-btn:hover { background: rgba(255,255,255,0.09); color: var(--text); }
+    .unit-btn.active { background: var(--accent); border-color: var(--accent); color: #000; }
 
     /* ── Toast ── */
     #toast {
@@ -1153,36 +1057,37 @@
   <div class="container">
     <div class="section-label">מחשבון ממוצע</div>
     <h2 class="section-title">מחשבון ממוצע בגרות</h2>
-    <div class="calc-layout">
-      <div>
-        <!-- Mashov file upload -->
-        <label class="calc-upload-zone" id="calc-upload-zone"
-          ondragover="calcDragOver(event)" ondragleave="calcDragLeave(event)" ondrop="calcDrop(event)">
-          <input type="file" id="calc-file-inp" accept=".xlsx,.xls" style="display:none" onchange="calcFileChange(this)">
-          <span class="calc-upload-icon">📊</span>
-          <div class="calc-upload-title">ייבא קובץ ציונים ממאשב</div>
-          <div class="calc-upload-sub">גרור קובץ xlsx/xls לכאן, או לחץ לבחירה<br>
-            <span style="opacity:0.6">מאשב ← דוחות ← ציונים ← ייצוא Excel</span></div>
-        </label>
-        <div id="calc-upload-banner" class="calc-upload-banner" style="display:none">
-          <span>✓</span><span id="calc-upload-filename"></span>
-          <button class="calc-upload-close" onclick="calcClearImport()" title="נקה">✕</button>
+
+    <!-- Upload zone -->
+    <label class="calc-upload-zone" id="calc-upload-zone"
+      ondragover="calcDragOver(event)" ondragleave="calcDragLeave(event)" ondrop="calcDrop(event)">
+      <input type="file" id="calc-file-inp" accept=".xlsx,.xls" style="display:none" onchange="calcFileChange(this)">
+      <span class="calc-upload-icon">📊</span>
+      <div class="calc-upload-title">ייבא קובץ ציונים ממאשב</div>
+      <div class="calc-upload-sub">גרור קובץ xlsx/xls לכאן, או לחץ לבחירה<br>
+        <span style="opacity:0.6">מאשב ← דוחות ← ציונים ← ייצוא Excel</span></div>
+    </label>
+    <div id="calc-upload-banner" class="calc-upload-banner" style="display:none">
+      <span>✓</span><span id="calc-upload-filename"></span>
+      <button class="calc-upload-close" onclick="calcClearImport()" title="נקה">✕</button>
+    </div>
+
+    <!-- Summary (shown after upload) -->
+    <div id="calc-summary" style="display:none">
+      <div class="calc-summary-grid">
+        <div class="calc-result-box">
+          <div class="calc-result-label">ממוצע משוקלל</div>
+          <div class="calc-result-val" id="calc-avg">—</div>
+          <div class="calc-result-units" id="calc-units-display"></div>
+          <div class="calc-grade-bar-wrap" id="calc-bar-wrap">
+            <div class="calc-grade-bar" id="calc-bar"></div>
+          </div>
+          <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
         </div>
-        <div id="calc-import-note" class="calc-import-note" style="display:none">
-          הציון לכל מקצוע הוא ממוצע כל הציונים המספריים בקובץ. בחר יח"ל לכל מקצוע ואז ראה את הממוצע המשוקלל.
+        <div class="calc-breakdown-box">
+          <div class="calc-bd-title">פירוט לפי מקצוע <span style="font-weight:400;opacity:0.55">(לחץ על יח"ל לעדכון)</span></div>
+          <div id="calc-breakdown"></div>
         </div>
-        <!-- Subject rows -->
-        <div class="calc-subjects-wrap" id="calc-subjects"></div>
-      </div>
-      <div class="calc-result-box">
-        <div class="calc-result-label">ממוצע משוקלל</div>
-        <div class="calc-result-val" id="calc-avg">—</div>
-        <div class="calc-result-units" id="calc-units-display">הזן ציונים להתחלה</div>
-        <div class="calc-grade-bar-wrap" id="calc-bar-wrap" style="display:none">
-          <div class="calc-grade-bar" id="calc-bar"></div>
-        </div>
-        <div class="calc-breakdown" id="calc-breakdown"></div>
-        <div class="calc-pass-note">עוברים עם ממוצע 56 ומעלה, לפחות 20 יחידות</div>
       </div>
     </div>
   </div>
@@ -1539,132 +1444,70 @@
   let calcRows = [];
   let calcRowId = 0;
 
-  function calcAddRow(name, units, grade, gradeCount) {
-    const id = ++calcRowId;
-    calcRows.push({ id, name: name || '', units: units || 5, grade: grade !== undefined ? grade : '', gradeCount: gradeCount || 0 });
-    renderCalcRows();
-  }
-
-  function calcRemoveRow(id) {
-    calcRows = calcRows.filter(r => r.id !== id);
-    renderCalcRows();
-    calcUpdate();
-  }
-
   function calcSetUnits(id, u) {
     const r = calcRows.find(r => r.id === id);
     if (r) r.units = u;
-    const row = document.getElementById('calc-row-' + id);
-    if (row) row.querySelectorAll('.unit-btn').forEach((btn, i) => btn.classList.toggle('active', i + 1 === u));
-    calcUpdate();
-  }
-
-  function renderCalcRows() {
-    const wrap = document.getElementById('calc-subjects');
-    wrap.innerHTML = calcRows.map(r => `
-      <div class="calc-row" id="calc-row-${r.id}">
-        <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
-          <input class="calc-input calc-name" type="text" placeholder="שם המקצוע (אופציונלי)"
-            value="${r.name.replace(/"/g,'&quot;')}"
-            oninput="calcRows.find(x=>x.id===${r.id}).name=this.value">
-          ${r.gradeCount > 1 ? `<span class="calc-row-note">ממוצע מ-${r.gradeCount} ציונים</span>` : ''}
-        </div>
-        <div class="unit-btns">
-          ${[1,2,3,4,5].map(u => `<button class="unit-btn${r.units===u?' active':''}" onclick="calcSetUnits(${r.id},${u})">${u}</button>`).join('')}
-        </div>
-        <input class="calc-input calc-grade-inp" type="number" min="0" max="100" step="1"
-          placeholder="ציון" value="${r.grade}"
-          oninput="calcRows.find(x=>x.id===${r.id}).grade=this.value;calcUpdate()"
-          onchange="calcRows.find(x=>x.id===${r.id}).grade=this.value;calcUpdate()">
-        <button class="calc-delete-btn" onclick="calcRemoveRow(${r.id})" title="הסר">✕</button>
-      </div>`).join('');
     calcUpdate();
   }
 
   function calcUpdate() {
-    const valid = calcRows.filter(r => r.grade !== '' && r.grade !== null && !isNaN(parseFloat(r.grade)));
+    const valid = calcRows.filter(r => !isNaN(r.grade));
     const totalUnits = valid.reduce((s, r) => s + r.units, 0);
-    const weightedSum = valid.reduce((s, r) => s + parseFloat(r.grade) * r.units, 0);
-    const avgEl = document.getElementById('calc-avg');
-    const unitsEl = document.getElementById('calc-units-display');
-    const barWrap = document.getElementById('calc-bar-wrap');
-    const bar = document.getElementById('calc-bar');
-    const breakdown = document.getElementById('calc-breakdown');
-    if (totalUnits === 0) {
-      avgEl.textContent = '—'; avgEl.style.color = 'var(--text-muted)';
-      unitsEl.textContent = 'הזן ציונים להתחלה';
-      barWrap.style.display = 'none'; breakdown.innerHTML = ''; return;
-    }
-    const avg = weightedSum / totalUnits;
+    const weightedSum = valid.reduce((s, r) => s + r.grade * r.units, 0);
+    const avg = totalUnits > 0 ? weightedSum / totalUnits : 0;
     const pass = avg >= 56;
-    avgEl.textContent = avg.toFixed(1);
-    avgEl.style.color = pass ? 'var(--accent)' : '#f87171';
-    unitsEl.textContent = `${totalUnits} יחידות · ${valid.length} מקצועות`;
-    barWrap.style.display = '';
-    bar.style.width = Math.min(100, avg) + '%';
-    bar.style.background = pass ? 'var(--accent)' : '#f87171';
-    const sorted = [...valid].sort((a, b) => parseFloat(b.grade) - parseFloat(a.grade));
-    breakdown.innerHTML = '<div class="calc-bd-title">פירוט</div>' +
-      sorted.map(r => {
-        const g = parseFloat(r.grade);
-        const color = g >= 85 ? 'var(--accent)' : g >= 56 ? 'var(--text-dim)' : '#f87171';
-        return `<div class="calc-bd-row">
-          <span class="calc-bd-name">${r.name || 'מקצוע'}</span>
-          <span class="calc-bd-units">${r.units} יח"ל</span>
-          <span class="calc-bd-grade" style="color:${color}">${g.toFixed(0)}</span>
-        </div>`;
-      }).join('');
+
+    document.getElementById('calc-avg').textContent = totalUnits > 0 ? avg.toFixed(1) : '—';
+    document.getElementById('calc-avg').style.color = totalUnits > 0 ? (pass ? 'var(--accent)' : '#f87171') : 'var(--text-muted)';
+    document.getElementById('calc-units-display').textContent = totalUnits > 0 ? `${totalUnits} יחידות · ${valid.length} מקצועות` : '';
+    document.getElementById('calc-bar').style.width = totalUnits > 0 ? Math.min(100, avg) + '%' : '0%';
+    document.getElementById('calc-bar').style.background = pass ? 'var(--accent)' : '#f87171';
+
+    const sorted = [...valid].sort((a, b) => b.grade - a.grade);
+    document.getElementById('calc-breakdown').innerHTML = sorted.map(r => {
+      const color = r.grade >= 85 ? 'var(--accent)' : r.grade >= 56 ? 'var(--text-dim)' : '#f87171';
+      const unitBtns = [1,2,3,4,5].map(u =>
+        `<button class="unit-btn${r.units===u?' active':''}" onclick="calcSetUnits(${r.id},${u})">${u}</button>`
+      ).join('');
+      return `<div class="calc-bd-row">
+        <span class="calc-bd-name" title="${r.name}">${r.name}</span>
+        <div class="unit-btns">${unitBtns}</div>
+        <span class="calc-bd-grade" style="color:${color}">${r.grade}</span>
+      </div>`;
+    }).join('');
   }
 
   // ── Mashov XLSX Import ──
-  function calcDragOver(e) {
-    e.preventDefault();
-    document.getElementById('calc-upload-zone').classList.add('drag-over');
-  }
-  function calcDragLeave(e) {
-    document.getElementById('calc-upload-zone').classList.remove('drag-over');
-  }
-  function calcDrop(e) {
-    e.preventDefault(); calcDragLeave(e);
-    const file = e.dataTransfer.files[0];
-    if (file) calcHandleFile(file);
-  }
-  function calcFileChange(inp) {
-    if (inp.files[0]) calcHandleFile(inp.files[0]);
-  }
+  function calcDragOver(e) { e.preventDefault(); document.getElementById('calc-upload-zone').classList.add('drag-over'); }
+  function calcDragLeave(e) { document.getElementById('calc-upload-zone').classList.remove('drag-over'); }
+  function calcDrop(e) { e.preventDefault(); calcDragLeave(e); const f = e.dataTransfer.files[0]; if (f) calcHandleFile(f); }
+  function calcFileChange(inp) { if (inp.files[0]) calcHandleFile(inp.files[0]); }
+
   function calcClearImport() {
     document.getElementById('calc-upload-banner').style.display = 'none';
-    document.getElementById('calc-import-note').style.display = 'none';
+    document.getElementById('calc-summary').style.display = 'none';
     document.getElementById('calc-file-inp').value = '';
     calcRows = []; calcRowId = 0;
-    renderCalcRows();
   }
 
   function calcHandleFile(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        const data = new Uint8Array(e.target.result);
-        const subjectMap = parseMashovXlsx(data);
-        if (!subjectMap) {
-          alert('לא ניתן לזהות את פורמט הקובץ.\nודא שזהו קובץ ייצוא ציונים ממאשב (xlsx).');
-          return;
-        }
+        const subjectMap = parseMashovXlsx(new Uint8Array(e.target.result));
+        if (!subjectMap) { alert('לא ניתן לזהות את פורמט הקובץ.\nודא שזהו קובץ ייצוא ציונים ממאשב (xlsx).'); return; }
         calcRows = []; calcRowId = 0;
-        let loaded = 0;
-        for (const [subject, info] of Object.entries(subjectMap)) {
+        for (const [name, info] of Object.entries(subjectMap)) {
           if (info.grades.length === 0) continue;
-          const avg = Math.round(info.grades.reduce((s, g) => s + g, 0) / info.grades.length);
-          calcAddRow(subject, guessUnits(subject), avg, info.grades.length);
-          loaded++;
+          const grade = Math.round(info.grades.reduce((s, g) => s + g, 0) / info.grades.length);
+          calcRows.push({ id: ++calcRowId, name, units: guessUnits(name), grade });
         }
-        if (loaded === 0) { alert('לא נמצאו ציונים מספריים בקובץ.'); return; }
-        document.getElementById('calc-upload-filename').textContent = file.name + ` · ${loaded} מקצועות`;
+        if (calcRows.length === 0) { alert('לא נמצאו ציונים מספריים בקובץ.'); return; }
+        document.getElementById('calc-upload-filename').textContent = file.name + ` · ${calcRows.length} מקצועות`;
         document.getElementById('calc-upload-banner').style.display = 'flex';
-        document.getElementById('calc-import-note').style.display = 'block';
-      } catch (err) {
-        alert('שגיאה בקריאת הקובץ: ' + err.message);
-      }
+        document.getElementById('calc-summary').style.display = 'block';
+        calcUpdate();
+      } catch (err) { alert('שגיאה בקריאת הקובץ: ' + err.message); }
     };
     reader.readAsArrayBuffer(file);
   }
@@ -1673,7 +1516,6 @@
     const workbook = XLSX.read(data, { type: 'array' });
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
-    // Find header row containing both 'ציון' and 'קבוצה'
     let headerIdx = -1;
     for (let i = 0; i < Math.min(rows.length, 15); i++) {
       const cells = rows[i].map(c => String(c).trim());
@@ -1681,19 +1523,17 @@
     }
     if (headerIdx === -1) return null;
     const headers = rows[headerIdx].map(c => String(c).trim());
-    const gradeCol = headers.indexOf('ציון');
-    const subjectCol = headers.indexOf('קבוצה');
+    const gradeCol = headers.indexOf('ציון'), subjectCol = headers.indexOf('קבוצה');
     if (gradeCol === -1 || subjectCol === -1) return null;
-    const subjectMap = {};
+    const map = {};
     for (let i = headerIdx + 1; i < rows.length; i++) {
-      const row = rows[i];
-      const subject = String(row[subjectCol] || '').trim();
+      const subject = String(rows[i][subjectCol] || '').trim();
       if (!subject) continue;
-      const grade = parseFloat(row[gradeCol]);
-      if (!subjectMap[subject]) subjectMap[subject] = { grades: [] };
-      if (!isNaN(grade) && grade >= 0 && grade <= 100) subjectMap[subject].grades.push(grade);
+      const g = parseFloat(rows[i][gradeCol]);
+      if (!map[subject]) map[subject] = { grades: [] };
+      if (!isNaN(g) && g >= 0 && g <= 100) map[subject].grades.push(g);
     }
-    return subjectMap;
+    return map;
   }
 
   function guessUnits(name) {
