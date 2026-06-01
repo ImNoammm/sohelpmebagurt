@@ -31,231 +31,243 @@ You have access to a tool called **`get_pdf_page`**. Use it whenever a question 
 Israeli Tanach Bagrut exam PDFs, direct from the Ministry of Education. Fetch the relevant PDF to read exam questions.
 
 ### 900161
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/900161.pdf
-2017 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/900161.pdf
-2016 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2016/1/HEB/900161.pdf
-2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/900161.pdf
-2015 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/900161.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/900161.pdf
-2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/900161.pdf
-2013 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/900161.pdf
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/900161.pdf
-2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/900161.pdf
-2011 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2011/1/HEB/900161.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/900161.pdf
+2017 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/900161.pdf
+2016 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2016/1/HEB/900161.pdf
+2015 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/900161.pdf
+2015 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/900161.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/900161.pdf
+2013 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/900161.pdf
+2013 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/900161.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/900161.pdf
+2011 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/900161.pdf
+2011 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2011/1/HEB/900161.pdf
 
 ### 1382
-2020 מועד 09: https://meyda.education.gov.il/sheeloney_bagrut/2020/9/HEB/1382.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1382.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1382.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1382.pdf
+2020 מועד 09: http://meyda.education.gov.il/sheeloney_bagrut/2020/9/HEB/1382.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1382.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1382.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1382.pdf
 
 ### 1381
-2020 מועד 09: https://meyda.education.gov.il/sheeloney_bagrut/2020/9/HEB/1381.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1381.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1381.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1381.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1381.pdf
+2020 מועד 09: http://meyda.education.gov.il/sheeloney_bagrut/2020/9/HEB/1381.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1381.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1381.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1381.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1381.pdf
+
+### 1371
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1371.pdf
 
 ### 1362
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1362.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1362.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1362.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1362.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1362.pdf
-2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1362.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1362.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1362.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1362.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1362.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1362.pdf
+2021 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1362.pdf
 
 ### 1361
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1361.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1361.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1361.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1361.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1361.pdf
-2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1361.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1361.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1361.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1361.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1361.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1361.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1361.pdf
+2021 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1361.pdf
 
 ### 136
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/136.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/136.pdf
 
 ### 135
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/135.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/135.pdf
 
 ### 134
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/134.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/134.pdf
 
 ### 133
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/133.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/133.pdf
 
 ### 1284
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1284.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1284.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1284.pdf
-2019 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1284.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1284.pdf
-2018 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1284.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1284.pdf
-2017 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1284.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1284.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1284.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1284.pdf
+2019 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1284.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1284.pdf
+2018 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1284.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1284.pdf
+2017 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1284.pdf
 
 ### 1282
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1282.pdf
-2020 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1282.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1282.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1282.pdf
-2019 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1282.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1282.pdf
-2018 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1282.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1282.pdf
-2017 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1282.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1282.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1282.pdf
+2020 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1282.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1282.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1282.pdf
+2019 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1282.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1282.pdf
+2018 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1282.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1282.pdf
+2017 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1282.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1282.pdf
 
 ### 1281
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1281.pdf
-2020 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1281.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1281.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1281.pdf
-2019 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1281.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1281.pdf
-2018 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1281.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1281.pdf
-2017 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1281.pdf
-2016 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2016/1/HEB/1281.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1281.pdf
+2020 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1281.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1281.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1281.pdf
+2019 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1281.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1281.pdf
+2018 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1281.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1281.pdf
+2017 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1281.pdf
+2016 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2016/1/HEB/1281.pdf
 
 ### 1272
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1272.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1272.pdf
-2019 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1272.pdf
-2019 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1272.pdf
-2018 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1272.pdf
-2018 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1272.pdf
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1272.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1272.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1272.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1272.pdf
+2019 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2019/6/HEB/1272.pdf
+2019 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2019/1/HEB/1272.pdf
+2018 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2018/6/HEB/1272.pdf
+2018 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2018/1/HEB/1272.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1272.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1272.pdf
 
 ### 1264
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1264.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1264.pdf
-2025 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1264.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1264.pdf
-2024 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1264.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1264.pdf
-2023 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1264.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1264.pdf
-2022 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1264.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1264.pdf
-2021 מועד 03: https://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1264.pdf
-2021 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1264.pdf
-2021 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1264.pdf
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1264.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1264.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1264.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1264.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1264.pdf
+2025 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1264.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1264.pdf
+2024 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1264.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1264.pdf
+2023 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1264.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1264.pdf
+2022 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1264.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1264.pdf
+2021 מועד 03: http://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1264.pdf
+2021 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1264.pdf
+2021 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1264.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1264.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1264.pdf
 
 ### 1262
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1262.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1262.pdf
-2025 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1262.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1262.pdf
-2024 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1262.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1262.pdf
-2023 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1262.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1262.pdf
-2022 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2022/2/HEB/1262.pdf
-2022 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1262.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1262.pdf
-2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1262.pdf
-2021 מועד 03: https://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1262.pdf
-2021 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1262.pdf
-2021 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1262.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1262.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1262.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1262.pdf
+2025 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1262.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1262.pdf
+2024 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1262.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1262.pdf
+2023 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1262.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1262.pdf
+2022 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2022/2/HEB/1262.pdf
+2022 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1262.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1262.pdf
+2021 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1262.pdf
+2021 מועד 03: http://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1262.pdf
+2021 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1262.pdf
+2021 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1262.pdf
 
 ### 1261
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1261.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1261.pdf
-2025 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1261.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1261.pdf
-2024 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1261.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1261.pdf
-2023 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1261.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1261.pdf
-2022 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2022/2/HEB/1261.pdf
-2022 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1261.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1261.pdf
-2021 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1261.pdf
-2021 מועד 03: https://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1261.pdf
-2021 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1261.pdf
-2021 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1261.pdf
-2020 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1261.pdf
-2020 מועד 05: https://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1261.pdf
-2020 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1261.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1261.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1261.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1261.pdf
+2025 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1261.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1261.pdf
+2024 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1261.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1261.pdf
+2023 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1261.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1261.pdf
+2022 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2022/2/HEB/1261.pdf
+2022 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1261.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1261.pdf
+2021 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2021/5/HEB/1261.pdf
+2021 מועד 03: http://meyda.education.gov.il/sheeloney_bagrut/2021/3/HEB/1261.pdf
+2021 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1261.pdf
+2021 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1261.pdf
+2020 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2020/6/HEB/1261.pdf
+2020 מועד 05: http://meyda.education.gov.il/sheeloney_bagrut/2020/5/HEB/1261.pdf
+2020 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2020/1/HEB/1261.pdf
 
 ### 1252
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1252.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1252.pdf
-2025 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1252.pdf
-2024 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1252.pdf
-2024 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1252.pdf
-2023 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1252.pdf
-2023 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1252.pdf
-2022 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1252.pdf
-2022 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1252.pdf
-2021 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1252.pdf
-2021 מועד 02: https://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1252.pdf
-2021 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1252.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1252.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1252.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1252.pdf
+2025 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2025/1/HEB/1252.pdf
+2024 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2024/6/HEB/1252.pdf
+2024 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2024/1/HEB/1252.pdf
+2023 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2023/6/HEB/1252.pdf
+2023 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2023/1/HEB/1252.pdf
+2022 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2022/6/HEB/1252.pdf
+2022 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2022/1/HEB/1252.pdf
+2021 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2021/6/HEB/1252.pdf
+2021 מועד 02: http://meyda.education.gov.il/sheeloney_bagrut/2021/2/HEB/1252.pdf
+2021 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2021/1/HEB/1252.pdf
 
 ### 1225
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1225.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1225.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1225.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1225.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1225.pdf
 
 ### 1224
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1224.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1224.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1224.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1224.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1224.pdf
 
 ### 1215
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1215.pdf
-2025 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1215.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1215.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1215.pdf
+2025 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2025/6/HEB/1215.pdf
 
 ### 1214
-2026 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1214.pdf
+2026 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2026/6/HEB/1214.pdf
+2026 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2026/1/HEB/1214.pdf
 
 ### 1206
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1206.pdf
-2017 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1206.pdf
-2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1206.pdf
-2015 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/1206.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1206.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1206.pdf
+2017 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2017/1/HEB/1206.pdf
+2015 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1206.pdf
+2015 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/1206.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1206.pdf
 
 ### 1205
-2015 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/1205.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1205.pdf
-2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1205.pdf
-2013 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/1205.pdf
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1205.pdf
+2015 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2015/1/HEB/1205.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1205.pdf
+2013 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1205.pdf
+2013 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/1205.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1205.pdf
 
 ### 1203
-2013 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/1203.pdf
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1203.pdf
-2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/1203.pdf
-2010 מועד 01: https://meyda.education.gov.il/sheeloney_bagrut/2010/1/HEB/1203.pdf
+2013 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2013/1/HEB/1203.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1203.pdf
+2011 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/1203.pdf
+2010 מועד 01: http://meyda.education.gov.il/sheeloney_bagrut/2010/1/HEB/1203.pdf
 
 ### 1108
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1108.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1108.pdf
-2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1108.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1108.pdf
-2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1108.pdf
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1108.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1108.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1108.pdf
+2015 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1108.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1108.pdf
+2013 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1108.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1108.pdf
 
 ### 1107
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1107.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1107.pdf
-2015 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1107.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1107.pdf
-2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1107.pdf
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1107.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1107.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1107.pdf
+2015 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2015/6/HEB/1107.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1107.pdf
+2013 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1107.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1107.pdf
 
 ### 1106
-2017 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1106.pdf
-2016 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1106.pdf
-2014 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1106.pdf
-2013 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1106.pdf
+2017 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2017/6/HEB/1106.pdf
+2016 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2016/6/HEB/1106.pdf
+2014 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2014/6/HEB/1106.pdf
+2013 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2013/6/HEB/1106.pdf
 
 ### 1102
-2012 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1102.pdf
-2011 מועד 06: https://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/1102.pdf
+2012 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2012/6/HEB/1102.pdf
+2011 מועד 06: http://meyda.education.gov.il/sheeloney_bagrut/2011/6/HEB/1102.pdf
 
 
 ---
